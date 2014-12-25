@@ -1,0 +1,486 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Muziek in de Cathrien - v2</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="images/Muziek in de Cathrien - horizontaal 50px.png" title="Logo Muziek in de Cathrien" /></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!--
+                <div class="col-sm-1 col-md-1 pull-right">
+                    <form action="" class="search-form">
+                        <div class="form-group has-feedback">
+                            <label for="search" class="sr-only">Zoeken</label>
+                            <input type="text" class="form-control" name="search" id="search" placeholder="Type uw zoekterm en druk op enter">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+                    </form>
+                </div>
+                    -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Concerten <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="http://www.muziekindecathrien.nl/agenda/jaarprogramma/">Seizoen 2014-2015</a>
+                            </li>
+                            <li>
+                                <a href="reserveren-stap1.html"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Reserveren</a>
+                            </li>
+                            <li>
+                                <a href="concerten-in-beeld.html">Concerten in beeld</a>
+                            </li>
+                            <li>
+                                <a href="gastenboek.html">Gastenboek</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Informatie <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="pricing.html">Prijzen</a>
+                            </li>
+                            <li>
+                                <a href="#">Stadskerk St. Cathrien</a>
+                            </li>
+                            <li>
+                                <a href="#">Instrumentarium</a>
+                            </li>
+                            <li role="presentation" class="divider"></li>
+                            <li>
+                                <a href="#">Deelnemen in de serie</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a id="login" data-placement="bottom" data-toggle="nieuwsbrief-popover" data-title="Meldt u aan voor de nieuwsbrief" data-container="body" type="button" data-html="true" href="#">Nieuwsbrief</a>
+                        <div id="nieuwsbrief-content" class="hide">
+                            <form class="form-inline" id="niewsbrief-form" action="nieuwsbrief-aangemeld.html" method="post" role="form">
+                                <div class="form-group">
+                                    <input name="niewsbrief-email" id="nieuwsbrief-email" class="form-control" placeholder="nieuwsbrief-email" maxlength="100" type="email">
+                                    <button type="submit" class="btn-sm btn-primary"><span class="glyphicon glyphicon-ok"></span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stichting CME <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="about.html">Bestuur</a>
+                            </li>
+                            <li>
+                                <a href="#">Donateur worden</a>
+                            </li>
+                            <li>
+                                <a href="#">Sponsoren</a>
+                            </li>
+                            <li>
+                                <a href="anbi-informatie.html">ANBI Informatie</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="nav" href="#" title="English"><img src="images/BritishFlag.png" height="15" /></a>
+                    </li>
+
+                    <li>
+                        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    </li>
+
+                    <li>
+                        <a id="login" data-placement="bottom" data-toggle="search-popover" data-title="Zoek op de website" data-container="body" type="button" data-html="true"><span class="glyphicon glyphicon-search"></span></a>
+                        <div id="search-content" class="hide">
+                            <form class="form-inline" action="" method="get" role="form">
+                                <div class="form-group">
+                                    <input name="s" class="form-control" placeholder="zoeken" maxlength="100" type="search">
+                                    <button type="submit" class="btn-sm btn-primary" onclick="if ($('input#search').val() == '') return false;"><span class="glyphicon glyphicon-search"></span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill" style="background-image:url('images/slides/slide1.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Stadskerk St. Cathrien</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image: url('images/slides/slide2.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Het grote Verschueren-orgel</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 3</h2>
+                </div>
+            </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Welkom <small>bij Muziek in de Cathrien</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Projects Row -->
+        <div class="row">
+            <div class="col-md-4 portfolio-item">
+                <a href="concert.html">
+                    <div class="title">Nicolaimesse van Haydn</div>
+                    <img class="img-responsive" src="images/700x400/2014-12-06.jpg" alt="6 december 2014">
+                </a>
+                <h3>
+                    <a href="concert.html">zaterdag 6 december</a>
+                </h3>
+
+                <p>
+                    Deze Missa Sancti Nicolai is in 1772 geschreven voor de uitvoering op 6 december van dat jaar, het feest van St.Nicolaas en de naamdag van de
+                    <a href="concert.html">lees meer...</a>
+                </p>
+
+                <p>
+                    <div class="item-info">
+                        <img src="images/Event_MuziekInDeCathrien_org.png" /><br />
+                        za 6 dec | 15:00 - 16:00 | €7,- / gratis voor donateurs, CJP, studenten en kinderen tot 16 jaar
+                    </div>
+                </p>
+            </div>
+            <div class="col-md-4 portfolio-item">
+                <a href="concert.html">
+                    <div class="title">La Gamme met Caroline Spanjaard</div>
+                    <img class="img-responsive" src="images/700x400/2014-12-13.jpg" alt="13 december 2014">
+                </a>
+                <h3>
+                    <a href="concert.html">zaterdag 13 december</a>
+                </h3>
+                <p>
+                    “The Great Bear and the Madman” Muziek van Handel en tijdgenoten in Londen. Barokensemble “La Gamme” m.m.v. de sopraan Caroline Spanjaard.
+                    <a href="concert.html">lees meer...</a>
+                </p>
+
+                <p>
+                    <div class="item-info">
+                        <img src="images/Event_KamerMuziekInDeCathrien_org.png" /><br />
+                        za 13 dec | 15:00 - 16:00 | €7,- / gratis voor CJP, studenten en kinderen tot 16 jaar
+                    </div>
+                </p>
+            </div>
+            <div class="col-md-4 portfolio-item">
+                <a href="concert.html">
+                    <div class="title">Byzantijns liturgische gezangen en Oekraïense kerstliederen</div>
+                    <img class="img-responsive" src="images/700x400/2014-12-20.jpg" alt="20 december 2014">
+                </a>
+                <h3>
+                    <a href="concert.html">zaterdag 20 december</a>
+                </h3>
+                <p>
+                    Byzantijns liturgische gezangen en Oekraïense kerstliederen Tilburgs Byzantijns Koor o.l.v. Piet Happel
+                    <a href="concert.html">lees meer...</a>
+                </p>
+
+                <p>
+                    <div class="item-info">
+                        <img src="images/Event_KoorMuziekInDeCathrien_org.png" /><br />
+                        za 20 dec | 15:00 - 16:00 | €7,- / gratis voor CJP, studenten en kinderen tot 16 jaar
+                    </div>
+                </p>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr />
+
+        <!-- Projects Row -->
+        <div class="row">
+            <div class="col-md-4 portfolio-item">
+                <a href="concert_2015-04-03.html">
+                    <div class="title">Johannes Passion</div>
+                    <img class="img-responsive" src="images/700x400/2015-04-03.jpg" alt="3 april 2015">
+                </a>
+                <h3>
+                    <a href="concert.html">vrijdag 3 april</a>
+                </h3>
+                <p>
+                    Johannes Passion met solisten en instrumentalisten van Arvo Pärt
+                    <a href="concert_2015-04-03.html">lees meer...</a>
+                </p>
+
+                <p>
+                    <div class="item-info">
+                        <img src="images/Event_MuziekInDeCathrien_org.png" /><br />
+                        vr 3 apr | 20:00 - 22:00 | €15,- / €7,- voor CJP, studenten en kinderen tot 16 jaar
+                    </div>
+                </p>
+            </div>
+            <div class="col-md-4 portfolio-item">
+                <a href="#">
+                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                    <a href="#">Project Name</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+            <div class="col-md-4 portfolio-item">
+                <a href="#">
+                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                    <a href="#">Project Name</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Projects Row -->
+        <div class="row">
+            <div class="col-md-4 portfolio-item">
+                <a href="#">
+                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                    <a href="#">Project Name</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+            <div class="col-md-4 portfolio-item">
+                <a href="#">
+                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                    <a href="#">Project Name</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+            <div class="col-md-4 portfolio-item">
+                <a href="#">
+                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                    <a href="#">Project Name</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Features Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">25 jaar Muziek in de Cathrien</h2>
+            </div>
+            <div class="col-md-6">
+                <p>
+                    In de beeldbepalende Catharinakerk in het stadscentrum is vrijwel iedere week klassieke muziek van professionele musici te beluisteren: hoogstaande kwaliteit voor een breed publiek. Met de zaterdagse
+                    Muziek in de Cathrien is de Stichting Collegium Musicum Eindhoven een van de grootse aanbieders van klassieke muziek in deze regio.
+                </p>
+                <p>
+                    Bij de start van het seizoen 2014-2015 is het 25 jaar geleden, dat
+                    op initiatief van de toenmalige pastoor van de Catharinakerk, Henk
+                    Schröder, samen met de beide kerkmusici Jeroen Felix (dirigent) en
+                    Ruud Huijbregts (organist) de concertserie Muziek in de Cathrien
+                    werd opgericht. De maandelijkse concerten groeiden - na fusie met
+                    de Stichting ‘Vrienden van het orgel’ - uit tot een geliefde muziek - serie met wekelijkse concerten in de monumentale Catharinakerk.
+                </p>
+                <p>
+                    Het spreekt voor zich dat we dit zilveren jubileum samen met u als
+                    muziekliefhebbers groots willen vieren met feestelijke concerten.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img class="img-responsive" src="images/25jaar.jpg" alt="">
+            </div>
+        </div>
+        <!-- /.row -->
+        <hr>
+
+        <!-- Sponsors -->
+        <div class="row">
+            <div class="col-md-2">
+                <ul class="nav">
+                    <li>
+                        <a href="http://www.collegiuminstrumentaleeindhoven.nl/"><img src="images/logos/CIE.png" height="45" alt="Collegium Instrumentale Eindhoven" /></a>
+                    </li>
+                    <li>
+                        <a href="http://www.collegiummusicumeindhoven.nl/"><img src="images/logos/CME.png" height="45" alt="Collegium Musicum Eindhoven" /></a>
+                    </li>
+                    <li>
+                        <a href="http://www.collegiumvocaleeindhoven.nl/"><img src="images/logos/CVE.png" height="45" alt="Collegium Vocale Eindhoven" /></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div class="col-sm-4">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#"><img src="images/sponsors/transRabobank.png" alt="Rabobank" width="50%" /></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="images/sponsors/transMuziekgebouw.png" alt="Muziekgebouw Eindhoven" width="50%" /></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#"><img src="images/sponsors/transLecturis.png" alt="Lecturis" width="100%" /></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="images/sponsors/transMignotEnDeBlock.png" alt="Mignot & De Block" width="100%" /></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="images/sponsors/transEindhoven.png" alt="Gemeente Eindhoven" width="100%" /></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-4">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#"><img src="images/sponsors/transFondsPodiumkunsten.png" alt="Fonds Podiumkunsten" width="50%" /></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="images/sponsors/transPhilipsBeiaardFonds.png" alt="Philips Beiaardfonds" width="50%" /></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#"><img src="images/sponsors/DaarGeefJeOm-Muziek.png" width="50%" alt="Daar geef je om" /></a>
+                        <br />&nbsp;
+                    </li>
+                    <li>
+                        <a href="#"><img src="images/sponsors/LocalLife_Eindhoven_152px.png" width="50%" alt="LocalLife Eindhoven" /></a>
+                        <br />&nbsp;
+                    </li>
+                    <li>
+                        <a href="#"><img src="images/sponsors/PodiumPlein_152px.png" width="50%" alt="PodiumPlein" /></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline text-center">
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i>&nbsp;Facebook</a></li>
+                        <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i>&nbsp;Twitter</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline text-center">
+                        <li>Copyright &copy; 2014 MPedia Design</li>
+                    </ul>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Script to Activate the Carousel -->
+    <script>
+        $('.carousel').carousel({
+            interval: 5000 //changes the speed
+        })
+
+        $("[data-toggle=nieuwsbrief-popover]").popover({
+            html: true,
+            content: function () {
+                return $('#nieuwsbrief-content').html();
+            }
+        });
+
+        $("[data-toggle=search-popover]").popover({
+            html: true,
+            content: function () {
+                return $('#search-content').html();
+            }
+        });
+
+    </script>
+</body>
+</html>

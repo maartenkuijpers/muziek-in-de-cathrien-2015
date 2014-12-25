@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Muziek in de Cathrien - v2</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- ICS -->
+    <script src="js/blob.js-master/blob.js"></script>
+    <script src="js/filesaver.js-master/filesaver.min.js"></script>
+    <script src="js/ics.js-master/ics.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="images/Muziek in de Cathrien - horizontaal 50px.png" title="Logo Muziek in de Cathrien" /></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!--
+                <div class="col-sm-1 col-md-1 pull-right">
+                    <form action="" class="search-form">
+                        <div class="form-group has-feedback">
+                            <label for="search" class="sr-only">Zoeken</label>
+                            <input type="text" class="form-control" name="search" id="search" placeholder="Type uw zoekterm en druk op enter">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+                    </form>
+                </div>
+                    -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Concerten <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="http://www.muziekindecathrien.nl/agenda/jaarprogramma/">Seizoen 2014-2015</a>
+                            </li>
+                            <li>
+                                <a href="reserveren-stap1.html"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Reserveren</a>
+                            </li>
+                            <li>
+                                <a href="concerten-in-beeld.html">Concerten in beeld</a>
+                            </li>
+                            <li>
+                                <a href="gastenboek.html">Gastenboek</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Informatie <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="pricing.html">Prijzen</a>
+                            </li>
+                            <li>
+                                <a href="#">Stadskerk St. Cathrien</a>
+                            </li>
+                            <li>
+                                <a href="#">Instrumentarium</a>
+                            </li>
+                            <li role="presentation" class="divider"></li>
+                            <li>
+                                <a href="#">Deelnemen in de serie</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a id="login" data-placement="bottom" data-toggle="nieuwsbrief-popover" data-title="Meldt u aan voor de nieuwsbrief" data-container="body" type="button" data-html="true" href="#">Nieuwsbrief</a>
+                        <div id="nieuwsbrief-content" class="hide">
+                            <form class="form-inline" id="niewsbrief-form" action="nieuwsbrief-aangemeld.html" method="post" role="form">
+                                <div class="form-group">
+                                    <input name="niewsbrief-email" id="nieuwsbrief-email" class="form-control" placeholder="nieuwsbrief-email" maxlength="100" type="email">
+                                    <button type="submit" class="btn-sm btn-primary"><span class="glyphicon glyphicon-ok"></span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stichting CME <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="about.html">Bestuur</a>
+                            </li>
+                            <li>
+                                <a href="#">Donateur worden</a>
+                            </li>
+                            <li>
+                                <a href="#">Sponsoren</a>
+                            </li>
+                            <li>
+                                <a href="anbi-informatie.html">ANBI Informatie</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="nav" href="#" title="English"><img src="images/BritishFlag.png" height="15" /></a>
+                    </li>
+
+                    <li>
+                        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    </li>
+
+                    <li>
+                        <a id="login" data-placement="bottom" data-toggle="search-popover" data-title="Zoek op de website" data-container="body" type="button" data-html="true"><span class="glyphicon glyphicon-search"></span></a>
+                        <div id="search-content" class="hide">
+                            <form class="form-inline" action="" method="get" role="form">
+                                <div class="form-group">
+                                    <input name="s" class="form-control" placeholder="zoeken" maxlength="100" type="search">
+                                    <button type="submit" class="btn-sm btn-primary" onclick="if ($('input#search').val() == '') return false;"><span class="glyphicon glyphicon-search"></span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Nicolaimesse van Haydn<br />
+                    <small>Collegium Vocale Eindhoven & Collegium Musicum Catharina o.l.v. Ruud Huijbregts</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="active">Concerten</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Content Row -->
+        <div class="row">
+            <!-- Blog Post Content Column -->
+            <div class="col-lg-8">
+                <!-- Blog Post -->
+                <hr>
+                <!-- Date/Time -->
+                <p><i class="fa fa-clock-o"></i> zaterdag 6 december 2014 | 15.00 uur | Stadskerk St. Cathrien</p>
+                <hr>
+                <!-- Preview Image -->
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img class="img-responsive" src="images/900x300/2014-12-06.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="images/900x300/2014-12-20.jpg" alt="">
+                        </div>
+                    </div>
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+
+
+                <!--<img class="img-responsive" src="images/900x300/2014-12-06.jpg" alt="Collegium Vocale Eindhoven">-->
+                <hr>
+                <!-- Post Content -->
+                <p class="lead">
+                    Op de gedenkdag van de Heilige St. Nicolaas brengen Collegium Vocale Eindhoven & Collegium Musicum Catharina o.l.v. Ruud Huijbregts de St. Nicolaasmesse van Joseph Haydn.
+                </p>
+                <p>
+                    Deze Missa Sancti Nicolai is in 1772 geschreven voor de uitvoering op 6 december van dat jaar, het feest van St.Nicolaas en de naamdag van de Weense Prins Nicolaas Jozef Esterházy von Galántha (1714-1790) telg uit een oud, zeer invloedrijk en rijk magnatengeslacht uit Hongarije. De naamdag werd gevierd met de uitvoering van een plechtige mis in de kapel van het prinselijk kasteel te Eisenstadt.
+                </p>
+                <p>
+                    Tevens klinkt het “Non nobis, Domine” van Joseph Haydn, het “Alma Dei Creatoris” van W.A. Mozart en het “Universi, qui te exspectant” van Johann Michael Haydn.
+                </p>
+                <p>
+                    Vanaf 14.25 uur brengt de stadsbeiaardier, Rosemarie Seuntiëns het stadscentrum in de St.Nicolaassfeer vanaf de toren met beiaardspel op de Philipsbeiaard van de Cathrien.
+                </p>
+                <p>
+                    Dit concert biedt een prachtige gelegenheid het St. Nicolaasfeest eens op een andere en originele wijze te vieren. Neemt u uw (klein)kinderen mee, ze zijn van harte uitgenodigd en hebben vanzelfsprekend gratis toegang. Voor dit concert hebben onze donateurs eveneens gratis entree!
+                </p>
+            </div>
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+                <!-- Side Widget Well -->
+                <div class="well">
+                    <small>
+                        <h4>Uitvoerenden</h4>
+                        Collegium Vocale Eindhoven,
+                        Collegium Musicum Catharina,
+                        Rianne Wilbers (sopraan),
+                        Gabriëlle Nijhuis (mezzo sopraan),
+                        Henk Gunneman (tenor),
+                        Janko Fraanje (bas)
+                    </small>
+                </div>
+
+                <!-- Side Widget Well -->
+                <div class="well">
+                    <h4>Programma</h4>
+                    <small>
+                        <strong>Joseph Haydn</strong> Non nobis Domine<br />
+                        <strong>Wolfgang Amadeus Mozart</strong> Alma Dei creatoris<br />
+                        <strong>Johann Michael Haydn</strong> Universi qui te expectant<br />
+                        <strong>Joseph Haydn</strong> Nicolaimesse<br />
+                    </small>
+                </div>
+
+                <!-- Blog Categories Well -->
+                <div class="well">
+                    <h4>Prijzen</h4>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table class="small table table-striped table-condensed prices-table">
+                                <tr><td>Aan de kassa</td><td>€7,00</td></tr>
+                                <tr><td>Houders van de <a href="pricing.html">Strippenkaart</a></td><td>1 strip</td></tr>
+                                <tr><td>CKE-Kaart&nbsp;<small><a href="http://www.cke.nl/nieuws/89063/cke-lanceert-kortingskaart-voor-cursisten">meer informatie</a></small></td><td>€5,00</td></tr>
+                                <tr><td>CJP-houders en kinderen tot 16 jaar</td><td>gratis</td></tr>
+                                <tr><td>Donateurs op vertoon van hun uitnodigings&shy;brief <small><a href="#">donateur worden</a></small></td><td>gratis</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form class="navbar-form navbar-left" role="button" method="get" action="reserveren.html">
+                                <input type="hidden" name="post_id" value="1234" />
+                                <button type="submit" class="btn-lg btn-primary">Reserveren</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Side Widget Well -->
+                <div class="well">
+                    <h4>Bezoeken</h4>
+                    <small>
+                        <ul class="list-unstyled">
+                            <li>
+                                <script>
+                                    function download_ics(title, body, location, dt_start, dt_end) {
+                                        var cal = ics();
+                                        cal.addEvent(title, body, location, dt_start, dt_end);
+                                        cal.download();
+                                    }
+                                </script>
+
+                                <a href="#" class="btn btn-default btn-sm" title="Stuur een uitnodiging per email naar iemand en voeg er een persoonlijke boodschap aan toe">
+                                    <span class="fa fa-envelope" aria-hidden="true"></span>&nbsp;Ga je mee?
+                                </a>
+                                <a class="btn btn-default btn-sm" href="javascript:download_ics('CVE zingt Nicolaimesse van Haydn', 'Meer informatie vindt u op http://www.muziekindecathrien.nl/', 'Kerkstraat 1, Eindhoven', '7/12/2014 12:15', '7/12/2014 13:53')"
+                                   title="Download een iCalendar bestand (.ics) en open het vervolgens in je agenda programma (Apple Calendar, Microsoft Outlook, Google Calendar, etc.)">
+                                    <span class="fa fa-calendar" aria-hidden="true"></span>&nbsp;&nbsp;Zet dit concert in je kalender
+                                </a>
+                            </li>
+                            <li><hr /></li>
+                            <li>
+                                <h4>Tips voor een drankje na afloop</h4>
+                                <dl>
+                                    <dt>Van Moll</dt>
+                                    <dd>
+                                        Keizersgracht 16A&nbsp;
+                                        <small>
+                                            <a target="_blank" href="http://vanmolleindhoven.nl/"><span class="fa fa-external-link fa-1x" aria-hidden="true"></span> website</a> |
+                                            <a target="_blank" href="https://goo.gl/maps/4uD5H">
+                                                <span class="fa fa-map-marker fa-1x" aria-hidden="true"></span>&nbsp;looproute
+                                            </a>
+                                        </small>
+                                    </dd>
+
+                                    <dt>De Oude Rechtbank</dt>
+                                    <dd>
+                                        Stratumseind 32&nbsp;
+                                        <small>
+                                            <a target="_blank" href="http://www.ouderechtbank.nl/"><span class="fa fa-external-link fa-1x" aria-hidden="true"></span> website</a> |
+                                            <a target="_blank" href="https://goo.gl/maps/nHkcs">
+                                                <span class="fa fa-map-marker fa-1x" aria-hidden="true"></span>&nbsp;looproute
+                                            </a>
+                                        </small>
+                                    </dd>
+
+                                    <dt>The Trafalgar Pub</dt>
+                                    <dd>
+                                        Dommelstraat 21&nbsp;
+                                        <small>
+                                            <a target="_blank" href="http://www.thetrafalgarpub.nl/"><span class="fa fa-external-link fa-1x" aria-hidden="true"></span> website</a> |
+                                            <a target="_blank" href="https://goo.gl/maps/4ZZai">
+                                                <span class="fa fa-map-marker fa-1x" aria-hidden="true"></span>&nbsp;looproute
+                                            </a>
+                                        </small>
+                                    </dd>
+                                </dl>
+
+                            </li>
+                        </ul>
+                    </small>
+                </div>
+
+            </div>
+        </div>
+        <!-- /.row -->
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

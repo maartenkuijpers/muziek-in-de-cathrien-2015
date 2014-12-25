@@ -1,0 +1,380 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Muziek in de Cathrien - v2</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="images/Muziek in de Cathrien - horizontaal 50px.png" title="Logo Muziek in de Cathrien" /></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!--
+                <div class="col-sm-1 col-md-1 pull-right">
+                    <form action="" class="search-form">
+                        <div class="form-group has-feedback">
+                            <label for="search" class="sr-only">Zoeken</label>
+                            <input type="text" class="form-control" name="search" id="search" placeholder="Type uw zoekterm en druk op enter">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+                    </form>
+                </div>
+                    -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Concerten <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="http://www.muziekindecathrien.nl/agenda/jaarprogramma/">Seizoen 2014-2015</a>
+                            </li>
+                            <li>
+                                <a href="reserveren-stap1.html"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Reserveren</a>
+                            </li>
+                            <li>
+                                <a href="concerten-in-beeld.html">Concerten in beeld</a>
+                            </li>
+                            <li>
+                                <a href="gastenboek.html">Gastenboek</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Informatie <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="pricing.html">Prijzen</a>
+                            </li>
+                            <li>
+                                <a href="#">Stadskerk St. Cathrien</a>
+                            </li>
+                            <li>
+                                <a href="#">Instrumentarium</a>
+                            </li>
+                            <li role="presentation" class="divider"></li>
+                            <li>
+                                <a href="#">Deelnemen in de serie</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a id="login" data-placement="bottom" data-toggle="nieuwsbrief-popover" data-title="Meldt u aan voor de nieuwsbrief" data-container="body" type="button" data-html="true" href="#">Nieuwsbrief</a>
+                        <div id="nieuwsbrief-content" class="hide">
+                            <form class="form-inline" id="niewsbrief-form" action="nieuwsbrief-aangemeld.html" method="post" role="form">
+                                <div class="form-group">
+                                    <input name="niewsbrief-email" id="nieuwsbrief-email" class="form-control" placeholder="nieuwsbrief-email" maxlength="100" type="email">
+                                    <button type="submit" class="btn-sm btn-primary"><span class="glyphicon glyphicon-ok"></span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stichting CME <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="about.html">Bestuur</a>
+                            </li>
+                            <li>
+                                <a href="#">Donateur worden</a>
+                            </li>
+                            <li>
+                                <a href="#">Sponsoren</a>
+                            </li>
+                            <li>
+                                <a href="anbi-informatie.html">ANBI Informatie</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="nav" href="#" title="English"><img src="images/BritishFlag.png" height="15" /></a>
+                    </li>
+
+                    <li>
+                        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    </li>
+
+                    <li>
+                        <a id="login" data-placement="bottom" data-toggle="search-popover" data-title="Zoek op de website" data-container="body" type="button" data-html="true"><span class="glyphicon glyphicon-search"></span></a>
+                        <div id="search-content" class="hide">
+                            <form class="form-inline" action="" method="get" role="form">
+                                <div class="form-group">
+                                    <input name="s" class="form-control" placeholder="zoeken" maxlength="100" type="search">
+                                    <button type="submit" class="btn-sm btn-primary" onclick="if ($('input#search').val() == '') return false;"><span class="glyphicon glyphicon-search"></span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Reserveren
+                    <small>voor het concert: <span class="insert_concert_title"></span></small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="concert.html">Concerten</a>
+                    </li>
+                    <li class="active"></li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Intro Content -->
+        <div class="row">
+            <div class="col-lg-12">
+                <p>
+                    U kunt zitplaatsen reserveren voor het concert "<span class="insert_concert_title"></span>" op <span class="insert_concert_date"></span>. U kunt het aantal plaatsen (per rang indien van toepassing) opgeven via onderstaande tabel. Na het invullen drukt op "Verzenden"
+                </p>
+                <h2>Stap 1 - Concert informatie</h2>
+                <p>Het is op dit moment alleen mogelijk om kaarten voor één concert tegelijk te reserveren. Controleer hier of u het reserveert voor juiste concert:</p>
+
+                <ul>
+                    <li><strong>Concert titel</strong>: <span class="insert_concert_title"></span></li>
+                    <li><strong>Datum</strong>: <span class="insert_concert_date"></span></li>
+                </ul>
+                <a href="index.html" class="btn-xs btn-link">Keer terug naar concertoverzicht</a>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Content Row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Stap 2 - Kies uw plaatsen</h2>
+            </div>
+            <div class="col-md-6">
+                <img class="img-responsive" src="images/reserveren/ZichtOpKerkOnderkantIngevuld.jpg" alt="">
+            </div>
+            <div class="col-md-6">
+                <form class="form-inline" id="reserveren-form" onreset="setTimeout(function () { updatePrice(); }, 50);" action="#" method="post" role="form">
+                    <table class="table table-vcenter table-condensed reserve-tickets-table">
+                        <thead><tr><th>Kleurcode</th><th>Rang</th><th>Prijs</th><th>Aantal kaarten</th><th><span title="Er wordt hier een vinkje zichtbaar wanneer u iets gekozen heeft" class="glyphicon glyphicon-ok"></span></th><th width="80px">Totaal</th></tr></thead>
+                        <tr>
+                            <td><span class="table-tier-1 glyphicon glyphicon-stop"></span> Geel</td>
+                            <td>VIP</td>
+                            <td>€20,00</td>
+                            <td>
+                                <select id="tier-1-number" class="form-control">
+                                    <option selected="selected" value="0">kies...</option>
+                                    <option value="1">1 kaart</option>
+                                    <option value="2">2 kaarten</option>
+                                    <option value="3">3 kaarten</option>
+                                    <option value="4">4 kaarten</option>
+                                    <option value="5">5 kaarten</option>
+                                </select>
+                            </td>
+                            <td><span id="tier-1-status" style="display:none;" class="glyphicon glyphicon-ok"></span></td>
+                            <td><span id="tier-1-total"></span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-tier-2 glyphicon glyphicon-stop"></span> Groen</td>
+                            <td>Eerste rang</td>
+                            <td>€15,00</td>
+                            <td>
+                                <select id="tier-2-number" class="form-control">
+                                    <option selected="selected" value="0">kies...</option>
+                                    <option value="1">1 kaart</option>
+                                    <option value="2">2 kaarten</option>
+                                    <option value="3">3 kaarten</option>
+                                    <option value="4">4 kaarten</option>
+                                    <option value="5">5 kaarten</option>
+                                </select>
+                            </td>
+                            <td><span id="tier-2-status" style="display:none;" class="glyphicon glyphicon-ok"></span></td>
+                            <td><span id="tier-2-total"></span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-tier-3 glyphicon glyphicon-stop"></span> Oranje</td>
+                            <td>Tweede rang</td>
+                            <td>€10,00</td>
+                            <td>
+                                <select id="tier-3-number" class="form-control">
+                                    <option selected="selected" value="0">kies...</option>
+                                    <option value="1">1 kaart</option>
+                                    <option value="2">2 kaarten</option>
+                                    <option value="3">3 kaarten</option>
+                                    <option value="4">4 kaarten</option>
+                                    <option value="5">5 kaarten</option>
+                                </select>
+                            </td>
+                            <td><span id="tier-3-status" style="display:none;" class="glyphicon glyphicon-ok"></span></td>
+                            <td><span id="tier-3-total"></span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-tier-4 glyphicon glyphicon-stop"></span> Rood</td>
+                            <td>Derde rang</td>
+                            <td>€7,50</td>
+                            <td>
+                                <select id="tier-4-number" class="form-control">
+                                    <option selected="selected" value="0">kies...</option>
+                                    <option value="1">1 kaart</option>
+                                    <option value="2">2 kaarten</option>
+                                    <option value="3">3 kaarten</option>
+                                    <option value="4">4 kaarten</option>
+                                    <option value="5">5 kaarten</option>
+                                </select>
+                            </td>
+                            <td><span id="tier-4-status" style="display:none;" class="glyphicon glyphicon-ok"></span></td>
+                            <td><span id="tier-4-total"></span></td>
+                        </tr>
+                        <tfoot>
+                            <tr><td><input type="reset" class="btn-xs btn-default" value="Wissen" /></td><td></td><td></td><td></td><td>Totaal</td><td><span id="tier-all-total"></span></td></tr>
+                        </tfoot>
+                    </table>
+
+                    <button type="submit" class="pull-right btn-lg btn-success">Verzenden</button>
+                </form>
+            </div>
+        </div>
+        <!-- /.row -->
+
+
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $.urlParam = function (name) {
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            if (results == null) {
+                return null;
+            }
+            else {
+                return results[1] || 0;
+            }
+        }
+
+        function updatePrice() {
+            tier1Price = 20;
+            tier2Price = 15;
+            tier3Price = 10;
+            tier4Price = 7.5;
+
+            tier1Amount = $('#tier-1-number').val();
+            tier2Amount = $('#tier-2-number').val();
+            tier3Amount = $('#tier-3-number').val();
+            tier4Amount = $('#tier-4-number').val();
+
+            (tier1Amount > 0) ? $('#tier-1-status').show() : $('#tier-1-status').hide();
+            (tier2Amount > 0) ? $('#tier-2-status').show() : $('#tier-2-status').hide();
+            (tier3Amount > 0) ? $('#tier-3-status').show() : $('#tier-3-status').hide();
+            (tier4Amount > 0) ? $('#tier-4-status').show() : $('#tier-4-status').hide();
+
+            tier1Total = tier1Amount * tier1Price;
+            $('#tier-1-total').text('€' + tier1Total.toFixed(2));
+            tier2Total = tier2Amount * tier2Price;
+            $('#tier-2-total').text('€' + tier2Total.toFixed(2));
+            tier3Total = tier3Amount * tier3Price;
+            $('#tier-3-total').text('€' + tier3Total.toFixed(2));
+            tier4Total = tier4Amount * tier4Price;
+            $('#tier-4-total').text('€' + tier4Total.toFixed(2));
+
+            totalAmount = tier1Total + tier2Total + tier3Total + tier4Total;
+            $('#tier-all-total').text('€' + totalAmount.toFixed(2));
+        }
+
+        $('#tier-1-number').change(function () {
+            updatePrice();
+        })
+        $('#tier-2-number').change(function () {
+            updatePrice();
+        })
+        $('#tier-3-number').change(function () {
+            updatePrice();
+        })
+        $('#tier-4-number').change(function () {
+            updatePrice();
+        })
+
+        $(document).ready(function () {
+            var post_id = $.urlParam('post_id');
+            var insert_concert_title = "?";
+            var insert_concert_date = "?";
+
+            if (post_id == '1234') {
+                insert_concert_title = "Nicolaimesse van Haydn";
+                insert_concert_date = "6 december 2014";
+            }
+            else if (post_id == '4321') {
+                insert_concert_date = "3 april 2015";
+                insert_concert_title = "Johannes Passion";
+            }
+
+            $(".insert_concert_date").append(insert_concert_date);
+            $(".insert_concert_title").append(insert_concert_title);
+
+            updatePrice();
+        });
+    </script>
+</body>
+
+</html>

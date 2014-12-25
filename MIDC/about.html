@@ -1,0 +1,389 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Muziek in de Cathrien | Collegium Musicum Eindhoven</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="images/Muziek in de Cathrien - horizontaal 50px.png" title="Logo Muziek in de Cathrien" /></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!--
+                <div class="col-sm-1 col-md-1 pull-right">
+                    <form action="" class="search-form">
+                        <div class="form-group has-feedback">
+                            <label for="search" class="sr-only">Zoeken</label>
+                            <input type="text" class="form-control" name="search" id="search" placeholder="Type uw zoekterm en druk op enter">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+                    </form>
+                </div>
+                    -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Concerten <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="http://www.muziekindecathrien.nl/agenda/jaarprogramma/">Seizoen 2014-2015</a>
+                            </li>
+                            <li>
+                                <a href="reserveren-stap1.html"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Reserveren</a>
+                            </li>
+                            <li>
+                                <a href="concerten-in-beeld.html">Concerten in beeld</a>
+                            </li>
+                            <li>
+                                <a href="gastenboek.html">Gastenboek</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Informatie <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="pricing.html">Prijzen</a>
+                            </li>
+                            <li>
+                                <a href="#">Stadskerk St. Cathrien</a>
+                            </li>
+                            <li>
+                                <a href="#">Instrumentarium</a>
+                            </li>
+                            <li role="presentation" class="divider"></li>
+                            <li>
+                                <a href="#">Deelnemen in de serie</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a id="login" data-placement="bottom" data-toggle="nieuwsbrief-popover" data-title="Meldt u aan voor de nieuwsbrief" data-container="body" type="button" data-html="true" href="#">Nieuwsbrief</a>
+                        <div id="nieuwsbrief-content" class="hide">
+                            <form class="form-inline" id="niewsbrief-form" action="nieuwsbrief-aangemeld.html" method="post" role="form">
+                                <div class="form-group">
+                                    <input name="niewsbrief-email" id="nieuwsbrief-email" class="form-control" placeholder="nieuwsbrief-email" maxlength="100" type="email">
+                                    <button type="submit" class="btn-sm btn-primary"><span class="glyphicon glyphicon-ok"></span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stichting CME <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="about.html">Bestuur</a>
+                            </li>
+                            <li>
+                                <a href="#">Donateur worden</a>
+                            </li>
+                            <li>
+                                <a href="#">Sponsoren</a>
+                            </li>
+                            <li>
+                                <a href="anbi-informatie.html">ANBI Informatie</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="nav" href="#" title="English"><img src="images/BritishFlag.png" height="15" /></a>
+                    </li>
+
+                    <li>
+                        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    </li>
+
+                    <li>
+                        <a id="login" data-placement="bottom" data-toggle="search-popover" data-title="Zoek op de website" data-container="body" type="button" data-html="true"><span class="glyphicon glyphicon-search"></span></a>
+                        <div id="search-content" class="hide">
+                            <form class="form-inline" action="" method="get" role="form">
+                                <div class="form-group">
+                                    <input name="s" class="form-control" placeholder="zoeken" maxlength="100" type="search">
+                                    <button type="submit" class="btn-sm btn-primary" onclick="if ($('input#search').val() == '') return false;"><span class="glyphicon glyphicon-search"></span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Stichting
+                    <small>Collegium Musicum Eindhoven</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="active">Stichting C.M.E.</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Intro Content -->
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-responsive" src="images/team/Catharinakerk_Eindhoven.jpg" alt="Stadskerk St. Cathrien">
+            </div>
+            <div class="col-md-8">
+                <h2>Stichting Collegium Musicum Eindhoven</h2>
+                <p>De geschiedenis van het Collegium Musicum Eindhoven gaat terug tot in de tachtiger jaren van de vorige eeuw. In 1988 werd de stichting Muziek in de Cathrien opgericht, met als doel het organiseren van concerten in de St. Catharinakerk. In 1997 volgde de fusie met de stichting Vrienden van het Orgel (opgericht in 1986). Sindsdien was de naam Stichting Kerkconcerten Eindhoven, medio 2012 omgedoopt tot Collegium Musicum Eindhoven.</p>
+                <p>De belangrijkste activiteit van dit Collegium is de organisatie van de concertreeks “Muziek in de Cathrien”, die in Eindhoven en de regio een levend begrip is geworden.</p>
+                <p>Zeer velen hebben in de loop der jaren de weg gevonden  naar de Cathrien. Een volle kerk op de zaterdagmiddag is al lang geen uitzondering meer en de waardering van de gepresenteerde muziek is erg hoog. De concertserie kent een maandcyclus met een vast ritme:</p>
+                <ul>
+
+                    <li>De eerste zaterdag van de maand is gereserveerd voor vocaal-instrumentale concerten. Deze concerten worden ingeluid met een carillonbespeling door de Stadsbeiaardier van Eindhoven.</li>
+                    <li>
+                        Op de tweede zaterdag volgen kamermuziekconcerten in gevarieerde bezetting, die meestal plaatsvinden in de intieme ruimte van de kooromgang.
+                    </li>
+                    <li>
+                        De derde zaterdag is gewijd aan koormuziek met wisselende thema’s.
+                    </li>
+                    <li>
+                        Op de vierde zaterdag zijn orgelconcerten te beluisteren, meestal gegeven op het grote orgel, vaak ook in combinatie met het koororgel.
+                    </li>
+                </ul>
+
+                <p>
+                    We vinden het belangrijk dat de bezoekers kunnen genieten van muziek op niveau. Daarom worden de concerten voor het grootste deel uitgevoerd door professionele musici.
+                    De wekelijkse concerten beginnen om 15.00 en eindigen om 16.00 uur. Bestuur van de stichting Collegium Musicum Eindhoven en organisatie van de concerten zijn in handen van vrijwilligers. De programmering van de concerten is het werk van een programmacommissie, bestaande uit professionele musici. Artistiek leider is Ruud Huijbregts.
+                </p>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Team Members -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Organisatie</h2>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="images/team/BertRamakers.jpg" alt="Bert Ramakers">
+                    <div class="caption">
+                        <h3>
+                            Bert Ramakers<br>
+                            <small>voorzitter</small>
+                        </h3>
+                        <p>drs. H.J. Ramakers</p>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="images/team/GerritKroesen.jpg" alt="Gerrit Kroesen">
+                    <div class="caption">
+                        <h3>
+                            Gerrit Kroesen<br>
+                            <small>vice voorzitter</small>
+                        </h3>
+                        <p>prof. dr. ir. G.M.W. Kroesen (vice-voorzitter)</p>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="images/team/DirkMoree.jpg" alt="Dirk Moree">
+                    <div class="caption">
+                        <h3>
+                            Dirk Moree<br>
+                            <small>(voorheen) secretaris</small>
+                        </h3>
+                        <p>D.P. Moree (secretaris)</p>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-4 text-center">
+                    <div class="thumbnail">
+                        <img class="img-responsive" src="images/team/HanHaitjema.jpg" alt="Han Haitjema">
+                        <div class="caption">
+                            <h3>
+                                Han Haitjema<br>
+                                <small>penningmeester</small>
+                            </h3>
+                            <p>dr. H. Haitjema (penningmeester)</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="thumbnail">
+                        <img class="img-responsive" src="images/team/RosemarieSeuntiens.jpg" alt="Rosemarie Seuntiëns">
+                        <div class="caption">
+                            <h3>
+                                Rosemarie Seuntiëns<br />
+                                <small>
+                                    programmacommissie
+                                    beiaardier
+                                </small>
+                            </h3>
+                            <p>Rosemarie Seuntiëns</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="thumbnail">
+                        <img class="img-responsive" src="images/team/RuudHuijbregts.jpg" alt="Ruud Huijbregts">
+                        <div class="caption">
+                            <h3>
+                                Ruud Huijbregts<br>
+                                <small>
+                                    programmacommissie
+                                    artistiek leider
+                                </small>
+                            </h3>
+                            <p>Ruud Huijbregts</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- /.row -->
+
+        <!-- Our Customers -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Our Customers</h2>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6">
+                <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6">
+                <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6">
+                <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6">
+                <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6">
+                <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6">
+                <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
+            </div>
+        </div>
+        <!-- /.row -->
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
