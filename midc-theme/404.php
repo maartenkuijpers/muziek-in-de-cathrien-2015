@@ -23,7 +23,7 @@ get_header(); ?>
 					<?php get_search_form(); ?>
 				</div><!-- .page-content -->
 			</section><!-- .error-404 -->
-
+			
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->
 

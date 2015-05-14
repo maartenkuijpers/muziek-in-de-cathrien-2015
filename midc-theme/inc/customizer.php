@@ -48,6 +48,12 @@ function twentyfifteen_customize_register( $wp_customize ) {
 		'section'     => 'colors',
 	) ) );
 
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'sidebar_textcolor', array(
+		'label'       => __( 'Hopjesvla', 'twentyfifteen' ),
+		'description' => __( 'Applied to the header on small screens and the sidebar on wide screens.', 'twentyfifteen' ),
+		'section'     => 'colors',
+	) ) );
+
 	// Remove the core header textcolor control, as it shares the sidebar text color.
 	$wp_customize->remove_control( 'header_textcolor' );
 

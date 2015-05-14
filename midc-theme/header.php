@@ -38,17 +38,6 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <!--
-                <div class="col-sm-1 col-md-1 pull-right">
-                    <form action="" class="search-form">
-                        <div class="form-group has-feedback">
-                            <label for="search" class="sr-only">Zoeken</label>
-                            <input type="text" class="form-control" name="search" id="search" placeholder="Type uw zoekterm en druk op enter">
-                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                        </div>
-                    </form>
-                </div>
-                    -->
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Concerten <b class="caret"></b></a>

@@ -25,6 +25,72 @@
  * @since Twenty Fifteen 1.0
  */
 
+/* MIDC START */
+
+// https://codex.wordpress.org/Function_Reference/add_meta_box#Examples
+
+function midc_bestuurslid_add_meta_boxes( $post ) {
+    // Get the page template post meta
+    $page_template = get_post_meta( $post->ID, '_wp_page_template', true );
+    // If the current page uses our specific
+    // template, then output our custom metabox
+    if ( 'page-bestuurslid.php' == $page_template ) {
+        add_meta_box(
+			'midc_bestuurslid-custom-meta-box', // Metabox HTML ID attribute
+            'Bestuurslid Extra Velden', // Metabox title
+			'midc_bestuurslid_meta_box', // callback name
+            'page', // post type
+            'side', // context (advanced, normal, or side)
+            'default' // priority (high, core, default or low)
+        );
+    }
+}
+// Make sure to use "_" instead of "-"
+add_action( 'add_meta_boxes_page', 'midc_bestuurslid_add_meta_boxes' );
+
+function midc_bestuurslid_meta_box($post) {
+	// Define the meta box form fields here
+
+	// Add a nonce field so we can check for it later.
+	wp_nonce_field( 'midc_bestuurslid_meta_box', 'midc_bestuurslid_meta_box_nonce' );
+
+	/* Dit toont een mooie rich text editor 
+	$content = 'Dit is <b>bold Text</b>, maar dit niet';
+	$editor_id = 'mycustomeditor';
+	$settings = array( 'media_buttons' => false, 'teeny' => true, 'textarea_rows' => 3, 'wpautop' => false );
+	wp_editor( $content, $editor_id, $settings );
+	*/
+
+	/* Use get_post_meta() to retrieve an existing value
+	 * from the database and use the value for the form.
+	 */
+	$value = get_post_meta( $post->ID, 'email', true );
+	echo '<p><label for="bestuurslid_meta_box_email">';
+	_e( 'Email Address', 'twentyfifteen' );
+	echo '</label> ';
+	echo '<input type="text" id="bestuurslid_meta_box_email" name="bestuurslid_meta_box_email" value="' . esc_attr( $value ) . '" size="25" /></p>';
+
+	$value = get_post_meta( $post->ID, 'facebook', true );
+	echo '<p><label for="bestuurslid_meta_box_facebook">Facebook</label> ';
+	echo '<input type="text" id="bestuurslid_meta_box_facebook" name="bestuurslid_meta_box_facebook" value="' . esc_attr( $value ) . '" size="25" /></p>';
+
+	$value = get_post_meta( $post->ID, 'twitter', true );
+	echo '<p><label for="bestuurslid_meta_box_twitter">Twitter</label> ';
+	echo '<input type="text" id="bestuurslid_meta_box_twitter" name="bestuurslid_meta_box_twitter" value="' . esc_attr( $value ) . '" size="25" /></p>';
+
+	$value = get_post_meta( $post->ID, 'linkedin', true );
+	echo '<p><label for="bestuurslid_meta_box_twitter">LinkedIn</label> ';
+	echo '<input type="text" id="bestuurslid_meta_box_linkedin" name="bestuurslid_meta_box_linkedin" value="' . esc_attr( $value ) . '" size="25" /></p>';
+}
+
+function wpse70958_save_custom_post_meta() {
+	// Sanitize/validate post meta here, before calling update_post_meta()
+}
+add_action( 'publish_page', 'wpse70958_save_custom_post_meta' );
+add_action( 'draft_page', 'wpse70958_save_custom_post_meta' );
+add_action( 'future_page', 'wpse70958_save_custom_post_meta' );
+/* MIDC END */
+
 /**
  * Set the content width based on the theme's design and stylesheet.
  *

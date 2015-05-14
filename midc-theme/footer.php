@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="list-inline text-center">
-                        <li>Copyright &copy; 2014 MPedia Design</li>
+                        <li>Copyright &copy; 2015 MPedia Design</li>
                     </ul>
                 </div>
 
