@@ -89,6 +89,28 @@ function wpse70958_save_custom_post_meta() {
 add_action( 'publish_page', 'wpse70958_save_custom_post_meta' );
 add_action( 'draft_page', 'wpse70958_save_custom_post_meta' );
 add_action( 'future_page', 'wpse70958_save_custom_post_meta' );
+
+function my_theme_add_editor_styles() {
+    global $post;
+
+    $my_post_type = 'posttype';
+
+    // New post (init hook).
+    // Get the page template post meta
+    $page_template = get_post_meta( $post->ID, '_wp_page_template', true );
+    // If the current page uses our specific
+    // template, then output our custom metabox
+    if ( ( stristr( $_SERVER['REQUEST_URI'], 'post-new.php' ) !== false ) ||
+	     ( stristr( $_SERVER['REQUEST_URI'], 'post.php' ) !== false ) ) {
+		if ( 'page-bestuurslid.php' == $page_template ) {
+			add_editor_style( get_stylesheet_directory_uri()
+				. '/css/editor-style-page-bestuurslid.css' );
+		}
+	}
+}
+add_action( 'init', 'my_theme_add_editor_styles' );
+add_action( 'pre_get_posts', 'my_theme_add_editor_styles' );
+
 /* MIDC END */
 
 /**

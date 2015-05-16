@@ -22,10 +22,6 @@
         </footer>
     </div>
     <!-- /.container -->
-    <!-- jQuery -->
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap.min.js"></script>
     <!-- Script to Activate the Carousel -->
     <script>
         $('.carousel').carousel({
@@ -45,7 +41,6 @@
                 return $('#search-content').html();
             }
         });
-
     </script>
 </body>
 </html>
