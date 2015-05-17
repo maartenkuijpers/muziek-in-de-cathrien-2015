@@ -29,16 +29,16 @@
 
 // https://codex.wordpress.org/Function_Reference/add_meta_box#Examples
 
-function midc_bestuurslid_add_meta_boxes( $post ) {
+function midc_bestuur_item_add_meta_boxes( $post ) {
     // Get the page template post meta
     $page_template = get_post_meta( $post->ID, '_wp_page_template', true );
     // If the current page uses our specific
     // template, then output our custom metabox
-    if ( 'page-bestuurslid.php' == $page_template ) {
+    if ( 'page-bestuur-item.php' == $page_template ) {
         add_meta_box(
 			'midc-bestuurslid-meta-box', // Metabox HTML ID attribute
             'Bestuurslid Extra Velden', // Metabox title
-			'midc_bestuurslid_meta_box_callback', // callback name
+			'midc_bestuur_item_meta_box_callback', // callback name
             'page', // post type
             'side', // context (advanced, normal, or side)
             'default' // priority (high, core, default or low)
@@ -46,13 +46,13 @@ function midc_bestuurslid_add_meta_boxes( $post ) {
     }
 }
 // Make sure to use "_" instead of "-"
-add_action( 'add_meta_boxes_page', 'midc_bestuurslid_add_meta_boxes' );
+add_action( 'add_meta_boxes_page', 'midc_bestuur_item_add_meta_boxes' );
 
-function midc_bestuurslid_meta_box_callback($post) {
+function midc_bestuur_item_meta_box_callback($post) {
 	// Define the meta box form fields here
 
 	// Add a nonce field so we can check for it later.
-	wp_nonce_field( 'midc_bestuurslid_meta_box', 'midc_bestuurslid_meta_box_nonce' );
+	wp_nonce_field( 'midc_bestuur_item_meta_box', 'midc_bestuur_item_meta_box_nonce' );
 
 	/* Dit toont een mooie rich text editor 
 	$content = 'Dit is <b>bold Text</b>, maar dit niet';
@@ -64,23 +64,32 @@ function midc_bestuurslid_meta_box_callback($post) {
 	/* Use get_post_meta() to retrieve an existing value
 	 * from the database and use the value for the form.
 	 */
-	$value = get_post_meta( $post->ID, 'bestuurslid_meta_box_email', true );
-	echo '<p><label for="bestuurslid_meta_box_email">';
+
+ 	$value = get_post_meta( $post->ID, 'bestuur_item_meta_box_function', true );
+	echo '<p><label for="bestuur_item_meta_box_function">Functie</label> ';
+	echo '<input type="text" id="bestuur_item_meta_box_facebook" name="bestuur_item_meta_box_function" value="' . esc_attr( $value ) . '" size="25" /></p>';
+
+	$value = get_post_meta( $post->ID, 'bestuur_item_meta_box_full_name', true );
+	echo '<p><label for="bestuur_item_meta_box_full_name">Volledige Naam</label> ';
+	echo '<input type="text" id="bestuur_item_meta_box_facebook" name="bestuur_item_meta_box_full_name" value="' . esc_attr( $value ) . '" size="25" /></p>';
+
+	$value = get_post_meta( $post->ID, 'bestuur_item_meta_box_email', true );
+	echo '<p><label for="bestuur_item_meta_box_email">';
 	_e( 'Email Address', 'twentyfifteen' );
 	echo '</label> ';
-	echo '<input type="text" id="bestuurslid_meta_box_email" name="bestuurslid_meta_box_email" value="' . esc_attr( $value ) . '" size="25" /></p>';
+	echo '<input type="text" id="bestuur_item_meta_box_email" name="bestuur_item_meta_box_email" value="' . esc_attr( $value ) . '" size="25" /></p>';
 
-	$value = get_post_meta( $post->ID, 'bestuurslid_meta_box_facebook', true );
-	echo '<p><label for="bestuurslid_meta_box_facebook">Facebook</label> ';
-	echo '<input type="text" id="bestuurslid_meta_box_facebook" name="bestuurslid_meta_box_facebook" value="' . esc_attr( $value ) . '" size="25" /></p>';
+	$value = get_post_meta( $post->ID, 'bestuur_item_meta_box_facebook', true );
+	echo '<p><label for="bestuur_item_meta_box_facebook">Facebook</label> ';
+	echo '<input type="text" id="bestuur_item_meta_box_facebook" name="bestuur_item_meta_box_facebook" value="' . esc_attr( $value ) . '" size="25" /></p>';
 
-	$value = get_post_meta( $post->ID, 'bestuurslid_meta_box_twitter', true );
-	echo '<p><label for="bestuurslid_meta_box_twitter">Twitter</label> ';
-	echo '<input type="text" id="bestuurslid_meta_box_twitter" name="bestuurslid_meta_box_twitter" value="' . esc_attr( $value ) . '" size="25" /></p>';
+	$value = get_post_meta( $post->ID, 'bestuur_item_meta_box_twitter', true );
+	echo '<p><label for="bestuur_item_meta_box_twitter">Twitter</label> ';
+	echo '<input type="text" id="bestuur_item_meta_box_twitter" name="bestuur_item_meta_box_twitter" value="' . esc_attr( $value ) . '" size="25" /></p>';
 
-	$value = get_post_meta( $post->ID, 'bestuurslid_meta_box_linkedin', true );
-	echo '<p><label for="bestuurslid_meta_box_linkedin">LinkedIn</label> ';
-	echo '<input type="text" id="bestuurslid_meta_box_linkedin" name="bestuurslid_meta_box_linkedin" value="' . esc_attr( $value ) . '" size="25" /></p>';
+	$value = get_post_meta( $post->ID, 'bestuur_item_meta_box_linkedin', true );
+	echo '<p><label for="bestuur_item_meta_box_linkedin">LinkedIn</label> ';
+	echo '<input type="text" id="bestuur_item_meta_box_linkedin" name="bestuur_item_meta_box_linkedin" value="' . esc_attr( $value ) . '" size="25" /></p>';
 }
 
 /**
@@ -88,15 +97,15 @@ function midc_bestuurslid_meta_box_callback($post) {
  *
  * @param int $post_id The ID of the post being saved.
  */
-function midc_bestuurslid_save_meta_box_data( $post_id ) {
+function midc_bestuur_item_save_meta_box_data( $post_id ) {
 
 	// Check if our nonce is set.
-	if ( ! isset( $_POST['midc_bestuurslid_meta_box_nonce'] ) ) {
+	if ( ! isset( $_POST['midc_bestuur_item_meta_box_nonce'] ) ) {
 		return;
 	}
 
 	// Verify that the nonce is valid.
-	if ( ! wp_verify_nonce( $_POST['midc_bestuurslid_meta_box_nonce'], 'midc_bestuurslid_meta_box' ) ) {
+	if ( ! wp_verify_nonce( $_POST['midc_bestuur_item_meta_box_nonce'], 'midc_bestuur_item_meta_box' ) ) {
 		return;
 	}
 
@@ -114,32 +123,40 @@ function midc_bestuurslid_save_meta_box_data( $post_id ) {
 
 	/* OK, it's safe for us to save the data now. */
 
-	if ( ! isset( $_POST['bestuurslid_meta_box_email'] ) ) { return; }
-	$my_data = sanitize_text_field( $_POST['bestuurslid_meta_box_email'] );
-	update_post_meta( $post_id, 'bestuurslid_meta_box_email', $my_data );
+	if ( ! isset( $_POST['bestuur_item_meta_box_function'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['bestuur_item_meta_box_function'] );
+	update_post_meta( $post_id, 'bestuur_item_meta_box_function', $my_data );
 
-	if ( ! isset( $_POST['bestuurslid_meta_box_twitter'] ) ) { return; }
-	$my_data = sanitize_text_field( $_POST['bestuurslid_meta_box_twitter'] );
-	update_post_meta( $post_id, 'bestuurslid_meta_box_twitter', $my_data );
+	if ( ! isset( $_POST['bestuur_item_meta_box_full_name'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['bestuur_item_meta_box_full_name'] );
+	update_post_meta( $post_id, 'bestuur_item_meta_box_full_name', $my_data );
 
-	if ( ! isset( $_POST['bestuurslid_meta_box_facebook'] ) ) { return; }
-	$my_data = sanitize_text_field( $_POST['bestuurslid_meta_box_facebook'] );
-	update_post_meta( $post_id, 'bestuurslid_meta_box_facebook', $my_data );
+	if ( ! isset( $_POST['bestuur_item_meta_box_email'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['bestuur_item_meta_box_email'] );
+	update_post_meta( $post_id, 'bestuur_item_meta_box_email', $my_data );
+
+	if ( ! isset( $_POST['bestuur_item_meta_box_twitter'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['bestuur_item_meta_box_twitter'] );
+	update_post_meta( $post_id, 'bestuur_item_meta_box_twitter', $my_data );
+
+	if ( ! isset( $_POST['bestuur_item_meta_box_facebook'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['bestuur_item_meta_box_facebook'] );
+	update_post_meta( $post_id, 'bestuur_item_meta_box_facebook', $my_data );
 	
-	if ( ! isset( $_POST['bestuurslid_meta_box_linkedin'] ) ) { return; }
-	$my_data = sanitize_text_field( $_POST['bestuurslid_meta_box_linkedin'] );
-	update_post_meta( $post_id, 'bestuurslid_meta_box_linkedin', $my_data );
+	if ( ! isset( $_POST['bestuur_item_meta_box_linkedin'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['bestuur_item_meta_box_linkedin'] );
+	update_post_meta( $post_id, 'bestuur_item_meta_box_linkedin', $my_data );
 
 }
-add_action( 'save_post', 'midc_bestuurslid_save_meta_box_data' );
+add_action( 'save_post', 'midc_bestuur_item_save_meta_box_data' );
 
 /*
-function midc_bestuurslid_save_custom_post_meta() {
+function midc_bestuur_item_save_custom_post_meta() {
 	// Sanitize/validate post meta here, before calling update_post_meta()
 }
-add_action( 'publish_page', 'midc_bestuurslid_save_custom_post_meta' );
-add_action( 'draft_page', 'midc_bestuurslid_save_custom_post_meta' );
-add_action( 'future_page', 'midc_bestuurslid_save_custom_post_meta' );
+add_action( 'publish_page', 'midc_bestuur_item_save_custom_post_meta' );
+add_action( 'draft_page', 'midc_bestuur_item_save_custom_post_meta' );
+add_action( 'future_page', 'midc_bestuur_item_save_custom_post_meta' );
 */
 function my_theme_add_editor_styles() {
     global $post;
@@ -153,9 +170,9 @@ function my_theme_add_editor_styles() {
     // template, then output our custom metabox
     if ( ( stristr( $_SERVER['REQUEST_URI'], 'post-new.php' ) !== false ) ||
 	     ( stristr( $_SERVER['REQUEST_URI'], 'post.php' ) !== false ) ) {
-		if ( 'page-bestuurslid.php' == $page_template ) {
+		if ( 'page-bestuur-item.php' == $page_template ) {
 			add_editor_style( get_stylesheet_directory_uri()
-				. '/css/editor-style-page-bestuurslid.css' );
+				. '/css/editor-style-page-bestuuritem.css' );
 		}
 	}
 }
