@@ -44,12 +44,36 @@ get_header(); ?>
 					?>
 					<div class="col-md-4 text-center">
 						<div class="thumbnail">
-						<?php get_template_part( 'content', 'page' ); ?>
-						<script>
-							$('article#post-<?php echo($post->ID); ?> header').hide();
-							var title = document.getElementById("post-<?php echo($post->ID); ?>");
-							title.childNodes[0].style.display = "none";
-						</script>
+							<div class="caption">
+								<?php get_template_part( 'content', 'page' ); ?>
+								<script>
+									$('article#post-<?php echo($post->ID); ?> header').hide();
+								</script>
+
+								<ul class="list-inline">
+									<?php // Render social channels
+									$value = get_post_meta( $post->ID, 'bestuurslid_meta_box_email', true);
+									if (!empty($value)) {
+										echo ("<li><a href='mailto:" . $value . "'><i class='fa fa-2x fa-envelope-square'></i></a></li>");
+									}
+
+									$value = get_post_meta( $post->ID, 'bestuurslid_meta_box_facebook', true);
+									if (!empty($value)) {
+										echo ("<li><a href='" . $value . "'><i class='fa fa-2x fa-facebook-square'></i></a></li>");
+									}
+
+									$value = get_post_meta( $post->ID, 'bestuurslid_meta_box_linkedin', true);
+									if (!empty($value)) {
+										echo ("<li><a href='" . $value . "'><i class='fa fa-2x fa-linkedin-square'></i></a></li>");
+									}
+
+									$value = get_post_meta( $post->ID, 'bestuurslid_meta_box_twitter', true);
+									if (!empty($value)) {
+										echo ("<li><a href='" . $value . "'><i class='fa fa-2x fa-twitter-square'></i></a></li>");
+									}
+									?>
+								</ul>
+							</div>
 						</div>
 					</div>
 					<?php

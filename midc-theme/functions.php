@@ -36,9 +36,9 @@ function midc_bestuurslid_add_meta_boxes( $post ) {
     // template, then output our custom metabox
     if ( 'page-bestuurslid.php' == $page_template ) {
         add_meta_box(
-			'midc_bestuurslid-custom-meta-box', // Metabox HTML ID attribute
+			'midc-bestuurslid-meta-box', // Metabox HTML ID attribute
             'Bestuurslid Extra Velden', // Metabox title
-			'midc_bestuurslid_meta_box', // callback name
+			'midc_bestuurslid_meta_box_callback', // callback name
             'page', // post type
             'side', // context (advanced, normal, or side)
             'default' // priority (high, core, default or low)
@@ -48,7 +48,7 @@ function midc_bestuurslid_add_meta_boxes( $post ) {
 // Make sure to use "_" instead of "-"
 add_action( 'add_meta_boxes_page', 'midc_bestuurslid_add_meta_boxes' );
 
-function midc_bestuurslid_meta_box($post) {
+function midc_bestuurslid_meta_box_callback($post) {
 	// Define the meta box form fields here
 
 	// Add a nonce field so we can check for it later.
@@ -64,32 +64,83 @@ function midc_bestuurslid_meta_box($post) {
 	/* Use get_post_meta() to retrieve an existing value
 	 * from the database and use the value for the form.
 	 */
-	$value = get_post_meta( $post->ID, 'email', true );
+	$value = get_post_meta( $post->ID, 'bestuurslid_meta_box_email', true );
 	echo '<p><label for="bestuurslid_meta_box_email">';
 	_e( 'Email Address', 'twentyfifteen' );
 	echo '</label> ';
 	echo '<input type="text" id="bestuurslid_meta_box_email" name="bestuurslid_meta_box_email" value="' . esc_attr( $value ) . '" size="25" /></p>';
 
-	$value = get_post_meta( $post->ID, 'facebook', true );
+	$value = get_post_meta( $post->ID, 'bestuurslid_meta_box_facebook', true );
 	echo '<p><label for="bestuurslid_meta_box_facebook">Facebook</label> ';
 	echo '<input type="text" id="bestuurslid_meta_box_facebook" name="bestuurslid_meta_box_facebook" value="' . esc_attr( $value ) . '" size="25" /></p>';
 
-	$value = get_post_meta( $post->ID, 'twitter', true );
+	$value = get_post_meta( $post->ID, 'bestuurslid_meta_box_twitter', true );
 	echo '<p><label for="bestuurslid_meta_box_twitter">Twitter</label> ';
 	echo '<input type="text" id="bestuurslid_meta_box_twitter" name="bestuurslid_meta_box_twitter" value="' . esc_attr( $value ) . '" size="25" /></p>';
 
-	$value = get_post_meta( $post->ID, 'linkedin', true );
-	echo '<p><label for="bestuurslid_meta_box_twitter">LinkedIn</label> ';
+	$value = get_post_meta( $post->ID, 'bestuurslid_meta_box_linkedin', true );
+	echo '<p><label for="bestuurslid_meta_box_linkedin">LinkedIn</label> ';
 	echo '<input type="text" id="bestuurslid_meta_box_linkedin" name="bestuurslid_meta_box_linkedin" value="' . esc_attr( $value ) . '" size="25" /></p>';
 }
 
-function wpse70958_save_custom_post_meta() {
+/**
+ * When the post is saved, saves our custom data.
+ *
+ * @param int $post_id The ID of the post being saved.
+ */
+function midc_bestuurslid_save_meta_box_data( $post_id ) {
+
+	// Check if our nonce is set.
+	if ( ! isset( $_POST['midc_bestuurslid_meta_box_nonce'] ) ) {
+		return;
+	}
+
+	// Verify that the nonce is valid.
+	if ( ! wp_verify_nonce( $_POST['midc_bestuurslid_meta_box_nonce'], 'midc_bestuurslid_meta_box' ) ) {
+		return;
+	}
+
+	// If this is an autosave, our form has not been submitted, so we don't want to do anything.
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+
+	// Check the user's permissions.
+	if ( isset( $_POST['post_type'] ) && 'page' == $_POST['post_type'] ) {
+		if ( ! current_user_can( 'edit_page', $post_id ) ) { return; }
+	} else {
+		if ( ! current_user_can( 'edit_post', $post_id ) ) { return; }
+	}
+
+	/* OK, it's safe for us to save the data now. */
+
+	if ( ! isset( $_POST['bestuurslid_meta_box_email'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['bestuurslid_meta_box_email'] );
+	update_post_meta( $post_id, 'bestuurslid_meta_box_email', $my_data );
+
+	if ( ! isset( $_POST['bestuurslid_meta_box_twitter'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['bestuurslid_meta_box_twitter'] );
+	update_post_meta( $post_id, 'bestuurslid_meta_box_twitter', $my_data );
+
+	if ( ! isset( $_POST['bestuurslid_meta_box_facebook'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['bestuurslid_meta_box_facebook'] );
+	update_post_meta( $post_id, 'bestuurslid_meta_box_facebook', $my_data );
+	
+	if ( ! isset( $_POST['bestuurslid_meta_box_linkedin'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['bestuurslid_meta_box_linkedin'] );
+	update_post_meta( $post_id, 'bestuurslid_meta_box_linkedin', $my_data );
+
+}
+add_action( 'save_post', 'midc_bestuurslid_save_meta_box_data' );
+
+/*
+function midc_bestuurslid_save_custom_post_meta() {
 	// Sanitize/validate post meta here, before calling update_post_meta()
 }
-add_action( 'publish_page', 'wpse70958_save_custom_post_meta' );
-add_action( 'draft_page', 'wpse70958_save_custom_post_meta' );
-add_action( 'future_page', 'wpse70958_save_custom_post_meta' );
-
+add_action( 'publish_page', 'midc_bestuurslid_save_custom_post_meta' );
+add_action( 'draft_page', 'midc_bestuurslid_save_custom_post_meta' );
+add_action( 'future_page', 'midc_bestuurslid_save_custom_post_meta' );
+*/
 function my_theme_add_editor_styles() {
     global $post;
 
