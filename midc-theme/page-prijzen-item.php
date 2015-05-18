@@ -12,29 +12,57 @@
  * 
  * Template Name: Prijzen Item template
  */
+?>
 
-get_header(); ?>
+<div class="col-md-4">
+	<div class="panel panel-primary text-center">
+		<div class="panel-heading">
+<?php
+			$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_recommended', true);
+			echo $value;
+			if ($value == "on") {
+?>
+				<h3 class="panel-title"><?php the_title(); ?><span class="label label-success"><i>Beste Keus!</i></span></h3>
+<?php
+			} else {
+?>
+				<h3 class="panel-title"><?php the_title(); ?></h3>
+<?php
+			}
+?>
+		</div>
+		<div class="panel-body">
+<?php
+			$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_euro', true);
+			$value2 = get_post_meta( $post->ID, 'prijzen_item_meta_box_eurocenten', true);
+			if (!empty($value) && !empty($value2)) {
+?>
+			<span class="price"><sup>&euro;</sup><?php echo $value; ?><sup><?php echo $value2; ?></sup></span>
+<?php
+			}
+			$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_subtitle', true);
+			if (!empty($value)) {
+?>
+			<span class="period"><?php echo $value ?></span>
+<?php
+			}
+			$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_arguments', true);
+			if (!empty($value)) {
+?>
+		</div>
+		<ul class="list-group">
+<?php
+			$array = explode( "\r\n", $value );
+			foreach ($array as &$line) {
+				$output = preg_replace("/\*(.*?)\*/", "<b>$1</b>", $line);
+?>
+				<li class="list-group-item"><?php echo $output; ?></li>
+<?php
+				}
+			}
+?>
+		</ul>
+	</div>
+</div>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
 
-		<?php
-		// Start the loop.
-		while ( have_posts() ) : the_post();
-
-			// Include the page content template.
-			get_template_part( 'content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		// End the loop.
-		endwhile;
-		?>
-
-		</main><!-- .site-main -->
-	</div><!-- .content-area -->
-
-<?php get_footer(); ?>

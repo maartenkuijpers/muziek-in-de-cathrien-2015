@@ -33,56 +33,14 @@ get_header(); ?>
 			// End the loop.
 			endwhile;
 
-			// Include content of pages with template "bestuurslid"
+			// Include content of pages with template "page-prijzen-item"
 			$args = array('posts_per_page' => -1, 'post_type' => 'page', 'order' => 'ASC', 'orderby' => 'menu_order' );
 			$query = new WP_Query($args);
 			while ( $query->have_posts() ) : $query->the_post(); 
-				if ( get_post_meta( $post->ID, '_wp_page_template', true ) == "page-prijzen-item.php" )
-				{
-					?>
-					<div class="col-md-4 text-center">
-						<div class="thumbnail">
-							<div class="caption">
-								<?php get_template_part( 'content', 'page' ); ?>
-								<script>
-									$('article#post-<?php echo($post->ID); ?> header').hide();
-								</script>
-
-								<ul class="list-inline">
-									<?php // Render social channels
-									$value = get_post_meta( $post->ID, 'bestuurslid_meta_box_email', true);
-									if (!empty($value)) {
-										echo ("<li><a href='mailto:" . $value . "'><i class='fa fa-2x fa-envelope-square'></i></a></li>");
-									}
-
-									$value = get_post_meta( $post->ID, 'bestuurslid_meta_box_facebook', true);
-									if (!empty($value)) {
-										echo ("<li><a href='" . $value . "'><i class='fa fa-2x fa-facebook-square'></i></a></li>");
-									}
-
-									$value = get_post_meta( $post->ID, 'bestuurslid_meta_box_linkedin', true);
-									if (!empty($value)) {
-										echo ("<li><a href='" . $value . "'><i class='fa fa-2x fa-linkedin-square'></i></a></li>");
-									}
-
-									$value = get_post_meta( $post->ID, 'bestuurslid_meta_box_twitter', true);
-									if (!empty($value)) {
-										echo ("<li><a href='" . $value . "'><i class='fa fa-2x fa-twitter-square'></i></a></li>");
-									}
-									?>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<?php
-					$columns = $columns + 1;
-					if ($columns == 3) {
-						echo "</div><div class='row'>";
-						$columns = 0;
-					}
+				if ( get_post_meta( $post->ID, '_wp_page_template', true ) == "page-prijzen-item.php" ) {
+					get_template_part( 'page-prijzen-item' );
 				}	
 			endwhile;
-			echo "</div>";
 			?>
 
 		</main><!-- .site-main -->

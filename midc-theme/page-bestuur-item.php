@@ -13,16 +13,15 @@
  * Template Name: Bestuur Item template
  */
 
- ?>
+?>
 
 <div class="col-md-4 text-center">
 	<div class="thumbnail">
-		<?php
-		the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
-		?>
+		<?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) ); ?>
 		<div class="caption">
 			<h3><?php the_title(); ?><br /><small>
-			<?php echo (get_post_meta( $post->ID, 'bestuur_item_meta_box_function', true)); ?></small></h3>
+			<?php echo (get_post_meta( $post->ID, 'bestuur_item_meta_box_function', true)); ?>
+			</small></h3>
 			<p><?php echo (get_post_meta( $post->ID, 'bestuur_item_meta_box_full_name', true)); ?></p>
 			<ul class="list-inline">
 				<?php // Render social channels

@@ -29,7 +29,7 @@
 
 // https://codex.wordpress.org/Function_Reference/add_meta_box#Examples
 
-function midc_bestuur_item_add_meta_boxes( $post ) {
+function midc_add_meta_boxes( $post ) {
     // Get the page template post meta
     $page_template = get_post_meta( $post->ID, '_wp_page_template', true );
     // If the current page uses our specific
@@ -44,34 +44,33 @@ function midc_bestuur_item_add_meta_boxes( $post ) {
             'default' // priority (high, core, default or low)
         );
     }
+
+	if ( 'page-prijzen-item.php' == $page_template ) {
+		add_meta_box(
+			'midc-prijzen-meta-box', // Metabox HTML ID attribute
+            'Prijzen Extra Velden', // Metabox title
+			'midc_prijzen_item_meta_box_callback', // callback name
+            'page', // post type
+            'side', // context (advanced, normal, or side)
+            'default' // priority (high, core, default or low)
+        );
+	}
 }
+
 // Make sure to use "_" instead of "-"
-add_action( 'add_meta_boxes_page', 'midc_bestuur_item_add_meta_boxes' );
+add_action( 'add_meta_boxes_page', 'midc_add_meta_boxes' );
 
 function midc_bestuur_item_meta_box_callback($post) {
-	// Define the meta box form fields here
-
-	// Add a nonce field so we can check for it later.
 	wp_nonce_field( 'midc_bestuur_item_meta_box', 'midc_bestuur_item_meta_box_nonce' );
 
-	/* Dit toont een mooie rich text editor 
-	$content = 'Dit is <b>bold Text</b>, maar dit niet';
-	$editor_id = 'mycustomeditor';
-	$settings = array( 'media_buttons' => false, 'teeny' => true, 'textarea_rows' => 3, 'wpautop' => false );
-	wp_editor( $content, $editor_id, $settings );
-	*/
-
-	/* Use get_post_meta() to retrieve an existing value
-	 * from the database and use the value for the form.
-	 */
-
+	// Read stored value from database (optionally empty)
  	$value = get_post_meta( $post->ID, 'bestuur_item_meta_box_function', true );
 	echo '<p><label for="bestuur_item_meta_box_function">Functie</label> ';
-	echo '<input type="text" id="bestuur_item_meta_box_facebook" name="bestuur_item_meta_box_function" value="' . esc_attr( $value ) . '" size="25" /></p>';
+	echo '<input type="text" id="bestuur_item_meta_box_function" name="bestuur_item_meta_box_function" value="' . esc_attr( $value ) . '" size="25" /></p>';
 
 	$value = get_post_meta( $post->ID, 'bestuur_item_meta_box_full_name', true );
 	echo '<p><label for="bestuur_item_meta_box_full_name">Volledige Naam</label> ';
-	echo '<input type="text" id="bestuur_item_meta_box_facebook" name="bestuur_item_meta_box_full_name" value="' . esc_attr( $value ) . '" size="25" /></p>';
+	echo '<input type="text" id="bestuur_item_meta_box_full_name" name="bestuur_item_meta_box_full_name" value="' . esc_attr( $value ) . '" size="25" /></p>';
 
 	$value = get_post_meta( $post->ID, 'bestuur_item_meta_box_email', true );
 	echo '<p><label for="bestuur_item_meta_box_email">';
@@ -90,6 +89,40 @@ function midc_bestuur_item_meta_box_callback($post) {
 	$value = get_post_meta( $post->ID, 'bestuur_item_meta_box_linkedin', true );
 	echo '<p><label for="bestuur_item_meta_box_linkedin">LinkedIn</label> ';
 	echo '<input type="text" id="bestuur_item_meta_box_linkedin" name="bestuur_item_meta_box_linkedin" value="' . esc_attr( $value ) . '" size="25" /></p>';
+}
+
+function midc_prijzen_item_meta_box_callback($post) {
+	// Add a nonce field so we can check for it later.
+	wp_nonce_field( 'midc_prijzen_item_meta_box', 'midc_prijzen_item_meta_box_nonce' );
+
+	/* Dit toont een mooie rich text editor 
+	$content = 'Dit is <b>bold Text</b>, maar dit niet';
+	$editor_id = 'mycustomeditor';
+	$settings = array( 'media_buttons' => false, 'teeny' => true, 'textarea_rows' => 3, 'wpautop' => false );
+	wp_editor( $content, $editor_id, $settings );
+	*/
+
+	// Read stored value from database (optionally empty)
+ 	$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_euro', true );
+	echo '<p><label for="prijzen_item_meta_box_euro">Prijs (bv. 12,50 of 7,00)</label><br />';
+	echo '<input type="text" id="prijzen_item_meta_box_euro" name="prijzen_item_meta_box_euro" value="' . esc_attr( $value ) . '" size="3" />';
+ 	$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_eurocenten', true );
+	if (empty($value)) { $value = "00"; }
+	echo '<input type="text" id="prijzen_item_meta_box_eurocenten" name="prijzen_item_meta_box_eurocenten" value="' . esc_attr( $value ) . '" size="2" /></p>';
+
+ 	$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_subtitle', true );
+	echo '<p><label for="prijzen_item_meta_box_subtitle">Subtitel</label> ';
+	echo '<input type="text" id="prijzen_item_meta_box_subtitle" name="prijzen_item_meta_box_subtitle" value="' . esc_attr( $value ) . '" size="25" /></p>';
+
+ 	$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_recommended', true );
+	echo '<p><input type="checkbox" id="prijzen_item_meta_box_recommended" name="prijzen_item_meta_box_recommended" ';
+	if ($value == "on") { echo 'checked="checked"'; };
+	echo ' />';
+	echo '<label for="prijzen_item_meta_box_recommended">"Beste Keus!" wel of niet</label></p>';
+
+ 	$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_arguments', true );
+	echo '<p><label for="prijzen_item_meta_box_arguments">Argumenten per regel (*bold*)</label> ';
+	echo '<textarea autocomplete="off" id="prijzen_item_meta_box_arguments" name="prijzen_item_meta_box_arguments" rows="5" cols="25">' . esc_attr( $value ) . '</textarea></p>';
 }
 
 /**
@@ -150,14 +183,57 @@ function midc_bestuur_item_save_meta_box_data( $post_id ) {
 }
 add_action( 'save_post', 'midc_bestuur_item_save_meta_box_data' );
 
-/*
-function midc_bestuur_item_save_custom_post_meta() {
-	// Sanitize/validate post meta here, before calling update_post_meta()
+/**
+ * When the post is saved, saves our custom data.
+ *
+ * @param int $post_id The ID of the post being saved.
+ */
+function midc_prijzen_item_save_meta_box_data( $post_id ) {
+
+	// Check if our nonce is set.
+	if ( ! isset( $_POST['midc_prijzen_item_meta_box_nonce'] ) ) {
+		return;
+	}
+
+	// Verify that the nonce is valid.
+	if ( ! wp_verify_nonce( $_POST['midc_prijzen_item_meta_box_nonce'], 'midc_prijzen_item_meta_box' ) ) {
+		return;
+	}
+
+	// If this is an autosave, our form has not been submitted, so we don't want to do anything.
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+
+	// Check the user's permissions.
+	if ( isset( $_POST['post_type'] ) && 'page' == $_POST['post_type'] ) {
+		if ( ! current_user_can( 'edit_page', $post_id ) ) { return; }
+	} else {
+		if ( ! current_user_can( 'edit_post', $post_id ) ) { return; }
+	}
+
+	/* OK, it's safe for us to save the data now. */
+
+	if ( ! isset( $_POST['prijzen_item_meta_box_euro'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['prijzen_item_meta_box_euro'] );
+	update_post_meta( $post_id, 'prijzen_item_meta_box_euro', $my_data );
+	if ( ! isset( $_POST['prijzen_item_meta_box_eurocenten'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['prijzen_item_meta_box_eurocenten'] );
+	update_post_meta( $post_id, 'prijzen_item_meta_box_eurocenten', $my_data );
+
+	if ( ! isset( $_POST['prijzen_item_meta_box_subtitle'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['prijzen_item_meta_box_subtitle'] );
+	update_post_meta( $post_id, 'prijzen_item_meta_box_subtitle', $my_data );
+
+	$my_data = $_POST['prijzen_item_meta_box_recommended'] ? true : false;
+	update_post_meta( $post_id, 'prijzen_item_meta_box_recommended', $my_data );
+
+	if ( ! isset( $_POST['prijzen_item_meta_box_arguments'] ) ) { return; }
+	$my_data =  $_POST['prijzen_item_meta_box_arguments'];
+	update_post_meta( $post_id, 'prijzen_item_meta_box_arguments', $my_data );
 }
-add_action( 'publish_page', 'midc_bestuur_item_save_custom_post_meta' );
-add_action( 'draft_page', 'midc_bestuur_item_save_custom_post_meta' );
-add_action( 'future_page', 'midc_bestuur_item_save_custom_post_meta' );
-*/
+add_action( 'save_post', 'midc_prijzen_item_save_meta_box_data' );
+
 function my_theme_add_editor_styles() {
     global $post;
 
