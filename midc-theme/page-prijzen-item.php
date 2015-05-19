@@ -19,10 +19,9 @@
 		<div class="panel-heading">
 <?php
 			$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_recommended', true);
-			echo $value;
-			if ($value == "on") {
+			if ($value != 0) {
 ?>
-				<h3 class="panel-title"><?php the_title(); ?><span class="label label-success"><i>Beste Keus!</i></span></h3>
+				<h3 class="panel-title"><?php the_title(); ?>&nbsp;<span class="label label-success"><i>Beste Keus!</i></span></h3>
 <?php
 			} else {
 ?>
@@ -54,15 +53,26 @@
 <?php
 			$array = explode( "\r\n", $value );
 			foreach ($array as &$line) {
-				$output = preg_replace("/\*(.*?)\*/", "<b>$1</b>", $line);
+				$line = preg_replace("/\*(.*?)\*/", "<b>$1</b>", $line);
+				$line = preg_replace("/\|(.*?)\|(.*?)\|/", "<a href='?p=$1'>$2</a>", $line);
 ?>
-				<li class="list-group-item"><?php echo $output; ?></li>
+				<li class="list-group-item"><?php echo $line; ?></li>
 <?php
 				}
+			}
+			$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_actiontext', true);
+			if (!empty($value)) {
+				$value_url = get_post_meta( $post->ID, 'prijzen_item_meta_box_actionlink', true);
+				if (intval($value_url) != 0) {
+					$value_url = '?p=' . $value_url;
+				}
+?>
+						<li class="list-group-item">
+							<a href="<?php echo $value_url; ?>" class="btn btn-primary"><?php echo $value; ?></a>
+						</li>
+<?php
 			}
 ?>
 		</ul>
 	</div>
 </div>
-
-

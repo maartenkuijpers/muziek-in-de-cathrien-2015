@@ -33,6 +33,9 @@ get_header(); ?>
 			// End the loop.
 			endwhile;
 
+?>
+			<div class="row">
+<?php
 			// Include content of pages with template "page-prijzen-item"
 			$args = array('posts_per_page' => -1, 'post_type' => 'page', 'order' => 'ASC', 'orderby' => 'menu_order' );
 			$query = new WP_Query($args);
@@ -41,8 +44,9 @@ get_header(); ?>
 					get_template_part( 'page-prijzen-item' );
 				}	
 			endwhile;
-			?>
+?>
 
+			</div>
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->
 

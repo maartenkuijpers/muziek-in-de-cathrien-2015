@@ -111,18 +111,27 @@ function midc_prijzen_item_meta_box_callback($post) {
 	echo '<input type="text" id="prijzen_item_meta_box_eurocenten" name="prijzen_item_meta_box_eurocenten" value="' . esc_attr( $value ) . '" size="2" /></p>';
 
  	$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_subtitle', true );
-	echo '<p><label for="prijzen_item_meta_box_subtitle">Subtitel</label> ';
+	echo '<p><label for="prijzen_item_meta_box_subtitle">Subtitel</label>';
 	echo '<input type="text" id="prijzen_item_meta_box_subtitle" name="prijzen_item_meta_box_subtitle" value="' . esc_attr( $value ) . '" size="25" /></p>';
 
  	$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_recommended', true );
 	echo '<p><input type="checkbox" id="prijzen_item_meta_box_recommended" name="prijzen_item_meta_box_recommended" ';
-	if ($value == "on") { echo 'checked="checked"'; };
+	if ($value > 0) { echo 'checked="checked"'; };
 	echo ' />';
 	echo '<label for="prijzen_item_meta_box_recommended">"Beste Keus!" wel of niet</label></p>';
 
  	$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_arguments', true );
-	echo '<p><label for="prijzen_item_meta_box_arguments">Argumenten per regel (*bold*)</label> ';
-	echo '<textarea autocomplete="off" id="prijzen_item_meta_box_arguments" name="prijzen_item_meta_box_arguments" rows="5" cols="25">' . esc_attr( $value ) . '</textarea></p>';
+	echo '<p><label for="prijzen_item_meta_box_arguments">Argumenten per regel</label>';
+	echo '<textarea autocomplete="off" id="prijzen_item_meta_box_arguments" name="prijzen_item_meta_box_arguments" rows="5" cols="25">' . esc_attr( $value ) . '</textarea><br>';
+	echo '<small>legenda: *dikgedrukt*, |post ID|tekst|</small>';
+
+ 	$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_actiontext', true );
+	echo '<p><label for="prijzen_item_meta_box_actiontext">Actieknop tekst</label>';
+	echo '<input type="text" id="prijzen_item_meta_box_actiontext" name="prijzen_item_meta_box_actiontext" value="' . esc_attr( $value ) . '" size="25" /></p>';
+
+ 	$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_actionlink', true );
+	echo '<p><label for="prijzen_item_meta_box_actionlink">Actieknop post ID of volledig URL</label>';
+	echo '<input type="text" id="prijzen_item_meta_box_actionlink" name="prijzen_item_meta_box_actionlink" value="' . esc_attr( $value ) . '" size="25" /></p>';
 }
 
 /**
@@ -214,23 +223,33 @@ function midc_prijzen_item_save_meta_box_data( $post_id ) {
 
 	/* OK, it's safe for us to save the data now. */
 
-	if ( ! isset( $_POST['prijzen_item_meta_box_euro'] ) ) { return; }
-	$my_data = sanitize_text_field( $_POST['prijzen_item_meta_box_euro'] );
-	update_post_meta( $post_id, 'prijzen_item_meta_box_euro', $my_data );
-	if ( ! isset( $_POST['prijzen_item_meta_box_eurocenten'] ) ) { return; }
-	$my_data = sanitize_text_field( $_POST['prijzen_item_meta_box_eurocenten'] );
-	update_post_meta( $post_id, 'prijzen_item_meta_box_eurocenten', $my_data );
-
-	if ( ! isset( $_POST['prijzen_item_meta_box_subtitle'] ) ) { return; }
-	$my_data = sanitize_text_field( $_POST['prijzen_item_meta_box_subtitle'] );
-	update_post_meta( $post_id, 'prijzen_item_meta_box_subtitle', $my_data );
-
-	$my_data = $_POST['prijzen_item_meta_box_recommended'] ? true : false;
+	if (isset( $_POST['prijzen_item_meta_box_euro'] ) ) { 
+		$my_data = sanitize_text_field( $_POST['prijzen_item_meta_box_euro'] );
+		update_post_meta( $post_id, 'prijzen_item_meta_box_euro', $my_data );
+	}
+	if (isset( $_POST['prijzen_item_meta_box_eurocenten'] ) ) {
+		$my_data = sanitize_text_field( $_POST['prijzen_item_meta_box_eurocenten'] );
+		update_post_meta( $post_id, 'prijzen_item_meta_box_eurocenten', $my_data );
+	}
+	if (isset( $_POST['prijzen_item_meta_box_subtitle'] ) ) {
+		$my_data = sanitize_text_field( $_POST['prijzen_item_meta_box_subtitle'] );
+		update_post_meta( $post_id, 'prijzen_item_meta_box_subtitle', $my_data );
+	}
+	$my_data = $_POST['prijzen_item_meta_box_recommended'] ? true : false; // checkbox
 	update_post_meta( $post_id, 'prijzen_item_meta_box_recommended', $my_data );
 
-	if ( ! isset( $_POST['prijzen_item_meta_box_arguments'] ) ) { return; }
-	$my_data =  $_POST['prijzen_item_meta_box_arguments'];
-	update_post_meta( $post_id, 'prijzen_item_meta_box_arguments', $my_data );
+	if (isset( $_POST['prijzen_item_meta_box_arguments'] ) ) {
+		$my_data =  $_POST['prijzen_item_meta_box_arguments'];
+		update_post_meta( $post_id, 'prijzen_item_meta_box_arguments', $my_data );
+	}
+	if (isset( $_POST['prijzen_item_meta_box_actiontext'] ) ) {
+		$my_data = $_POST['prijzen_item_meta_box_actiontext'];
+		update_post_meta( $post_id, 'prijzen_item_meta_box_actiontext', $my_data );
+	}
+	if (isset( $_POST['prijzen_item_meta_box_actionlink'] ) ) {
+		$my_data = $_POST['prijzen_item_meta_box_actionlink'];
+		update_post_meta( $post_id, 'prijzen_item_meta_box_actionlink', $my_data );
+	}
 }
 add_action( 'save_post', 'midc_prijzen_item_save_meta_box_data' );
 
