@@ -36,7 +36,7 @@ function midc_add_meta_boxes( $post ) {
     // template, then output our custom metabox
     if ( 'page-bestuur-item.php' == $page_template ) {
         add_meta_box(
-			'midc-bestuurslid-meta-box', // Metabox HTML ID attribute
+			'midc-bestuur-item-meta-box', // Metabox HTML ID attribute
             'Bestuurslid Extra Velden', // Metabox title
 			'midc_bestuur_item_meta_box_callback', // callback name
             'page', // post type
@@ -47,9 +47,20 @@ function midc_add_meta_boxes( $post ) {
 
 	if ( 'page-prijzen-item.php' == $page_template ) {
 		add_meta_box(
-			'midc-prijzen-meta-box', // Metabox HTML ID attribute
+			'midc-prijzen-item-meta-box', // Metabox HTML ID attribute
             'Prijzen Extra Velden', // Metabox title
 			'midc_prijzen_item_meta_box_callback', // callback name
+            'page', // post type
+            'side', // context (advanced, normal, or side)
+            'default' // priority (high, core, default or low)
+        );
+	}
+
+	if ( 'page-concert-in-beeld-item.php' == $page_template ) {
+		add_meta_box(
+			'midc-concert-in-beeld-item-meta-box', // Metabox HTML ID attribute
+            'Concert in beeld item Extra Velden', // Metabox title
+			'midc_concert_in_beeld_item_meta_box_callback', // callback name
             'page', // post type
             'side', // context (advanced, normal, or side)
             'default' // priority (high, core, default or low)
@@ -92,7 +103,6 @@ function midc_bestuur_item_meta_box_callback($post) {
 }
 
 function midc_prijzen_item_meta_box_callback($post) {
-	// Add a nonce field so we can check for it later.
 	wp_nonce_field( 'midc_prijzen_item_meta_box', 'midc_prijzen_item_meta_box_nonce' );
 
 	/* Dit toont een mooie rich text editor 
@@ -102,7 +112,6 @@ function midc_prijzen_item_meta_box_callback($post) {
 	wp_editor( $content, $editor_id, $settings );
 	*/
 
-	// Read stored value from database (optionally empty)
  	$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_euro', true );
 	echo '<p><label for="prijzen_item_meta_box_euro">Prijs (bv. 12,50 of 7,00)</label><br />';
 	echo '<input type="text" id="prijzen_item_meta_box_euro" name="prijzen_item_meta_box_euro" value="' . esc_attr( $value ) . '" size="3" />';
@@ -134,19 +143,46 @@ function midc_prijzen_item_meta_box_callback($post) {
 	echo '<input type="text" id="prijzen_item_meta_box_actionlink" name="prijzen_item_meta_box_actionlink" value="' . esc_attr( $value ) . '" size="25" /></p>';
 }
 
+function midc_concert_in_beeld_item_meta_box_callback($post) {
+	wp_nonce_field( 'midc_concert_in_beeld_item_meta_box', 'midc_concert_in_beeld_item_meta_box_nonce' );
+
+	$options = array(
+		'gallery' => 'Fotoserie',
+		'link' => 'Post link',
+		'youtube' => 'YouTube'
+	);
+ 	$value = get_post_meta( $post->ID, 'concert_in_beeld_item_meta_box_type', true );
+	$selected = '';
+	echo '<p><label for="concert_in_beeld_item_meta_box_type">Weergave type</label>&nbsp;';
+	echo '<select id="concert_in_beeld_item_meta_box_type" name="concert_in_beeld_item_meta_box_type">';
+	foreach( $options as $key => $option) {
+		if ( $value == $key ) {
+			$selected = ' selected';
+		} else {
+			$selected = '';
+		}
+		echo '<option value="' . $key . '"' . $selected . '>' . $option . '</option>';
+	}
+	echo '</select>';
+
+ 	$value = get_post_meta( $post->ID, 'concert_in_beeld_item_meta_box_actionlink', true );
+	echo '<p><label for="concert_in_beeld_item_meta_box_actionlink">Post ID van fotoserie of post link<br />of YouTube code</label>';
+	echo '<input type="text" id="concert_in_beeld_item_meta_box_actionlink" name="concert_in_beeld_item_meta_box_actionlink" value="' . esc_attr( $value ) . '" size="25" /></p>';
+
+ 	$value = get_post_meta( $post->ID, 'concert_in_beeld_item_meta_box_actiontext', true );
+	echo '<p><label for="concert_in_beeld_item_meta_box_actiontext">Actieknop tekst</label>';
+	echo '<input type="text" id="concert_in_beeld_item_meta_box_actiontext" name="concert_in_beeld_item_meta_box_actiontext" value="' . esc_attr( $value ) . '" size="25" /></p>';
+}
+
 /**
  * When the post is saved, saves our custom data.
  *
  * @param int $post_id The ID of the post being saved.
  */
 function midc_bestuur_item_save_meta_box_data( $post_id ) {
-
-	// Check if our nonce is set.
 	if ( ! isset( $_POST['midc_bestuur_item_meta_box_nonce'] ) ) {
 		return;
 	}
-
-	// Verify that the nonce is valid.
 	if ( ! wp_verify_nonce( $_POST['midc_bestuur_item_meta_box_nonce'], 'midc_bestuur_item_meta_box' ) ) {
 		return;
 	}
@@ -188,7 +224,6 @@ function midc_bestuur_item_save_meta_box_data( $post_id ) {
 	if ( ! isset( $_POST['bestuur_item_meta_box_linkedin'] ) ) { return; }
 	$my_data = sanitize_text_field( $_POST['bestuur_item_meta_box_linkedin'] );
 	update_post_meta( $post_id, 'bestuur_item_meta_box_linkedin', $my_data );
-
 }
 add_action( 'save_post', 'midc_bestuur_item_save_meta_box_data' );
 
@@ -252,6 +287,52 @@ function midc_prijzen_item_save_meta_box_data( $post_id ) {
 	}
 }
 add_action( 'save_post', 'midc_prijzen_item_save_meta_box_data' );
+
+/**
+ * When the post is saved, saves our custom data.
+ *
+ * @param int $post_id The ID of the post being saved.
+ */
+function midc_concert_in_beeld_item_save_meta_box_data( $post_id ) {
+
+	// Check if our nonce is set.
+	if ( ! isset( $_POST['midc_concert_in_beeld_item_meta_box_nonce'] ) ) {
+		return;
+	}
+
+	// Verify that the nonce is valid.
+	if ( ! wp_verify_nonce( $_POST['midc_concert_in_beeld_item_meta_box_nonce'], 'midc_concert_in_beeld_item_meta_box' ) ) {
+		return;
+	}
+
+	// If this is an autosave, our form has not been submitted, so we don't want to do anything.
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+
+	// Check the user's permissions.
+	if ( isset( $_POST['post_type'] ) && 'page' == $_POST['post_type'] ) {
+		if ( ! current_user_can( 'edit_page', $post_id ) ) { return; }
+	} else {
+		if ( ! current_user_can( 'edit_post', $post_id ) ) { return; }
+	}
+
+	/* OK, it's safe for us to save the data now. */
+
+	if (isset( $_POST['concert_in_beeld_item_meta_box_type'] ) ) { 
+		$my_data = $_POST['concert_in_beeld_item_meta_box_type'];
+		update_post_meta( $post_id, 'concert_in_beeld_item_meta_box_type', $my_data );
+	}
+	if (isset( $_POST['concert_in_beeld_item_meta_box_actiontext'] ) ) {
+		$my_data = sanitize_text_field( $_POST['concert_in_beeld_item_meta_box_actiontext'] );
+		update_post_meta( $post_id, 'concert_in_beeld_item_meta_box_actiontext', $my_data );
+	}
+	if (isset( $_POST['concert_in_beeld_item_meta_box_actionlink'] ) ) {
+		$my_data = sanitize_text_field( $_POST['concert_in_beeld_item_meta_box_actionlink'] );
+		update_post_meta( $post_id, 'concert_in_beeld_item_meta_box_actionlink', $my_data );
+	}
+}
+add_action( 'save_post', 'midc_concert_in_beeld_item_save_meta_box_data' );
 
 function my_theme_add_editor_styles() {
     global $post;
