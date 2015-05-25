@@ -174,18 +174,47 @@ function midc_concert_in_beeld_item_meta_box_callback($post) {
 	echo '<input type="text" id="concert_in_beeld_item_meta_box_actiontext" name="concert_in_beeld_item_meta_box_actiontext" value="' . esc_attr( $value ) . '" size="25" /></p>';
 }
 
+function midc_concert_post_meta_box_callback() {
+	add_meta_box('midc_concerten_meta', 'Locatie etc.', 'midc_concerten_meta_callback', 'concert', 'side', 'default');
+	add_meta_box('midc_concerten_uitvoerenden', 'Uitvoerenden', 'midc_concerten_uitvoerenden_callback', 'concert', 'side', 'default');
+	add_meta_box('midc_concerten_programma', 'Programma', 'midc_concerten_programma_callback', 'concert', 'side', 'default');
+}
+
+function midc_concerten_meta_callback($post) {
+	//global $post; 
+	wp_nonce_field( 'midc_concerten_meta', 'midc_concerten_meta_nonce' );
+    $value = get_post_meta($post->ID, 'midc_concerten_meta_locatie', true); 
+	echo '<p><label for="midc_concerten_meta_locatie">Locatie:</label>'; 
+    echo '<input type="text" id="midc_concerten_meta_locatie" name="midc_concerten_meta_locatie" value="' . $value . '" class="widefat" /></p>';
+}
+
+function midc_save_concerten_meta($post_id, $post) {
+	if ( !isset( $_POST['midc_concerten_meta_nonce'] ) )
+		return $post_id;
+	if ( !wp_verify_nonce( $_POST['midc_concerten_meta_nonce'], 'midc_concerten_meta' ) )
+		return $post_id;
+
+	// Is the user allowed to edit the post or page?
+	if ( !current_user_can( 'edit_post', $post_id ))
+		return $post_id;
+
+	if ( ! isset( $_POST['midc_concerten_meta_locatie'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['midc_concerten_meta_locatie'] );
+	update_post_meta( $post_id, 'midc_concerten_meta_locatie', $my_data );
+}
+add_action('save_post', 'midc_save_concerten_meta');
+
+
 /**
  * When the post is saved, saves our custom data.
  *
  * @param int $post_id The ID of the post being saved.
  */
 function midc_bestuur_item_save_meta_box_data( $post_id ) {
-	if ( ! isset( $_POST['midc_bestuur_item_meta_box_nonce'] ) ) {
+	if ( ! isset( $_POST['midc_bestuur_item_meta_box_nonce'] ) )
 		return;
-	}
-	if ( ! wp_verify_nonce( $_POST['midc_bestuur_item_meta_box_nonce'], 'midc_bestuur_item_meta_box' ) ) {
+	if ( ! wp_verify_nonce( $_POST['midc_bestuur_item_meta_box_nonce'], 'midc_bestuur_item_meta_box' ) )
 		return;
-	}
 
 	// If this is an autosave, our form has not been submitted, so we don't want to do anything.
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
@@ -452,6 +481,48 @@ function twentyfifteen_setup() {
 }
 endif; // twentyfifteen_setup
 add_action( 'after_setup_theme', 'twentyfifteen_setup' );
+
+/* MIDC START */
+
+/**
+ * Custom Post Type must be defined after the 'after_setup_theme' hook.
+ */
+
+function midc_create_post_type() {
+  register_post_type( 'concert',
+    array(
+      'labels' => array(
+        'name' => __( 'Concerten' ),
+        'singular_name' => __( 'Concert' ),
+        'add_new' => __( 'Nieuw Concert' ), 
+        'add_new_item' => __( 'Nieuw Concert' ), 
+        'edit_item' => __( 'Edit Concert' ), 
+        'new_item' => __( 'Nieuw Concert' ), 
+        'view_item' => __( 'View Concert' ), 
+        'search_items' => __( 'Zoek Concert' ), 
+        'not_found' => __( 'Geen concerten gevonden' ), 
+        'not_found_in_trash' => __( 'Geen concerten gevonden in prullenbak' ) 
+      ),
+      'public' => true,
+	  'supports' => array( 'title', 'editor', 'thumbnail' ),
+	  'menu_position' => 5,
+	  'register_meta_box_cb' => 'midc_concert_post_meta_box_callback',
+    )
+  );
+}
+add_action( 'init', 'midc_create_post_type' );
+
+// Show posts of 'post', 'page' and 'movie' post types on home page
+function add_concert_post_types_to_query( $query ) {
+  if ( is_home() && $query->is_main_query() )
+    $query->set( 'post_type', array( 'concert' ) ); // you can also add 'post', 'page', it defines the order
+  return $query;
+}
+add_action( 'pre_get_posts', 'add_concert_post_types_to_query' );
+
+
+/* MIDC END */
+
 
 /**
  * Register widget area.
