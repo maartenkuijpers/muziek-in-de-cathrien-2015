@@ -12,6 +12,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php
+echo "door " . __FILE__ . " gerendered.";
 		// Post thumbnail.
 		twentyfifteen_post_thumbnail();
 	?>

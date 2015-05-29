@@ -34,7 +34,6 @@ get_header(); ?>
 			endwhile;
 
 ?>
-			<div class="row">
 <?php
 			// Include content of pages with template "page-concert-in-beeld-item"
 			$args = array('posts_per_page' => -1, 'post_type' => 'page', 'order' => 'ASC', 'orderby' => 'menu_order' );
@@ -42,11 +41,12 @@ get_header(); ?>
 			while ( $query->have_posts() ) : $query->the_post(); 
 				if ( get_post_meta( $post->ID, '_wp_page_template', true ) == "page-concert-in-beeld-item.php" ) {
 					get_template_part( 'page-concert-in-beeld-item' );
+					if ( $query->have_posts() ) {
+						echo "<hr />";
+					}
 				}	
 			endwhile;
 ?>
-
-			</div>
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->
 
