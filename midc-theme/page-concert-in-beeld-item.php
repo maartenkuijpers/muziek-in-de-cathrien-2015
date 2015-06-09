@@ -39,25 +39,28 @@ $icon = $icons[$type];
 			echo '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' . $actionLink . '" frameborder="0"></iframe>';
 			echo '</div>';
 		} else if ($type == 'link') {
-			echo '<a href="' . $actionLink . '" rel="lightbox">';
+			echo '<a href="' . $actionLink . '" >';
 			the_post_thumbnail( 'full', array( 'class' => 'img-responsive img-hover' ) );
 			echo '</a>';
 		} else if ($type == 'gallery') {
-?>
-<div id="ngg-gallery-4___204145374-1" class="ngg-galleryoverview ngg-ajax-pagination-none">
-	<div id="ngg-image-0" class="ngg-gallery-thumbnail-box">
-		<div class="ngg-gallery-thumbnail">
-			<!-- <a class="ngg-fancybox" rel="4___204145374" data-description="" data-title="SONY DSC" data-image-id="4" data-thumbnail="http://muziekindecathrien.local/wp-content/gallery/cve-heeze/thumbs/thumbs_DSC05332.JPG" data-src="http://muziekindecathrien.local/wp-content/gallery/cve-heeze/DSC05332.JPG" title="" href="http://muziekindecathrien.local/wp-content/gallery/cve-heeze/DSC05332.JPG"> -->
-			<a class="ngg-fancybox" rel="4___204145374" data-description="" data-title="SONY DSC" data-image-id="4" data-thumbnail="http://muziekindecathrien.local/wp-content/gallery/cve-heeze/thumbs/thumbs_DSC05332.JPG" data-src="http://muziekindecathrien.local/wp-content/gallery/cve-heeze/DSC05332.JPG" title="" href="http://muziekindecathrien.local/wp-content/gallery/cve-heeze/DSC05332.JPG">
-<?php
-the_post_thumbnail( 'full', array( 'class' => 'img-responsive img-hover' ) );
-?>
-			</a>
-		</div>
-	</div>
-</div>
+			// This code gets the Preview image by gallery-ID
+			$gallery_id = $actionLink;
+			$results = $wpdb->get_results("SELECT ng.path, np.filename FROM wp_ngg_pictures np, wp_ngg_gallery ng WHERE np.galleryid=ng.gid AND np.galleryid=".$gallery_id." AND np.pid=ng.previewpic",ARRAY_A);
+			if (!empty($results[0]['path']) && !empty($results[0]['filename'])) : 
+				$imgpath = $results[0]['path'].'/'.$results[0]['filename'];
+			endif;
 
-<?php
+			global $nggdb;
+			$gallery = $nggdb->get_gallery($actionLink, 'sortorder', 'ASC', true, 0, 0);
+			//echo '<a href="' . $gallery->pageid . '">';
+			echo '<a href="' . $imgpath . '">';
+			if (!empty($imgpath))
+				echo '<img class="img-responsive img-hover" src="/' . $imgpath . '">';
+			else
+				the_post_thumbnail( 'full', array( 'class' => 'img-responsive img-hover' ) );
+			echo '</a>';
+			
+			//$image->pageid
 		}
 ?>
     </div>
@@ -69,9 +72,9 @@ the_post_thumbnail( 'full', array( 'class' => 'img-responsive img-hover' ) );
         </h3>
 		<p><?php the_content(); ?></p>
 <?php
-if (!empty($actionText) && $type != 'youtube') {
-    echo '<a class="btn btn-primary" href="' . $actionLink . '">' . $actionText . '&nbsp;<i class="fa fa-angle-right"></i></a>';
-}
+		if (!empty($actionText) && $type != 'youtube') {
+			echo '<a class="btn btn-primary" href="' . $actionLink . '">' . $actionText . '&nbsp;<i class="fa fa-angle-right"></i></a>';
+		}
 ?>
     </div>
 </div> <!-- row -->
