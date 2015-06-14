@@ -14,10 +14,7 @@
  */
 
 $actionLink = get_post_meta( $post->ID, 'concert_in_beeld_item_meta_box_actionlink', true);
-//if (!empty($actionLink))
-	//$actionLink = "#";
 $actionText = get_post_meta( $post->ID, 'concert_in_beeld_item_meta_box_actiontext', true);
-
 $type = get_post_meta( $post->ID, 'concert_in_beeld_item_meta_box_type', true);
 $icons = array(
 		'gallery' => 'fa fa-camera fa-4x',
