@@ -52,7 +52,8 @@ $icon = $icons[$type];
 
 			global $nggdb;
 			$gallery_page_id = $wpdb->get_var("SELECT pageid FROM wp_ngg_gallery where gid=".$gallery_id.";");
-			echo '<a href="' . get_permalink($gallery_page_id) . '">';
+			$perma_gallery_page_id = get_permalink($gallery_page_id);
+			echo '<a href="' . $perma_gallery_page_id . '">';
 			if (!empty($imgpath))
 				echo '<img class="img-responsive img-hover" src="/' . $imgpath . '">';
 			else
@@ -71,8 +72,12 @@ $icon = $icons[$type];
         </h3>
 		<p><?php the_content(); ?></p>
 <?php
-		if (!empty($actionText) && $type != 'youtube') {
-			echo '<a class="btn btn-primary" href="' . $actionLink . '">' . $actionText . '&nbsp;<i class="fa fa-angle-right"></i></a>';
+		if (!empty($actionText)) {
+			if ($type == 'gallery') {
+				echo '<a class="btn btn-primary" href="' . $perma_gallery_page_id . '">' . $actionText . '&nbsp;<i class="fa fa-angle-right"></i></a>';
+			} else if ($type == 'link') { 
+				echo '<a class="btn btn-primary" href="' . $actionLink . '">' . $actionText . '&nbsp;<i class="fa fa-angle-right"></i></a>';
+			}
 		}
 ?>
     </div>
