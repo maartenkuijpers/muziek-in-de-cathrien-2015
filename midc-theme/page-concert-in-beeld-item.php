@@ -45,15 +45,14 @@ $icon = $icons[$type];
 		} else if ($type == 'gallery') {
 			// This code gets the Preview image by gallery-ID
 			$gallery_id = $actionLink;
-			$results = $wpdb->get_results("SELECT ng.path, np.filename FROM wp_ngg_pictures np, wp_ngg_gallery ng WHERE np.galleryid=ng.gid AND np.galleryid=".$gallery_id." AND np.pid=ng.previewpic",ARRAY_A);
+			$results = $wpdb->get_results("SELECT ng.path, ng.id np.filename FROM wp_ngg_pictures np, wp_ngg_gallery ng WHERE np.galleryid=ng.gid AND np.galleryid=".$gallery_id." AND np.pid=ng.previewpic",ARRAY_A);
 			if (!empty($results[0]['path']) && !empty($results[0]['filename'])) : 
 				$imgpath = $results[0]['path'].'/'.$results[0]['filename'];
 			endif;
 
 			global $nggdb;
-			$gallery = $nggdb->get_gallery($actionLink, 'sortorder', 'ASC', true, 0, 0);
-			//echo '<a href="' . $gallery->pageid . '">';
-			echo '<a href="' . $imgpath . '">';
+			$gallery_page_id = $wpdb->get_var("SELECT pageid FROM wp_ngg_gallery where gid=".$gallery_id.";");
+			echo '<a href="' . get_permalink($gallery_page_id) . '">';
 			if (!empty($imgpath))
 				echo '<img class="img-responsive img-hover" src="/' . $imgpath . '">';
 			else
