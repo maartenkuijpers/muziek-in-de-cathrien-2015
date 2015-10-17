@@ -37,7 +37,7 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <!--<div class="container">-->
+        <div class="container">
 			<!-- INSERT WP MENU HERE -->
 				<?php
 				$defaults = array(
@@ -60,48 +60,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img src=" <?php echo get_stylesheet_directory_uri();
-?>/images/Muziek in de Cathrien - horizontaal 50px.png" title="Logo Muziek in de Cathrien" /></a>
+                <a class="navbar-brand" href="/"><img src=" <?php echo get_stylesheet_directory_uri();?>/images/Muziek in de Cathrien - horizontaal 50px.png" title="Logo Muziek in de Cathrien" /></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Concerten <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="http://www.muziekindecathrien.nl/agenda/jaarprogramma/">Seizoen 2014-2015</a>
-                            </li>
-                            <li>
-                                <a href="reserveren-stap1.html"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Reserveren</a>
-                            </li>
-                            <li>
-                                <a href="concerten-in-beeld.html">Concerten in beeld</a>
-                            </li>
-                            <li>
-                                <a href="gastenboek.html">Gastenboek</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Informatie <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="pricing.html">Prijzen</a>
-                            </li>
-                            <li>
-                                <a href="#">Stadskerk St. Cathrien</a>
-                            </li>
-                            <li>
-                                <a href="#">Instrumentarium</a>
-                            </li>
-                            <li role="presentation" class="divider"></li>
-                            <li>
-                                <a href="#">Deelnemen in de serie</a>
-                            </li>
-                        </ul>
-                    </li>
-
                     <li>
                         <a id="login" data-placement="bottom" data-toggle="nieuwsbrief-popover" data-title="Meldt u aan voor de nieuwsbrief" data-container="body" type="button" data-html="true" href="#">Nieuwsbrief</a>
                         <div id="nieuwsbrief-content" class="hide">
@@ -112,24 +75,6 @@
                                 </div>
                             </form>
                         </div>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stichting CME <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="about.html">Bestuur</a>
-                            </li>
-                            <li>
-                                <a href="#">Donateur worden</a>
-                            </li>
-                            <li>
-                                <a href="#">Sponsoren</a>
-                            </li>
-                            <li>
-                                <a href="anbi-informatie.html">ANBI Informatie</a>
-                            </li>
-                        </ul>
                     </li>
 
                     <li>

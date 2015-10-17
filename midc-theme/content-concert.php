@@ -8,6 +8,7 @@
  * @subpackage Twenty_Fifteen
  * @since Twenty Fifteen 1.0
  */
+echo "door " . __FILE__ . " gerendered BEGIN.";
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -15,7 +16,7 @@
 		// Post thumbnail.
 		twentyfifteen_post_thumbnail();
 	?>
-
+	Dit is een test
 	<header class="entry-header">
 		<?php
 			if ( is_single() ) :
@@ -57,3 +58,6 @@
 	</footer><!-- .entry-footer -->
 
 </article><!-- #post-## -->
+<?php
+echo "door " . __FILE__ . " gerendered BEGIN.";
+?>

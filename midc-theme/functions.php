@@ -178,20 +178,84 @@ function midc_concert_in_beeld_item_meta_box_callback($post) {
 }
 
 function midc_concert_post_meta_box_callback() {
-	add_meta_box('midc_concerten_meta', 'Locatie etc.', 'midc_concerten_meta_callback', 'concert', 'side', 'default');
-	add_meta_box('midc_concerten_uitvoerenden', 'Uitvoerenden', 'midc_concerten_uitvoerenden_callback', 'concert', 'side', 'default');
-	add_meta_box('midc_concerten_programma', 'Programma', 'midc_concerten_programma_callback', 'concert', 'side', 'default');
+	add_meta_box('midc_concerten_meta', 'Algemene gegevens', 'midc_concerten_meta_callback', 'concert', 'side', 'default');
+	add_meta_box('midc_concerten_artistiek', 'Programma & Uitvoerenden', 'midc_concerten_artistiek_callback', 'concert', 'side', 'default');
 }
+
+function midc_concerten_artistiek_callback($post) {
+	//global $post; 
+	wp_nonce_field( 'midc_concerten_artistiek', 'midc_concerten_artistiek_nonce' );
+
+	// Programma
+	echo '<p><label for="midc_concerten_artistiek_programma">Programma: <small>Compacte weergave van de uit te voeren werken</small></label>'; 
+    $value = get_post_meta($post->ID, 'midc_concerten_artistiek_programma', true); 
+	if ($value == "") $value = '<p>Het programma voor dit concert wordt binnenkort toegevoegd. Onze excuses voor het ongemak.</p>';
+	$editor_id = 'midc_concerten_artistiek_programma';
+	$settings = array( 'media_buttons' => false, 'teeny' => true, 'textarea_rows' => 5, 'wpautop' => false );
+	wp_editor( $value, $editor_id, $settings );
+    echo '</p>';
+
+	// Uitvoerenden
+	echo '<p><label for="midc_concerten_artistiek_uitvoerenden">Uitvoerenden: <small>Compacte weergave van de uitvoerenden</small></label>'; 
+    $value = get_post_meta($post->ID, 'midc_concerten_artistiek_uitvoerenden', true); 
+	if ($value == "") $value = 'Informatie over de uitvoerenden van dit concert wordt binnenkort toegevoegd. Onze excuses voor het ongemak.';
+	$editor_id = 'midc_concerten_artistiek_uitvoerenden';
+	$settings = array( 'media_buttons' => false, 'teeny' => true, 'textarea_rows' => 5, 'wpautop' => false );
+	wp_editor( $value, $editor_id, $settings );
+    echo '</p>';
+}
+
+function midc_concerten_artistiek_save($post_id, $post) {
+	if ( !isset( $_POST['midc_concerten_artistiek_nonce'] ) )
+		return $post_id;
+	if ( !wp_verify_nonce( $_POST['midc_concerten_artistiek_nonce'], 'midc_concerten_artistiek' ) )
+		return $post_id;
+
+	// Is the user allowed to edit the post or page?
+	if ( !current_user_can( 'edit_post', $post_id ))
+		return $post_id;
+
+	// Programma
+	if ( ! isset( $_POST['midc_concerten_artistiek_programma'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['midc_concerten_artistiek_programma'] );
+	update_post_meta( $post_id, 'midc_concerten_artistiek_programma', $my_data );
+
+	// Uitvoerenden
+	if ( ! isset( $_POST['midc_concerten_artistiek_uitvoerenden'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['midc_concerten_artistiek_uitvoerenden'] );
+	update_post_meta( $post_id, 'midc_concerten_artistiek_uitvoerenden', $my_data );
+}
+add_action('save_post', 'midc_concerten_artistiek_save');
 
 function midc_concerten_meta_callback($post) {
 	//global $post; 
 	wp_nonce_field( 'midc_concerten_meta', 'midc_concerten_meta_nonce' );
+
+	// Subtitel Uitvoerenden
+    $value = get_post_meta($post->ID, 'midc_concerten_artistiek_subtitel', true); 
+	echo '<p><label for="midc_concerten_artistiek_subtitel">Subtitel: <small>Uitvoerenden in &eacute;&eacute;n zin</small></label>'; 
+    echo '<input type="text" id="midc_concerten_artistiek_subtitel" name="midc_concerten_artistiek_subtitel" value="' . $value . '" class="widefat" /></p>';
+
+	// Datum
+    $value = get_post_meta($post->ID, 'midc_concerten_meta_datum', true); 
+	if ($value == "") $value = date("d-m-o", time());
+	echo '<p><label for="midc_concerten_meta_datum">Datum: <small>(dd-mm-jjjj)</small></label>'; 
+    echo '<input type="text" id="midc_concerten_meta_datum" name="midc_concerten_meta_datum" value="' . $value . '" class="widefat" /></p>';
+
+	// Tijdstip
+    $value = get_post_meta($post->ID, 'midc_concerten_meta_tijd', true); 
+	if ($value == "") $value = "15.00";
+	echo '<p><label for="midc_concerten_meta_tijd">Aanvangstijd: <small>(15.00)</small></label>'; 
+    echo '<input type="text" id="midc_concerten_meta_tijd" name="midc_concerten_meta_tijd" value="' . $value . '" class="widefat" /></p>';
+
+	// Locatie
     $value = get_post_meta($post->ID, 'midc_concerten_meta_locatie', true); 
+	if ($value == "") $value = "Stadskerk St. Cathrien";
 	echo '<p><label for="midc_concerten_meta_locatie">Locatie:</label>'; 
     echo '<input type="text" id="midc_concerten_meta_locatie" name="midc_concerten_meta_locatie" value="' . $value . '" class="widefat" /></p>';
 }
 
-function midc_save_concerten_meta($post_id, $post) {
+function midc_concerten_meta_save($post_id, $post) {
 	if ( !isset( $_POST['midc_concerten_meta_nonce'] ) )
 		return $post_id;
 	if ( !wp_verify_nonce( $_POST['midc_concerten_meta_nonce'], 'midc_concerten_meta' ) )
@@ -201,11 +265,27 @@ function midc_save_concerten_meta($post_id, $post) {
 	if ( !current_user_can( 'edit_post', $post_id ))
 		return $post_id;
 
+	// Subtitel Uitvoerenden
+	if ( ! isset( $_POST['midc_concerten_artistiek_subtitel'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['midc_concerten_artistiek_subtitel'] );
+	update_post_meta( $post_id, 'midc_concerten_artistiek_subtitel', $my_data );
+
+	// Datum
+	if ( ! isset( $_POST['midc_concerten_meta_datum'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['midc_concerten_meta_datum'] );
+	update_post_meta( $post_id, 'midc_concerten_meta_datum', $my_data );
+
+	// Tijdstip
+	if ( ! isset( $_POST['midc_concerten_meta_tijd'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['midc_concerten_meta_tijd'] );
+	update_post_meta( $post_id, 'midc_concerten_meta_tijd', $my_data );
+
+	// Locatie
 	if ( ! isset( $_POST['midc_concerten_meta_locatie'] ) ) { return; }
 	$my_data = sanitize_text_field( $_POST['midc_concerten_meta_locatie'] );
 	update_post_meta( $post_id, 'midc_concerten_meta_locatie', $my_data );
 }
-add_action('save_post', 'midc_save_concerten_meta');
+add_action('save_post', 'midc_concerten_meta_save');
 
 
 /**
