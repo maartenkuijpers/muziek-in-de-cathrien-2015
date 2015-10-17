@@ -27,6 +27,9 @@
 
 /* MIDC START */
 
+/* This registers the WP Bootstrap Walker from https://github.com/twittem/wp-bootstrap-navwalker */
+    require_once('wp_bootstrap_navwalker.php');
+
 // https://codex.wordpress.org/Function_Reference/add_meta_box#Examples
 
 function midc_add_meta_boxes( $post ) {

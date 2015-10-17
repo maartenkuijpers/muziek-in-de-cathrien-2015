@@ -9,11 +9,14 @@
     <title>Muziek in de Cathrien - v2</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo get_stylesheet_directory_uri();
+?>/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/modern-business.css" rel="stylesheet">
+    <link href="<?php echo get_stylesheet_directory_uri();
+?>/css/modern-business.css" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="<?php echo get_stylesheet_directory_uri(); ?>/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo get_stylesheet_directory_uri();
+?>/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -22,16 +25,33 @@
     <![endif]-->
 
 	<!-- jQuery -->
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();
+?>/js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();
+?>
+/js/bootstrap.min.js"></script>
 
 </head>
 
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+        <!--<div class="container">-->
+			<!-- INSERT WP MENU HERE -->
+				<?php
+				$defaults = array(
+					'menu' => 'top_menu',
+					'depth' => 2,
+					'container' => false,
+					'menu_class' => 'nav navbar-nav navbar-right',
+					'walker' => new wp_bootstrap_navwalker()
+				);
+				wp_nav_menu( $defaults );
+?>
+
+			<!-- /INSERT WP MENU HERE -->
+
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -40,7 +60,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img src=" <?php echo get_stylesheet_directory_uri(); ?>/images/Muziek in de Cathrien - horizontaal 50px.png" title="Logo Muziek in de Cathrien" /></a>
+                <a class="navbar-brand" href="index.html"><img src=" <?php echo get_stylesheet_directory_uri();
+?>/images/Muziek in de Cathrien - horizontaal 50px.png" title="Logo Muziek in de Cathrien" /></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -112,7 +133,8 @@
                     </li>
 
                     <li>
-                        <a class="nav" href="#" title="English"><img src=" <?php echo get_stylesheet_directory_uri(); ?>/images/BritishFlag.png" height="15" /></a>
+                        <a class="nav" href="#" title="English"><img src=" <?php echo get_stylesheet_directory_uri();
+?>/images/BritishFlag.png" height="15" /></a>
                     </li>
 
                     <li>
@@ -134,7 +156,7 @@
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
-        </div>
+        <!-- </div> -->
         <!-- /.container -->
     </nav>
 
