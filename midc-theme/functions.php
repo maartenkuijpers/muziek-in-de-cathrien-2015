@@ -231,6 +231,15 @@ function midc_concerten_meta_callback($post) {
 	//global $post; 
 	wp_nonce_field( 'midc_concerten_meta', 'midc_concerten_meta_nonce' );
 
+	// Concert type
+    $value = get_post_meta($post->ID, 'midc_concerten_meta_type', true); 
+	echo '<p><label for="midc_concerten_meta_type">Type concert:</label><br>'; 
+	echo '<input name="midc_concerten_meta_type" type="radio" value="1"' . checked( '1', $value ) . '>Muziek in de Cathrien</input><br>';
+	echo '<input name="midc_concerten_meta_type" type="radio" value="2"' . checked( '2', $value ) . '>OrgelMuziek in de Cathrien</input><br>';
+	echo '<input name="midc_concerten_meta_type" type="radio" value="3"' . checked( '3', $value ) . '>KoorMuziek in de Cathrien</input><br>';
+	echo '<input name="midc_concerten_meta_type" type="radio" value="4"' . checked( '4', $value ) . '>KamerMuziek in de Cathrien</input><br>';
+    echo '</p>';
+
 	// Subtitel Uitvoerenden
     $value = get_post_meta($post->ID, 'midc_concerten_artistiek_subtitel', true); 
 	echo '<p><label for="midc_concerten_artistiek_subtitel">Subtitel: <small>Uitvoerenden in &eacute;&eacute;n zin</small></label>'; 
@@ -264,6 +273,11 @@ function midc_concerten_meta_save($post_id, $post) {
 	// Is the user allowed to edit the post or page?
 	if ( !current_user_can( 'edit_post', $post_id ))
 		return $post_id;
+
+	// Concert type
+	if ( ! isset( $_POST['midc_concerten_meta_type'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['midc_concerten_meta_type'] );
+	update_post_meta( $post_id, 'midc_concerten_meta_type', $my_data );
 
 	// Subtitel Uitvoerenden
 	if ( ! isset( $_POST['midc_concerten_artistiek_subtitel'] ) ) { return; }

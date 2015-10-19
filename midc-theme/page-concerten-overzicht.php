@@ -10,13 +10,10 @@
  * @subpackage Twenty_Fifteen
  * @since Twenty Fifteen 1.0
  * 
- * Template Name: Bestuur template
+ * Template Name: Concerten Overzicht
  */
 
 get_header(); ?>
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
 
 			<?php
 			// Start the loop.
@@ -33,28 +30,22 @@ get_header(); ?>
 			// End the loop.
 			endwhile;
 
-			// Include content of pages with template "bestuuritem"
-			$args = array('posts_per_page' => -1, 'post_type' => 'page', 'order' => 'ASC', 'orderby' => 'menu_order' );
+			// Include content of concerten with template "bestuuritem"
+			$args = array('posts_per_page' => -1, 'post_type' => 'concert', 'order' => 'ASC', 'orderby' => 'menu_order' );
 			$query = new WP_Query($args);
 			$thisID = get_the_ID();
 			$columns = 0;
 			echo "<div class='row'>";
 			while ( $query->have_posts() ) : $query->the_post(); 
-				if ( (get_post_meta( $post->ID, '_wp_page_template', true ) == "page-bestuur-item.php") and ($post->post_parent == $thisID))
-				{
-					get_template_part( 'page-bestuur-item' );
+				get_template_part( 'page-concerten-overzicht-item' );
 
-					$columns = $columns + 1;
-					if ($columns == 3) {
-						echo "</div><div class='row'>";
-						$columns = 0;
-					}
-				}	
+				$columns = $columns + 1;
+				if ($columns == 3) {
+					echo "</div><hr /><div class='row'>";
+					$columns = 0;
+				}
 			endwhile;
-			echo "</div>";
+			echo "</div><!-- row -->";
 			?>
-
-		</main><!-- .site-main -->
-	</div><!-- .content-area -->
 
 <?php get_footer(); ?>
