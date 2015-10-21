@@ -8,13 +8,16 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID();
+?>" <?php post_class();
+?>>
 	<?php
 		// Post thumbnail.
 		twentyfifteen_post_thumbnail();
-	?>
+?>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php echo('<h1 class="page-header entry-title">' . midc_get_title(get_the_title()) . '<small>' . midc_get_sub_title(get_the_title()) . '</small></h1>' );
+?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
