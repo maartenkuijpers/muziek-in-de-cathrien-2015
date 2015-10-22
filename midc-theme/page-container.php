@@ -42,6 +42,7 @@ get_header();
 					{
 						case "page-twee-kolommen.php": get_template_part('page-twee-kolommen'); break;
 						case "page-concerten-overzicht.php": get_template_part('page-concerten-overzicht'); break;
+						case "page-container-header-carousel.php": get_template_part('page-container-header-carousel'); break;
 					}
 				}
 			endwhile;

@@ -101,9 +101,12 @@
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
-        <!-- </div> -->
+        </div>
         <!-- /.container -->
     </nav>
 
-	    <!-- Page Content -->
+	<!-- Header injector -->
+	<span id="pre-container-placeholder"></span>
+
+	<!-- Page Content -->
     <div class="container">
