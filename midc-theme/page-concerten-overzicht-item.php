@@ -12,10 +12,16 @@
  * 
  * Template Name: Bestuur Item template
  */
+ 
+$locale = get_the_terms($post->ID, 'language')[0]->description;
+setlocale(LC_ALL, $locale);
 
 $date = get_post_meta($post->ID, 'midc_concerten_meta_datum', true);
-$date_long = $date;
-$date_short = $date;
+$date_value = date_parse_from_format("j-n-Y", $date);
+$date_unix = mktime(0, 0, 0, $date_value['month'], $date_value['day'], $date_value['year']); 
+
+$date_long = strftime("%A %d %B", $date_unix);
+$date_short = strftime("%a %d %b", $date_unix);
 $time = get_post_meta($post->ID, 'midc_concerten_meta_tijd', true);
 $prices = "&euro;7,- / gratis voor donateurs, CJP, studenten en kinderen tot 16 jaar";
 $summary = substr( wp_strip_all_tags( get_the_content() ), 0, 140);
