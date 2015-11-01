@@ -29,6 +29,7 @@
 
 // Add midc function files
 include_once( get_stylesheet_directory() . '/functions-midc.php' );
+include_once( get_stylesheet_directory() . '/functions-midc-settings.php' );
 include_once( get_stylesheet_directory() . '/functions-midc-metaboxes.php' );
 include_once( get_stylesheet_directory() . '/functions-midc-type-concert.php' );
 
