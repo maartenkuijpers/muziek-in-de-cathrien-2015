@@ -49,7 +49,7 @@ function midc_concerten_artistiek_callback($post) {
 	// Programma
 	echo '<p><label for="midc_concerten_artistiek_programma">Programma: <small>Compacte weergave van de uit te voeren werken</small></label>'; 
     $value = get_post_meta($post->ID, 'midc_concerten_artistiek_programma', true); 
-	if ($value == "") $value = '<p>Het programma voor dit concert wordt binnenkort toegevoegd. Onze excuses voor het ongemak.</p>';
+	if ($value == "") $value = '<p>Het programma voor dit concert wordt binnenkort toegevoegd. Kom gauw weer eens kijken!</p>';
 	$editor_id = 'midc_concerten_artistiek_programma';
 	$settings = array( 'media_buttons' => false, 'teeny' => true, 'textarea_rows' => 5, 'wpautop' => false );
 	wp_editor( $value, $editor_id, $settings );
@@ -58,7 +58,7 @@ function midc_concerten_artistiek_callback($post) {
 	// Uitvoerenden
 	echo '<p><label for="midc_concerten_artistiek_uitvoerenden">Uitvoerenden: <small>Compacte weergave van de uitvoerenden</small></label>'; 
     $value = get_post_meta($post->ID, 'midc_concerten_artistiek_uitvoerenden', true); 
-	if ($value == "") $value = 'Informatie over de uitvoerenden van dit concert wordt binnenkort toegevoegd. Onze excuses voor het ongemak.';
+	if ($value == "") $value = 'Informatie over de uitvoerenden van dit concert wordt binnenkort toegevoegd. Kom gauw weer eens kijken!';
 	$editor_id = 'midc_concerten_artistiek_uitvoerenden';
 	$settings = array( 'media_buttons' => false, 'teeny' => true, 'textarea_rows' => 5, 'wpautop' => false );
 	wp_editor( $value, $editor_id, $settings );
