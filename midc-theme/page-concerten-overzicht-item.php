@@ -38,29 +38,23 @@ switch ($type_value) {
 ?>
 
 <div class="col-md-4 portfolio-item">
-    <a href="concert.html">
-        <div class="title"><?php the_title();
-?></div>
-<?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
-?>
+    <a href="<?php the_permalink() ?>">
+        <div class="title"><?php the_title(); ?></div>
+<?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );?>
     </a>
     <h3>
-        <a href="concert.html"><?php echo($date_long);
-?></a>
+        <a href="<?php the_permalink() ?>"><?php echo($date_long); ?></a>
     </h3>
 
     <p>
-        <?php echo ($summary);
-?>
-        <a href="concert.html">lees meer...</a>
+        <?php echo ($summary); ?>
+        <a href="<?php the_permalink() ?>">lees meer...</a>
     </p>
 
     <p>
         <div class="item-info">
-            <img src="<?php echo(get_stylesheet_directory_uri() . "/images/" . $type);
-?>" /><br />
-<?php echo( $date_short . " | " . $time . " | " . $prices );
-?>
+            <img src="<?php echo(get_stylesheet_directory_uri() . "/images/" . $type); ?>" /><br />
+<?php echo( $date_short . " | " . $time . " | " . $prices ); ?>
         </div>
     </p>
 </div>

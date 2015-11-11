@@ -48,7 +48,7 @@
 					'walker' => new wp_bootstrap_navwalker()
 				);
 				wp_nav_menu( $defaults );
-?>
+                ?>
 
 			<!-- /INSERT WP MENU HERE -->
 
@@ -78,8 +78,7 @@
                     </li>
 
                     <li>
-                        <a class="nav" href="#" title="English"><img src=" <?php echo get_stylesheet_directory_uri();
-?>/images/BritishFlag.png" height="15" /></a>
+                        <a class="nav" href="#" title="English"><img src=" <?php echo get_stylesheet_directory_uri(); ?>/images/BritishFlag.png" height="15" /></a>
                     </li>
 
                     <li>

@@ -32,6 +32,7 @@ include_once( get_stylesheet_directory() . '/functions-midc.php' );
 include_once( get_stylesheet_directory() . '/functions-midc-settings.php' );
 include_once( get_stylesheet_directory() . '/functions-midc-metaboxes.php' );
 include_once( get_stylesheet_directory() . '/functions-midc-type-concert.php' );
+include_once( get_stylesheet_directory() . '/functions-midc-breadcrumbs.php' );
 
 /* This registers the WP Bootstrap Walker from https://github.com/twittem/wp-bootstrap-navwalker */
 require_once('wp_bootstrap_navwalker.php');

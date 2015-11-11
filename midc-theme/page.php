@@ -20,6 +20,8 @@ get_header(); ?>
 		// Start the loop.
 		while ( have_posts() ) : the_post();
 
+echo "door " . __FILE__ . " gerendered.";
+
 			// Include the page content template.
 			get_template_part( 'content', 'page' );
 
@@ -31,7 +33,6 @@ get_header(); ?>
 		// End the loop.
 		endwhile;
 		?>
-
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->
 

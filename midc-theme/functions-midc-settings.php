@@ -65,7 +65,7 @@ function midc_option_prijs_strippenkaart() {
 	for ($i = 1; $i < 9; $i++) {
 		echo '<option value="', $i, '"', $options['midc_option_prijs_strippenkaart'] == $i ? ' selected="selected"' : '', '>', $i, '</option>';
 	}
-	echo '</select>&nbsp;<small>strip</small>';
+	echo '</select>&nbsp;<small>strip(pen)</small>';
 }
 
 function midc_option_prijs_cke_kaart() {
