@@ -154,13 +154,19 @@ get_header(); ?>
                                     }
                                 </script>
 
-                                <a href="#" class="btn btn-default btn-sm" title="Stuur een uitnodiging per email naar iemand en voeg er een persoonlijke boodschap aan toe">
+                                <?php
+                                $meer = 'Meer informatie vindt je op ' . get_permalink();
+                                $body = 'Beste ...,\r\n\r\nOp ' . $date_long . ' ga ik naar Muziek in de Cathrien om het volgende concert bij te wonen. Ga je mee?\r\n\r\n' . get_the_title() . '\r\n' . $subtitle . '\r\n\r\n' . $meer . '\r\n';
+                                $mail_to_content = 'ontvanger@mail.nl?Subject=Uitnodiging: ' . $subtitle . '&Body=' . $body;
+                                ?>
+                                
+                                <a href="mailto:<?php echo urlencode($mail_to_content); ?>" class="btn btn-default btn-sm" title="Stuur een uitnodiging per email naar iemand en voeg er een persoonlijke boodschap aan toe">
                                     <span class="fa fa-envelope" aria-hidden="true"></span>&nbsp;Ga je mee?
                                 </a>
-                                <a class="btn btn-default btn-sm" href="javascript:download_ics('CVE zingt Nicolaimesse van Haydn', 'Meer informatie vindt u op <?php echo get_permalink(); ?>', '<?php echo $locatie_adres; ?>, <?php echo $locatie_plaats; ?>', '<?php echo $calendar_start; ?>', '<?php echo $calendar_end; ?>')"
-                                   title="Download een iCalendar bestand (.ics) en open het vervolgens in je agenda programma (Apple Calendar, Microsoft Outlook, Google Calendar, etc.)">
+                                <a title="Download een iCalendar bestand (.ics) en open het vervolgens in je agenda programma (Apple Calendar, Microsoft Outlook, Google Calendar, etc.)" class="btn btn-default btn-sm" href="javascript:download_ics('CVE zingt Nicolaimesse van Haydn', '<?php echo $meer; ?>', '<?php echo $locatie_adres; ?>, <?php echo $locatie_plaats; ?>', '<?php echo $calendar_start; ?>', '<?php echo $calendar_end; ?>')">
                                     <span class="fa fa-calendar" aria-hidden="true"></span>&nbsp;&nbsp;Zet dit concert in je kalender
                                 </a>
+                                
                             </li>
                             <li><hr /></li>
                             <li>
