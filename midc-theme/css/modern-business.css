@@ -29,7 +29,9 @@ a:focus {
 
 .prices-table td+td {
     text-align: right;
-    width: 70px;
+    max-width: none;
+    table-layout: fixed;
+    word-wrap: break-word;
 }
 
 .table-tier-1 { color: yellow; }

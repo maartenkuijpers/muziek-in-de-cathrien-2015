@@ -1,11 +1,18 @@
+<?php
+$options = get_option('midc_options_data');
+?>
         <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="list-inline text-center">
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i>&nbsp;Facebook</a></li>
-                        <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i>&nbsp;Twitter</a></li>
+                        <?php
+                        if ($options['midc_option_algemeen_social_facebook'] != '')                       
+                            echo ('<li><a href="' . $options['midc_option_algemeen_social_facebook'] . '"><i class="fa fa-2x fa-facebook-square"></i>&nbsp;Facebook</a></li>');
+                        if ($options['midc_option_algemeen_social_twitter'] != '')                       
+                            echo ('<li><a href="' . $options['midc_option_algemeen_social_twitter'] . '"><i class="fa fa-2x fa-twitter-square"></i>&nbsp;Twitter</a></li>');
+                        ?>
                     </ul>
                 </div>
 
@@ -14,7 +21,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="list-inline text-center">
-                        <li>Copyright &copy; 2015 MPedia Design</li>
+                        <li>Copyright &copy; <?php echo date("o", time()); ?> MPedia Design</li>
                     </ul>
                 </div>
 

@@ -12,13 +12,22 @@ setlocale(LC_ALL, $locale);
 
 $date = get_post_meta($post->ID, 'midc_concerten_meta_datum', true);
 $date_value = date_parse_from_format("j-n-Y", $date);
-$date_unix = mktime(0, 0, 0, $date_value['month'], $date_value['day'], $date_value['year']); 
+$date_unix = mktime(0, 0, 0, $date_value['month'], $date_value['day'], $date_value['year']);
 
 $date_long = strftime("%A %d %B", $date_unix);
 $date_short = strftime("%a %d %b", $date_unix);
-$time = get_post_meta($post->ID, 'midc_concerten_meta_tijd', true);
 
-$locatie = get_post_meta( $post->ID, 'midc_concerten_meta_locatie', true);
+$time_begin = get_post_meta($post->ID, 'midc_concerten_meta_aanvang', true);
+$time_end = get_post_meta($post->ID, 'midc_concerten_meta_einde', true);
+
+$calendar_date = strftime("%d/%m/%Y", $date_unix);
+$calendar_start = $calendar_date . ' ' . str_replace('.', ':', $time_begin); 
+$calendar_end = $calendar_date . ' ' . str_replace('.', ':', $time_end); 
+
+$locatie_naam = get_post_meta( $post->ID, 'midc_concerten_meta_locatie_naam', true);
+$locatie_adres = get_post_meta( $post->ID, 'midc_concerten_meta_locatie_adres', true);
+$locatie_plaats = get_post_meta( $post->ID, 'midc_concerten_meta_locatie_plaats', true);
+$locatie = $locatie_naam . ', ' . $locatie_adres . ', ' . $locatie_plaats; 
 
 get_header(); ?>
 
@@ -48,7 +57,7 @@ get_header(); ?>
                 <hr>
                 <!-- Date/Time -->
                 <?php
-                echo "<p><i class='fa fa-clock-o'></i> " . $date_long . " | " . $time . " uur | " . $locatie . "</p>";
+                echo "<p><i class='fa fa-clock-o'></i> " . $date_long . " | " . $time_begin . " uur | " . $locatie . "</p>";
                 ?>
 
                 <hr>
@@ -92,11 +101,29 @@ get_header(); ?>
                     <div class="row">
                         <div class="col-lg-12">
                             <table class="small table table-striped table-condensed prices-table">
-                                <tr><td>Aan de kassa</td><td>€7,00</td></tr>
-                                <tr><td>Houders van de <a href="pricing.html">Strippenkaart</a></td><td>1 strip</td></tr>
-                                <tr><td>CKE-Kaart&nbsp;<small><a href="http://www.cke.nl/nieuws/89063/cke-lanceert-kortingskaart-voor-cursisten">meer informatie</a></small></td><td>€5,00</td></tr>
-                                <tr><td>CJP-houders en kinderen tot 16 jaar</td><td>gratis</td></tr>
-                                <tr><td>Donateurs op vertoon van hun uitnodigings&shy;brief <small><a href="#">donateur worden</a></small></td><td>gratis</td></tr>
+                                <?php
+                                    $array = array ( 
+                                        array('Aan de kassa', 'midc_concerten_prijzen_standaard', '€', ''),
+                                        array('Houders van de Strippenkaart', 'midc_concerten_prijzen_strippenkaart', '', ' x strip'),
+                                        array('CKE-kaart', 'midc_concerten_prijzen_cke_kaart', '€', ''),
+                                        array('CJP-houders', 'midc_concerten_prijzen_cjp', '€', ''),
+                                        array('Kinderen tot 16 jaar', 'midc_concerten_prijzen_kinderen', '€', '')
+                                    );
+                                    foreach ($array as $pricing) {
+                                        $active = get_post_meta($post->ID, $pricing[1] . '_active', true);
+                                        $value = get_post_meta($post->ID, $pricing[1], true);
+                                        if ($active)
+                                        {
+                                            echo '<tr>';
+                                            echo '<td>' . $pricing[0] . '</td>';
+                                            if (floatval($value) != 0.0)
+                                                echo '<td>' . $pricing[2] . $value . $pricing[3] . '</td>';
+                                            else
+                                                echo '<td>gratis</td>';
+                                            echo '</tr>';  
+                                        }
+                                    }
+                                ?>
                             </table>
                         </div>
                     </div>
@@ -130,7 +157,7 @@ get_header(); ?>
                                 <a href="#" class="btn btn-default btn-sm" title="Stuur een uitnodiging per email naar iemand en voeg er een persoonlijke boodschap aan toe">
                                     <span class="fa fa-envelope" aria-hidden="true"></span>&nbsp;Ga je mee?
                                 </a>
-                                <a class="btn btn-default btn-sm" href="javascript:download_ics('CVE zingt Nicolaimesse van Haydn', 'Meer informatie vindt u op http://www.muziekindecathrien.nl/', 'Kerkstraat 1, Eindhoven', '7/12/2014 12:15', '7/12/2014 13:53')"
+                                <a class="btn btn-default btn-sm" href="javascript:download_ics('CVE zingt Nicolaimesse van Haydn', 'Meer informatie vindt u op <?php echo get_permalink(); ?>', '<?php echo $locatie_adres; ?>, <?php echo $locatie_plaats; ?>', '<?php echo $calendar_start; ?>', '<?php echo $calendar_end; ?>')"
                                    title="Download een iCalendar bestand (.ics) en open het vervolgens in je agenda programma (Apple Calendar, Microsoft Outlook, Google Calendar, etc.)">
                                     <span class="fa fa-calendar" aria-hidden="true"></span>&nbsp;&nbsp;Zet dit concert in je kalender
                                 </a>
@@ -139,40 +166,34 @@ get_header(); ?>
                             <li>
                                 <h4>Tips voor een drankje na afloop</h4>
                                 <dl>
-                                    <dt>Van Moll</dt>
+                                    
+                                <?php
+                                    for ($locatie = 1; $locatie <= 3; $locatie++) {
+                                        $active = get_post_meta($post->ID, 'midc_concerten_overig_drankje'.$locatie.'_active', true);
+                                        $name = get_post_meta($post->ID, 'midc_concerten_overig_drankje'.$locatie.'_naam', true);
+                                        $address = get_post_meta($post->ID, 'midc_concerten_overig_drankje'.$locatie.'_adres', true);
+                                        // $maps = 'https://www.google.nl/maps/dir/St.+Catharina+kerk,+Kerkstraat+1,+Eindhoven/' . str_replace(' ', '+', $name) . ',+' . str_replace(' ', '+', $address) . ',+Eindhoven';
+                                        $maps = 'https://www.google.nl/maps/dir/' . str_replace(' ', '+', $locatie) . '/' . str_replace(' ', '+', $name) . ',+' . str_replace(' ', '+', $address) . ',+Eindhoven';
+                                        $website =get_post_meta($post->ID, 'midc_concerten_overig_drankje'.$locatie.'_website', true); 
+                                        if ($active)
+                                        {
+                                            ?>
+                                    <dt><?php echo $name; ?></dt>
                                     <dd>
-                                        Keizersgracht 16A&nbsp;
+                                        <?php echo $address; ?>&nbsp;
                                         <small>
-                                            <a target="_blank" href="http://vanmolleindhoven.nl/"><span class="fa fa-external-link fa-1x" aria-hidden="true"></span> website</a> |
-                                            <a target="_blank" href="https://goo.gl/maps/4uD5H">
+                                            <a target="_blank" href="<?php echo $website; ?>"><span class="fa fa-external-link fa-1x" aria-hidden="true"></span> website</a> |
+                                            <a target="_blank" href="<?php echo $maps ?>">
                                                 <span class="fa fa-map-marker fa-1x" aria-hidden="true"></span>&nbsp;looproute
                                             </a>
                                         </small>
                                     </dd>
-
-                                    <dt>De Oude Rechtbank</dt>
-                                    <dd>
-                                        Stratumseind 32&nbsp;
-                                        <small>
-                                            <a target="_blank" href="http://www.ouderechtbank.nl/"><span class="fa fa-external-link fa-1x" aria-hidden="true"></span> website</a> |
-                                            <a target="_blank" href="https://goo.gl/maps/nHkcs">
-                                                <span class="fa fa-map-marker fa-1x" aria-hidden="true"></span>&nbsp;looproute
-                                            </a>
-                                        </small>
-                                    </dd>
-
-                                    <dt>The Trafalgar Pub</dt>
-                                    <dd>
-                                        Dommelstraat 21&nbsp;
-                                        <small>
-                                            <a target="_blank" href="http://www.thetrafalgarpub.nl/"><span class="fa fa-external-link fa-1x" aria-hidden="true"></span> website</a> |
-                                            <a target="_blank" href="https://goo.gl/maps/4ZZai">
-                                                <span class="fa fa-map-marker fa-1x" aria-hidden="true"></span>&nbsp;looproute
-                                            </a>
-                                        </small>
-                                    </dd>
+                                            <?php                                            
+                                        }
+                                    }
+                                ?>
+                                
                                 </dl>
-
                             </li>
                         </ul>
                     </small>
