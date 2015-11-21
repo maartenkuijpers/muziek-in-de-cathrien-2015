@@ -45,6 +45,7 @@ function plugin_admin_init() {
 	
 	add_settings_section('midc_options_prijzen', 'Standaard entree prijzen', 'midc_section_prijzen', 'midc_options');
 	add_settings_field('midc_option_prijs_standaard', 'Aan de kassa:', 'midc_option_prijs_standaard', 'midc_options', 'midc_options_prijzen');
+	add_settings_field('midc_option_prijs_donateurs', 'Donateurs:', 'midc_option_prijs_donateurs', 'midc_options', 'midc_options_prijzen');
 	add_settings_field('midc_option_prijs_strippenkaart', 'Met Strippenkaart:', 'midc_option_prijs_strippenkaart', 'midc_options', 'midc_options_prijzen');
 	add_settings_field('midc_option_prijs_cke_kaart', 'Met CKE-kaart:', 'midc_option_prijs_cke_kaart', 'midc_options', 'midc_options_prijzen');
 	add_settings_field('midc_option_prijs_cjp', 'Met CJP-pas:', 'midc_option_prijs_cjp', 'midc_options', 'midc_options_prijzen');
@@ -59,7 +60,7 @@ function plugin_admin_init() {
 /* SECTIE #1 - Algemeen */
 
 function midc_section_algemeen() {
-	echo '<p>Geef hier de algemene informatie in voor de concerten op de website:</p>';
+	echo '<p>Geef hieronder de algemene informatie die wordt gebruikt bij het aanmaken van een nieuw concert:</p>';
 }
 
 function midc_option_algemeen_locatie_naam() {
@@ -105,12 +106,18 @@ function midc_option_algemeen_social_twitter() {
 /* SECTIE #2 - Prijzen */
 
 function midc_section_prijzen() {
-	echo '<p>Vul hieronder de standaard prijzen in voor toegang tot één concert:</p>';
+	echo '<p>Geef hieronder de standaard prijzen in die worden gebruikt bij het aanmaken van een nieuw concert:</p>';
 }
 
 function midc_option_prijs_standaard() {
 	$options = get_option('midc_options_data');
 	echo "€<input id='midc_option_prijs_standaard' name='midc_options_data[midc_option_prijs_standaard]' maxlength='6' size='6' type='text' value='{$options['midc_option_prijs_standaard']}' />";
+	echo "&nbsp;<small>bv. 7,00 of 0,00 voor gratis</small>";
+}
+
+function midc_option_prijs_donateurs() {
+	$options = get_option('midc_options_data');
+	echo "€<input id='midc_option_prijs_donateurs' name='midc_options_data[midc_option_prijs_donateurs]' maxlength='6' size='6' type='text' value='{$options['midc_option_prijs_donateurs']}' />";
 	echo "&nbsp;<small>bv. 7,00 of 0,00 voor gratis</small>";
 }
 
@@ -141,7 +148,7 @@ function midc_option_prijs_kinderen() {
 /* SECTIE #3 - Overig */
 
 function midc_section_overig() {
-	echo '<p>Hieronder kun je overige informatie opgeven die geldt voor alle concerten, zoals de locaties waar na afloop een glaasje wordt gedronken:</p>';
+	echo '<p>Geef hieronder de locaties op voor een drankje die worden gebruikt bij het aanmaken van een nieuw concert:</p>';
 }
 
 function midc_option_overig_drankje1() {
@@ -202,6 +209,10 @@ function midc_options_data_validate($input) {
 		$input['midc_option_prijs_standaard'] = '7,00';
 	}
 
+	if (!preg_match('/^[0-9]{1,2},[0-9]{2}$/i', $input['midc_option_prijs_donateurs'])) {
+		$input['midc_option_prijs_donateurs'] = '7,00';
+	}
+
 	if (!preg_match('/^[1-9]{1}$/i', $input['midc_option_prijs_strippenkaart'])) {
 		$input['midc_option_prijs_strippenkaart'] = '1';
 	}
@@ -256,6 +267,5 @@ function midc_options_data_validate($input) {
 
 	return $input;
 }
-
 
 ?>

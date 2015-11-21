@@ -104,6 +104,7 @@ get_header(); ?>
                                 <?php
                                     $array = array ( 
                                         array('Aan de kassa', 'midc_concerten_prijzen_standaard', '€', ''),
+                                        array('Donateurs', 'midc_concerten_prijzen_donateurs', '€', ''),
                                         array('Houders van de Strippenkaart', 'midc_concerten_prijzen_strippenkaart', '', ' x strip'),
                                         array('CKE-kaart', 'midc_concerten_prijzen_cke_kaart', '€', ''),
                                         array('CJP-houders', 'midc_concerten_prijzen_cjp', '€', ''),
@@ -155,12 +156,12 @@ get_header(); ?>
                                 </script>
 
                                 <?php
-                                $meer = 'Meer informatie vindt je op ' . get_permalink();
-                                $body = 'Beste ...,\r\n\r\nOp ' . $date_long . ' ga ik naar Muziek in de Cathrien om het volgende concert bij te wonen. Ga je mee?\r\n\r\n' . get_the_title() . '\r\n' . $subtitle . '\r\n\r\n' . $meer . '\r\n';
-                                $mail_to_content = 'ontvanger@mail.nl?Subject=Uitnodiging: ' . $subtitle . '&Body=' . $body;
+                                $meer = "Meer informatie vindt je op " . get_permalink();
+                                $body = "Beste ...,\xA\xAOp " . $date_long . " ga ik naar Muziek in de Cathrien om het volgende concert bij te wonen.\xAGa je mee?\xA\xA" . get_the_title() . "\xA" . $subtitle . "\xA\xA" . $meer . "\xA";
+                                $mail_to_content = "?subject=Uitnodiging: " . rawurlencode($subtitle) . "&body=" . rawurlencode($body);
                                 ?>
                                 
-                                <a href="mailto:<?php echo urlencode($mail_to_content); ?>" class="btn btn-default btn-sm" title="Stuur een uitnodiging per email naar iemand en voeg er een persoonlijke boodschap aan toe">
+                                <a href="mailto:<?php echo $mail_to_content; ?>" class="btn btn-default btn-sm" title="Stuur een uitnodiging per email naar iemand en voeg er een persoonlijke boodschap aan toe">
                                     <span class="fa fa-envelope" aria-hidden="true"></span>&nbsp;Ga je mee?
                                 </a>
                                 <a title="Download een iCalendar bestand (.ics) en open het vervolgens in je agenda programma (Apple Calendar, Microsoft Outlook, Google Calendar, etc.)" class="btn btn-default btn-sm" href="javascript:download_ics('CVE zingt Nicolaimesse van Haydn', '<?php echo $meer; ?>', '<?php echo $locatie_adres; ?>, <?php echo $locatie_plaats; ?>', '<?php echo $calendar_start; ?>', '<?php echo $calendar_end; ?>')">
@@ -174,13 +175,13 @@ get_header(); ?>
                                 <dl>
                                     
                                 <?php
-                                    for ($locatie = 1; $locatie <= 3; $locatie++) {
-                                        $active = get_post_meta($post->ID, 'midc_concerten_overig_drankje'.$locatie.'_active', true);
-                                        $name = get_post_meta($post->ID, 'midc_concerten_overig_drankje'.$locatie.'_naam', true);
-                                        $address = get_post_meta($post->ID, 'midc_concerten_overig_drankje'.$locatie.'_adres', true);
+                                    for ($drankje = 1; $drankje <= 3; $drankje++) {
+                                        $active = get_post_meta($post->ID, 'midc_concerten_overig_drankje'.$drankje.'_active', true);
+                                        $name = get_post_meta($post->ID, 'midc_concerten_overig_drankje'.$drankje.'_naam', true);
+                                        $address = get_post_meta($post->ID, 'midc_concerten_overig_drankje'.$drankje.'_adres', true);
                                         // $maps = 'https://www.google.nl/maps/dir/St.+Catharina+kerk,+Kerkstraat+1,+Eindhoven/' . str_replace(' ', '+', $name) . ',+' . str_replace(' ', '+', $address) . ',+Eindhoven';
-                                        $maps = 'https://www.google.nl/maps/dir/' . str_replace(' ', '+', $locatie) . '/' . str_replace(' ', '+', $name) . ',+' . str_replace(' ', '+', $address) . ',+Eindhoven';
-                                        $website =get_post_meta($post->ID, 'midc_concerten_overig_drankje'.$locatie.'_website', true); 
+                                        $maps = 'https://www.google.nl/maps/dir/' . str_replace(' ', '+', $locatie) . '/' . str_replace(' ', '+', $name) . ',+' . str_replace(' ', '+', $address);
+                                        $website =get_post_meta($post->ID, 'midc_concerten_overig_drankje'.$drankje.'_website', true); 
                                         if ($active)
                                         {
                                             ?>

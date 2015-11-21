@@ -203,6 +203,14 @@ function midc_concerten_prijzen_callback($post) {
 	echo '<label for="midc_concerten_prijzen_standaard">Aan de kassa:</label> €'; 
     echo '<input size="6" type="text" id="midc_concerten_prijzen_standaard" name="midc_concerten_prijzen_standaard" value="' . $value . '" /><small>&nbsp;bv. 7,00</small></p>';
 
+	// Donateurs
+   	$value = (metadata_exists( 'post', $post->ID, 'midc_concerten_prijzen_donateurs_active' )) ? get_post_meta($post->ID, 'midc_concerten_prijzen_donateurs_active', true) : 'on';
+	echo '<p><input name="midc_concerten_prijzen_donateurs_active" title="Selecteren om deze prijs te tonen" type="checkbox" ' . checked("on", $value, false) . '>';
+    $value = get_post_meta($post->ID, 'midc_concerten_prijzen_donateurs', true); 
+	if ($value == "") $value = $options['midc_option_prijs_donateurs'];
+	echo '<label for="midc_concerten_prijzen_donateurs">Donateurs:</label> €'; 
+    echo '<input size="6" type="text" id="midc_concerten_prijzen_donateurs" name="midc_concerten_prijzen_donateurs" value="' . $value . '" /><small>&nbsp;bv. 7,00</small></p>';
+
 	// Strippenkaart
    	$value = (metadata_exists( 'post', $post->ID, 'midc_concerten_prijzen_strippenkaart_active' )) ? get_post_meta($post->ID, 'midc_concerten_prijzen_strippenkaart_active', true) : 'on';
 	echo '<p><input name="midc_concerten_prijzen_strippenkaart_active" title="Selecteren om deze prijs te tonen" type="checkbox" ' . checked( "on", $value, false) . '/>';
@@ -248,6 +256,11 @@ function midc_concerten_prijzen_save($post_id, $post) {
 	update_post_meta( $post_id, 'midc_concerten_prijzen_standaard_active', $_POST['midc_concerten_prijzen_standaard_active'] );
 	if (isset( $_POST['midc_concerten_prijzen_standaard'] ))
 		update_post_meta( $post_id, 'midc_concerten_prijzen_standaard', sanitize_text_field( $_POST['midc_concerten_prijzen_standaard'] ));
+
+	// Donateurs
+	update_post_meta( $post_id, 'midc_concerten_prijzen_donateurs_active', $_POST['midc_concerten_prijzen_donateurs_active'] );
+	if (isset( $_POST['midc_concerten_prijzen_donateurs'] ))
+		update_post_meta( $post_id, 'midc_concerten_prijzen_donateurs', sanitize_text_field( $_POST['midc_concerten_prijzen_donateurs'] ));
 
 	// Strippenkaart
 	update_post_meta( $post_id, 'midc_concerten_prijzen_strippenkaart_active', $_POST['midc_concerten_prijzen_strippenkaart_active'] );
