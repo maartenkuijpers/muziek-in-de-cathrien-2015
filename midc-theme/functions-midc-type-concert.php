@@ -138,6 +138,13 @@ function midc_concerten_meta_callback($post) {
     $value = get_post_meta($post->ID, 'midc_concerten_meta_locatie_plaats', true); 
 	if ($value == "") $value = $options['midc_option_algemeen_locatie_plaats'];
     echo '<input type="text" placeholder="plaats" id="midc_concerten_meta_locatie_plaats" name="midc_concerten_meta_locatie_plaats" value="' . $value . '" class="widefat" />';
+
+	// Gallerij keuze
+	echo '<p><label for="midc_concerten_meta_gallerij">Gallerij (i.p.v. Uitgelichte Afbeelding):</label>'; 
+    $value = get_post_meta($post->ID, 'midc_concerten_meta_gallerij', true); 
+	if ($value == "") $value = "";
+    echo '<input type="text" placeholder="Galerij ID" id="midc_concerten_meta_gallerij" size="10" maxlength="4" name="midc_concerten_meta_gallerij" value="' . $value . '" class="widefat" />';
+
 }
 
 function midc_concerten_meta_save($post_id, $post) {
@@ -186,6 +193,11 @@ function midc_concerten_meta_save($post_id, $post) {
 	if ( ! isset( $_POST['midc_concerten_meta_locatie_plaats'] ) ) { return; }
 	$my_data = sanitize_text_field( $_POST['midc_concerten_meta_locatie_plaats'] );
 	update_post_meta( $post_id, 'midc_concerten_meta_locatie_plaats', $my_data );
+
+	// Gallerij
+	if ( ! isset( $_POST['midc_concerten_meta_gallerij'] ) ) { return; }
+	$my_data = sanitize_text_field( $_POST['midc_concerten_meta_gallerij'] );
+	update_post_meta( $post_id, 'midc_concerten_meta_gallerij', $my_data );
 }
 add_action('save_post', 'midc_concerten_meta_save');
 

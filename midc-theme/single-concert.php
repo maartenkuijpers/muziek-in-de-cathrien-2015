@@ -61,12 +61,60 @@ get_header(); ?>
                 ?>
 
                 <hr>
-                <!-- Preview Image -->
-                <?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) ); ?>
                 
+                <?php
+                $gallery_id = get_post_meta($post->ID, 'midc_concerten_meta_gallerij', true);
+                if ($gallery_id != '') {
+                    global $nggdb;
+                    $gallery = $nggdb->get_gallery($gallery_id, 'sortorder', 'ASC', true, 0, 0);
+                    ?>                    
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                        <?php
+                        $first = true;
+                        $count = 0;
+                        foreach($gallery as $image) {
+                            $count = $count + 1;
+                            if ($first) { echo '<div class="item active">'; $first = false; }
+                            else { echo '<div class="item">'; }
+                            ?>
+                                <img class="img-responsive" src="<?php echo $image->imageURL;?>" alt="">
+                            </div>
+                            <?php } ?>
+                        </div>
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <?php
+                            $first = true;
+                            for ($slide = 0; $slide < $count; $slide = $slide + 1) {
+                                if ($first) {
+                                    $first = false;
+                                    echo '<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>';
+                                } else {
+                                    echo '<li data-target="#carousel-example-generic" data-slide-to="' . $slide . '"></li>';    
+                                }
+                            } ?>
+                        </ol>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+                    <?php
+                }
+                else {
+                    // Preview Image
+                    the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
+                }
+                ?>                
                 <hr>
                 <!-- Post Content -->
-<?php                
+                <?php                
 			// Start the loop.
 			while ( have_posts() ) :
                 the_post();

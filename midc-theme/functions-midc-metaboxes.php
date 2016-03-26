@@ -12,7 +12,7 @@ function midc_add_meta_boxes( $post ) {
 
 	switch ($page_template)
 	{
-		case 'page-twee-kolommen.php':
+		case 'page-container-twee-kolommen.php':
 			add_meta_box(
 				'midc-twee-kolommen-meta-box', // Metabox HTML ID attribute
 				'Extra velden voor Twee Kolommen', // Metabox title
@@ -123,7 +123,7 @@ function midc_twee_kolommen_meta_box_save( $post_id ) {
 		return;
 
 	if (isset($_POST['midc_twee_kolommen_second_content'])) {
-		$my_data = sanitize_text_field( $_POST['midc_twee_kolommen_second_content'] );
+		$my_data = stripslashes( $_POST['midc_twee_kolommen_second_content'] );
 		update_post_meta( $post_id, 'midc_twee_kolommen_second_content', $my_data );
 	}
 

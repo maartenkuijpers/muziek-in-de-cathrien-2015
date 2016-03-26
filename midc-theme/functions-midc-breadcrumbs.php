@@ -106,18 +106,18 @@ function custom_breadcrumbs() {
             // Check if the post is in a category
             if(!empty($last_category)) {
                 echo $cat_display;
-                echo '<li class="active">' . get_the_title() . '</li>';
+                echo '<li class="active">' . midc_get_title(get_the_title()) . '</li>';
                   
             // Else if post is in a custom taxonomy
             } else if(!empty($cat_id)) {
                   
                 echo '<li class="item-cat item-cat-' . $cat_id . ' item-cat-' . $cat_nicename . '"><a class="bread-cat bread-cat-' . $cat_id . ' bread-cat-' . $cat_nicename . '" href="' . $cat_link . '" title="' . $cat_name . '">' . $cat_name . '</a></li>';
                 //echo '<li class="separator">' . $separator . '</li>';
-                echo '<li class="active">' . get_the_title() . '</li>';
+                echo '<li class="active">' . midc_get_title(get_the_title()) . '</li>';
               
             } else {
                   
-                echo '<li class="active">' . get_the_title() . '</li>';
+                echo '<li class="active">' . midc_get_title(get_the_title()) . '</li>';
                   
             }
               
@@ -139,7 +139,7 @@ function custom_breadcrumbs() {
                    
                 // Parent page loop
                 foreach ( $anc as $ancestor ) {
-                    $parents .= '<li class="item-parent item-parent-' . $ancestor . '"><a class="bread-parent bread-parent-' . $ancestor . '" href="' . get_permalink($ancestor) . '" title="' . get_the_title($ancestor) . '">' . get_the_title($ancestor) . '</a></li>';
+                    $parents .= '<li class="item-parent item-parent-' . $ancestor . '"><a class="bread-parent bread-parent-' . $ancestor . '" href="' . get_permalink($ancestor) . '" title="' . midc_get_title(get_the_title($ancestor)) . '">' . midc_get_title(get_the_title($ancestor)) . '</a></li>';
                     //$parents .= '<li class="separator separator-' . $ancestor . '">' . $separator . '</li>';
                 }
                    
@@ -147,12 +147,12 @@ function custom_breadcrumbs() {
                 echo $parents;
                    
                 // Current page
-                echo '<li class="active">' . get_the_title() . '</li>';
+                echo '<li class="active">' . midc_get_title(get_the_title()) . '</li>';
                    
             } else {
                    
                 // Just display current page if not parents
-                echo '<li class="active">' . get_the_title() . '</li>';
+                echo '<li class="active">' . midc_get_title(get_the_title()) . '</li>';
                    
             }
                
