@@ -48,6 +48,22 @@ $options = get_option('midc_options_data');
                 return $('#search-content').html();
             }
         });
+        
+        $('body').on('click', function (e) {
+            // This is for closing the popups when clicking outside their area 
+            $('[data-toggle="nieuwsbrief-popover"]').each(function () {
+                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                    $(this).popover('hide');
+                }
+            });
+            
+            $('[data-toggle="search-popover"]').each(function () {
+                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                    $(this).popover('hide');
+                }
+            });
+        });
+        
     </script>
 </body>
 </html>
