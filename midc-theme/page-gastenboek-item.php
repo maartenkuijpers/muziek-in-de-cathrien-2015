@@ -12,20 +12,14 @@
  * 
  * Template Name: Gastenboek Item template
  */
-
 ?>
 
 <div class="row">
-    <div class="col-md-4"><?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
-?>
+    <div class="col-md-4">
+        <?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );?>
     </div>
     <div class="col-md-8">
-        <h3><?php the_title();
-?>
-		</h3>
-        <!-- <h4>sub title</h4> -->
-        <p><?php the_content();
-?></p>
+        <h3><?php the_title();?></h3>
+        <p><?php the_content();?></p>
     </div>
-</div>
-<!-- /.row -->
+</div><!-- /.row -->

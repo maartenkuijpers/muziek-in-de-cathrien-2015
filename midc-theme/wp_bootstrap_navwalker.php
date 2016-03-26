@@ -114,7 +114,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			else
 				$item_output .= '<a'. $attributes .'>';
 
-			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+			$item_output .= $args->link_before . apply_filters( 'the_title', midc_get_title($item->title), $item->ID ) . $args->link_after;
 			$item_output .= ( $args->has_children && 0 === $depth ) ? ' <span class="caret"></span></a>' : '</a>';
 			$item_output .= $args->after;
 

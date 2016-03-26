@@ -86,7 +86,7 @@
                     <li>
                         <a id="search" data-placement="bottom" data-toggle="search-popover" data-title="Zoek op de website" data-container="body" type="button" data-html="true"><span class="glyphicon glyphicon-search"></span></a>
                         <div id="search-content" class="hide">
-                            <form id="search-form" class="form-inline" action="" method="get" role="form">
+                            <form id="search-form" class="form-inline" action="<?php echo get_site_url();?>" method="get" role="form">
                                 <div class="form-group">
                                     <input name="s" class="form-control" placeholder="zoeken" maxlength="100" type="search">
                                     <button type="submit" class="btn-sm btn-primary" onclick="if ($('input#search').val() == '') return false;"><span class="glyphicon glyphicon-search"></span></button>

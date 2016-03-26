@@ -29,29 +29,30 @@
 	default: $left = 6; $right = 6; break;
  }
 ?>
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header"><?php echo(midc_get_title(get_the_title()));?>
-                    <small><?php echo(midc_get_sub_title(get_the_title()));?></small>
-                </h2>
-            </div>
-            <div class="col-md-<?php echo($left);?>">
-				<?php
-				if ($pictureLeft)
-					the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
-				else
-					the_content();
-                ?>
-            </div>
-            <div class="col-md-<?php echo($right);?>">
-				<?php
-				if ($pictureRight)
-					the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
-				else if ($pictureLeft)
-                    the_content();
-                else
-					echo (get_post_meta( $post->ID, 'midc_twee_kolommen_second_content', true));
-                ?>
-            </div>
-        </div>
-        <!-- /.row -->
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="page-header"><?php echo(midc_get_title(get_the_title()));?>
+            <small><?php echo(midc_get_sub_title(get_the_title()));?></small>
+        </h2>
+    </div>
+    <div class="col-md-<?php echo($left);?>">
+        <?php
+        if ($pictureLeft)
+            the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
+        else
+            the_content();
+        ?>
+    </div>
+    <div class="col-md-<?php echo($right);?>">
+        <?php
+        if ($pictureRight)
+            the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
+        else if ($pictureLeft)
+            the_content();
+        else
+            echo (get_post_meta( $post->ID, 'midc_twee_kolommen_second_content', true));
+        ?>
+    </div>
+</div>
+<!-- /.row -->

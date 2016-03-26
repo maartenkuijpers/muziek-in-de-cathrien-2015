@@ -15,9 +15,7 @@
  */
 
 get_header();
-
 $email_address = $_POST["niewsbrief-email"]; 
-
 ?>
 
 <div id="primary" class="content-area">
