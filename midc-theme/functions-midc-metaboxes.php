@@ -113,7 +113,7 @@ function midc_twee_kolommen_meta_box_callback($post) {
 	// Tweede content
  	$value = get_post_meta( $post->ID, 'midc_twee_kolommen_second_content', true );
 	$settings = array( 'media_buttons' => true, 'teeny' => true, 'textarea_rows' => 5, 'wpautop' => false );
-	echo '<p><label for="midc_twee_kolommen_second_content">Tweede Content</label> ';
+	echo '<p><label for="midc_twee_kolommen_second_content">Vul hieronder de extra content in wanneer er twee keer een foto of tekst gebruikt wordt:</label> ';
 	wp_editor( $value, 'midc_twee_kolommen_second_content', $settings );
 	echo '</p>';
 }

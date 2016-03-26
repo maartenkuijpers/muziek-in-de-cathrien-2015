@@ -12,15 +12,14 @@
  * 
  * Template Name: Container - Album Item
  */
-
 ?>
-Test
+
 <div class="row">
     <div class="col-md-1 text-center">
         <p><i class="fa fa-camera fa-4x"></i></p>
         <p><?php echo date_i18n('d F Y', strtotime( get_the_date($post_id))); ?></p>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-3">
 <?php
 
         // This code gets the Preview image by gallery-ID
@@ -34,29 +33,24 @@ Test
         $gallery_page_id = $wpdb->get_var("SELECT pageid FROM wp_ngg_gallery where gid=".$gallery_id.";");
         $perma_gallery_page_id = get_permalink($gallery_page_id);
         echo '<a href="' . $perma_gallery_page_id . '">';
-        if (!empty($imgpath))
-            echo '<img class="img-responsive img-hover" src="/' . $imgpath . '">';
-        else
             the_post_thumbnail( 'full', array( 'class' => 'img-responsive img-hover' ) );
         echo '</a>';
-
 ?>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
         <h3>
 <?php
 			the_title();
 ?>
         </h3>
-		<p><?php the_content(); ?></p>
+		<p>
+        <?php
+        $content = get_the_content();
+        echo preg_replace('/\[nggallery id=.*]/', '', $content);
+        ?></p>
 <?php
-		if (!empty($actionText)) {
-			if ($type == 'gallery') {
-				echo '<a class="btn btn-primary" href="' . $perma_gallery_page_id . '">' . $actionText . '&nbsp;<i class="fa fa-angle-right"></i></a>';
-			} else if ($type == 'link') { 
-				echo '<a class="btn btn-primary" href="' . $actionLink . '">' . $actionText . '&nbsp;<i class="fa fa-angle-right"></i></a>';
-			}
-		}
+		echo '<a class="btn btn-primary" href="' . $perma_gallery_page_id . '">Open het album&nbsp;<i class="fa fa-angle-right"></i></a>';
 ?>
     </div>
 </div> <!-- row -->
+<hr/>

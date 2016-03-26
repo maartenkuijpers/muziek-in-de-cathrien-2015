@@ -118,10 +118,7 @@ get_header(); ?>
 			// Start the loop.
 			while ( have_posts() ) :
                 the_post();
-                $content = get_the_content();
-                echo str_replace(array("<pre>", "</pre>"), array("<div class=lead>", "</div>"), $content);
-                
-			// End the loop.
+                the_content();
 			endwhile;
 ?>                
             </div>

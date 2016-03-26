@@ -40,7 +40,7 @@ get_header();
 					$template = get_post_meta( $post->ID, '_wp_page_template', true );
 					switch ($template)
 					{
-						case "page-container-album-item.php": get_template_part('page-container-album-item'); break;
+						case "page-album.php": get_template_part('page-container-album-item'); break;
 						case "page-container-twee-kolommen.php": get_template_part('page-container-twee-kolommen'); break;
 						case "page-container-concerten-overzicht.php": get_template_part('page-container-concerten-overzicht'); break;
 						case "page-container-header-carousel.php": get_template_part('page-container-header-carousel'); break;
