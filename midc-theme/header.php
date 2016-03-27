@@ -66,7 +66,7 @@
                     <li>
                         <a id="login" data-placement="bottom" data-toggle="nieuwsbrief-popover" data-title="Meldt u aan voor de nieuwsbrief" data-container="body" type="button" data-html="true" href="#">Nieuwsbrief</a>
                         <div id="nieuwsbrief-content" class="hide">
-                            <form class="form-inline" id="niewsbrief-form" action="nieuwsbrief-aanmelding" method="post" role="form">
+                            <form class="form-inline" id="niewsbrief-form" action="<?php echo get_site_url();?>/nieuwsbrief-aanmelding" method="post" role="form">
                                 <div class="form-group">
                                     <input name="niewsbrief-email" id="nieuwsbrief-email" class="form-control" placeholder="nieuwsbrief-email" maxlength="100" type="email">
                                     <button type="submit" class="btn-sm btn-primary"><span class="glyphicon glyphicon-ok"></span></button>

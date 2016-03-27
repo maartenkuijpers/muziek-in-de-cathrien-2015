@@ -13,6 +13,12 @@
  * Template Name: Concert in beeld Item template
  */
 
+global $template_order;
+if (!strpos($template_order, 'page-concert-in-beeld.php')) {
+    wp_redirect(get_permalink( $post->post_parent ));
+    exit;
+}
+
 $actionLink = get_post_meta( $post->ID, 'concert_in_beeld_item_meta_box_actionlink', true);
 $actionText = get_post_meta( $post->ID, 'concert_in_beeld_item_meta_box_actiontext', true);
 $type = get_post_meta( $post->ID, 'concert_in_beeld_item_meta_box_type', true);

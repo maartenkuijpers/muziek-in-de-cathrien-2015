@@ -10,9 +10,15 @@
  * @subpackage Twenty_Fifteen
  * @since Twenty Fifteen 1.0
  * 
- * Template Name: Bestuur Item template
+ * Template Name: Bestuur Item template DO NOT USE
  */
- 
+
+global $template_order;
+if (!strpos($template_order, 'page-container-concerten-overzicht.php')) {
+    wp_redirect(get_permalink( $post->post_parent ));
+    exit;
+}
+
 $locale = get_the_terms($post->ID, 'language')[0]->description;
 setlocale(LC_ALL, $locale);
 

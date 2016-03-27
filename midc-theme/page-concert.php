@@ -10,14 +10,14 @@
  * @subpackage Twenty_Fifteen
  * @since Twenty Fifteen 1.0
  * 
- * Template Name: Bestuur template
+ * Template Name: Concert template DO NOT USE
  */
 
 get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
+test
 			<?php
 			// Start the loop.
 			while ( have_posts() ) : the_post();

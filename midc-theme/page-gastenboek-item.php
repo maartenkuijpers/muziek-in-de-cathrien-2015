@@ -12,6 +12,13 @@
  * 
  * Template Name: Gastenboek Item template
  */
+ 
+global $template_order;
+if (!strpos($template_order, 'page-gastenboek.php')) {
+    wp_redirect(get_permalink( $post->post_parent ));
+    exit;
+}
+
 ?>
 
 <div class="row">

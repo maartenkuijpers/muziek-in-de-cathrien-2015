@@ -12,6 +12,7 @@
  * 
  * Template Name: Container - Album Item
  */
+
 ?>
 
 <div class="row">

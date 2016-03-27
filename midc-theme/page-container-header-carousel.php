@@ -12,6 +12,14 @@
  * 
  * Template Name: Container - Header Carousel
  */
+
+global $template_order;
+if (!strpos($template_order, 'page-container.php')) {
+    wp_redirect(get_permalink( $post->post_parent ));
+    exit;
+}
+$template_order .= '/page-container-header-carousel.php';
+
 //<header id="myCarousel" class="carousel slide" data-ride="carousel">
 ?>
 

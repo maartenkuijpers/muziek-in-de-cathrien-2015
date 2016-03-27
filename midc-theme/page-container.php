@@ -13,6 +13,8 @@
  * Template Name: Container
  */
 
+$template_order = '/page-container.php';
+
 get_header();
 ?>
 

@@ -13,6 +13,12 @@
  * Template Name: Container - Twee kolommen
  */
 
+global $template_order;
+if (!strpos($template_order, 'page-container.php')) {
+    wp_redirect(get_permalink( $post->post_parent ));
+    exit;
+}
+
  $pictureLeft = false;
  $pictureRight = false;
  $type = get_post_meta( $post->ID, 'midc_twee_kolommen_type', true);

@@ -69,7 +69,7 @@ function custom_breadcrumbs() {
                 //echo '<li class="separator">' . $separator . '</li>';
               
             }
-              
+            /*  
             // Get post category info
             $category = get_the_category();
              
@@ -120,12 +120,12 @@ function custom_breadcrumbs() {
                 echo '<li class="active">' . midc_get_title(get_the_title()) . '</li>';
                   
             }
-              
+             */ 
         } else if ( is_category() ) {
-               
+         /*      
             // Category page
             echo '<li class="active">' . single_cat_title('', false) . '</li>';
-               
+          */     
         } else if ( is_page() ) {
                
             // Standard page

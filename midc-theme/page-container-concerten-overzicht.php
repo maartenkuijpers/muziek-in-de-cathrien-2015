@@ -13,6 +13,13 @@
  * Template Name: Container - Concerten Overzicht
  */
 
+global $template_order;
+if (!strpos($template_order, 'page-container.php')) {
+    wp_redirect(get_permalink( $post->post_parent ));
+    exit;
+}
+$template_order .= '/page-container-concerten-overzicht.php';
+
 // Include content of concerten with template "page-concerten-overzicht"
 $args = array('posts_per_page' => -1, 'post_type' => 'concert', 'order' => 'ASC', 'orderby' => 'menu_order' );
 $query = new WP_Query($args);

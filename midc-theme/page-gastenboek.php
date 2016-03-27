@@ -12,6 +12,7 @@
  * 
  * Template Name: Gastenboek template
  */
+$template_order = '/page-gastenboek.php';
 
 get_header(); ?>
 

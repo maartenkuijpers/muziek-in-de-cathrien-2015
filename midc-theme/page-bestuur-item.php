@@ -13,6 +13,12 @@
  * Template Name: Bestuur Item template
  */
 
+global $template_order;
+if (!strpos($template_order, 'page-bestuur.php')) {
+    wp_redirect(get_permalink( $post->post_parent ));
+    exit;
+}
+
 ?>
 
 <div class="col-md-4 text-center">

@@ -13,6 +13,8 @@
  * Template Name: Prijzen template
  */
 
+$template_order = '/page-prijzen.php';
+
 get_header(); ?>
 
 	<div id="primary" class="content-area">
@@ -25,17 +27,13 @@ get_header(); ?>
 				// Include the page content template.
 				get_template_part( 'content', 'page' );
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
-
 			// End the loop.
 			endwhile;
-
-?>
+            ?>
+            
 			<div class="row">
-<?php
+
+            <?php
 			// Include content of pages with template "page-prijzen-item"
 			$args = array('posts_per_page' => -1, 'post_type' => 'page', 'order' => 'ASC', 'orderby' => 'menu_order' );
 			$query = new WP_Query($args);
@@ -44,7 +42,7 @@ get_header(); ?>
 					get_template_part( 'page-prijzen-item' );
 				}	
 			endwhile;
-?>
+            ?>
 
 			</div>
 		</main><!-- .site-main -->

@@ -12,6 +12,13 @@
  * 
  * Template Name: Container - Header Carousel Item
  */
+ 
+global $template_order;
+if (!strpos($template_order, 'page-container-header-carousel.php')) {
+    wp_redirect(get_permalink( $post->post_parent ));
+    exit;
+}
+
 /*
  <img class="img-responsive" src="<?php echo($url); ?>" alt="">
 */

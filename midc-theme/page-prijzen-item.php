@@ -12,52 +12,59 @@
  * 
  * Template Name: Prijzen Item template
  */
+ 
+global $template_order;
+if (!strpos($template_order, 'page-prijzen.php')) {
+    wp_redirect(get_permalink( $post->post_parent ));
+    exit;
+}
+
 ?>
 
 <div class="col-md-4">
 	<div class="panel panel-primary text-center">
 		<div class="panel-heading">
-<?php
+            <?php
 			$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_recommended', true);
 			if ($value != 0) {
-?>
+            ?>
 				<h3 class="panel-title"><?php the_title(); ?>&nbsp;<span class="label label-success"><i>Beste Keus!</i></span></h3>
-<?php
+            <?php
 			} else {
-?>
+            ?>
 				<h3 class="panel-title"><?php the_title(); ?></h3>
-<?php
+            <?php
 			}
-?>
+            ?>
 		</div>
 		<div class="panel-body">
-<?php
+            <?php
 			$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_euro', true);
 			$value2 = get_post_meta( $post->ID, 'prijzen_item_meta_box_eurocenten', true);
 			if (!empty($value) && !empty($value2)) {
-?>
+            ?>
 			<span class="price"><sup>&euro;</sup><?php echo $value; ?><sup><?php echo $value2; ?></sup></span>
-<?php
+            <?php
 			}
 			$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_subtitle', true);
 			if (!empty($value)) {
-?>
+            ?>
 			<span class="period"><?php echo $value ?></span>
-<?php
+            <?php
 			}
 			$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_arguments', true);
 			if (!empty($value)) {
-?>
+            ?>
 		</div>
 		<ul class="list-group">
-<?php
+            <?php
 			$array = explode( "\r\n", $value );
 			foreach ($array as &$line) {
 				$line = preg_replace("/\*(.*?)\*/", "<b>$1</b>", $line);
 				$line = preg_replace("/\|(.*?)\|(.*?)\|/", "<a href='?p=$1'>$2</a>", $line);
-?>
+                ?>
 				<li class="list-group-item"><?php echo $line; ?></li>
-<?php
+                <?php
 				}
 			}
 			$value = get_post_meta( $post->ID, 'prijzen_item_meta_box_actiontext', true);
@@ -66,13 +73,13 @@
 				if (intval($value_url) != 0) {
 					$value_url = '?p=' . $value_url;
 				}
-?>
-						<li class="list-group-item">
-							<a href="<?php echo $value_url; ?>" class="btn btn-primary"><?php echo $value; ?></a>
-						</li>
-<?php
+            ?>
+                <li class="list-group-item">
+                    <a href="<?php echo $value_url; ?>" class="btn btn-primary"><?php echo $value; ?></a>
+                </li>
+            <?php
 			}
-?>
+            ?>
 		</ul>
 	</div>
 </div>

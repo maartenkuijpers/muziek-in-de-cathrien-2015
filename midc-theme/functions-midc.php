@@ -51,4 +51,46 @@ function midc_get_concert_prices( $post_id )
     
     return $prices; 
 }
+
+// exclude any content from search results that use specific page templates
+// http://stackoverflow.com/questions/7462999/how-to-exclude-wordpress-page-templatecustom-template-from-search-results
+function exclude_page_templates_from_search($query) {
+
+    global $wp_the_query;
+
+    if ( ($wp_the_query === $query) && (is_search()) && ( ! is_admin()) ) {
+
+        $args = array_merge($wp_the_query->query, array(
+        'meta_query' => array(
+            array(
+                'key' => '_wp_page_template',
+                'value' => 'page-bestuur-item.php',
+                'compare' => '!='
+                ),
+            array(
+                'key' => '_wp_page_template',
+                'value' => 'page-concert-in-beeld-item.php',
+                'compare' => '!='
+                ),
+            array(
+                'key' => '_wp_page_template',
+                'value' => 'page-container-album-item.php',
+                'compare' => '!='
+                ),
+            array(
+                'key' => '_wp_page_template',
+                'value' => 'page-container-twee-kolommen.php',
+                'compare' => '!='
+                )
+
+            ),
+        ));
+
+        query_posts( $args );
+
+    }
+
+}
+//add_filter('pre_get_posts','exclude_page_templates_from_search');
+
 ?>
