@@ -43,8 +43,8 @@ $email_address = $_POST["niewsbrief-email"];
                     <div class="form-group">
                         <label for="mce-FNAME" class="col-sm-2 control-label">Naam</label>
                         <div class="col-sm-10 form-inline">
-                            <input type="text" placeholder="voornaam" value="" name="FNAME" class="form-control col-sm-5" id="mce-FNAME">
-                            <input type="text" placeholder="achternaam" value="" name="LNAME" class="form-control col-sm-5" id="mce-LNAME">
+                            <input type="text" placeholder="voornaam" value="" name="FNAME" class="form-control" id="mce-FNAME">
+                            <input type="text" placeholder="achternaam" value="" name="LNAME" class="form-control" id="mce-LNAME">
                         </div>
                     </div>
                     <div class="form-group">

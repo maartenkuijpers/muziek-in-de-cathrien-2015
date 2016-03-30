@@ -21,13 +21,17 @@ if (!strpos($template_order, 'page-container.php')) {
 $template_order .= '/page-container-concerten-overzicht.php';
 
 // Include content of concerten with template "page-concerten-overzicht"
-$args = array('posts_per_page' => -1, 'post_type' => 'concert', 'order' => 'ASC', 'orderby' => 'menu_order' );
+//$args = array('posts_per_page' => -1, 'post_type' => 'concert', 'order' => 'ASC', 'orderby' => 'menu_order' );
+$args = array('posts_per_page' => -1, 'post_type' => 'concert', 'order' => 'DEC', 'orderby' => 'meta_value', 'meta_key' => 'midc_concerten_meta_unix' );
 $query = new WP_Query($args);
+
 $thisID = get_the_ID();
 $columns = 0;
 echo "<div class='row'>";
-while ( $query->have_posts() ) : $query->the_post(); 
+while ( $query->have_posts() ) : $query->the_post();
+    echo "<div class='col-lg-4'>"; 
 	get_template_part( 'page-container-concerten-overzicht-item' );
+    echo "</div>";
 
 	$columns = $columns + 1;
 	if ($columns == 3) {

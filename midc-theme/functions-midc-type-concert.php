@@ -158,28 +158,34 @@ function midc_concerten_meta_save($post_id, $post) {
 		return $post_id;
 
 	// Concert type
-	if ( ! isset( $_POST['midc_concerten_meta_type'] ) ) { return; }
-	$my_data = sanitize_text_field( $_POST['midc_concerten_meta_type'] );
-	update_post_meta( $post_id, 'midc_concerten_meta_type', $my_data );
+	if (isset($_POST['midc_concerten_meta_type']))
+    	update_post_meta( $post_id, 'midc_concerten_meta_type', sanitize_text_field($_POST['midc_concerten_meta_type']));
 
 	// Subtitel Uitvoerenden
-	if ( ! isset( $_POST['midc_concerten_artistiek_subtitel'] ) ) { return; }
-	$my_data = sanitize_text_field( $_POST['midc_concerten_artistiek_subtitel'] );
-	update_post_meta( $post_id, 'midc_concerten_artistiek_subtitel', $my_data );
+	if (isset($_POST['midc_concerten_artistiek_subtitel']))
+    	update_post_meta( $post_id, 'midc_concerten_artistiek_subtitel', sanitize_text_field( $_POST['midc_concerten_artistiek_subtitel'] ) );
 
 	// Datum
-	if ( ! isset( $_POST['midc_concerten_meta_datum'] ) ) { return; }
-	$my_data = sanitize_text_field( $_POST['midc_concerten_meta_datum'] );
-	update_post_meta( $post_id, 'midc_concerten_meta_datum', $my_data );
+    $date = '';
+	if (isset($_POST['midc_concerten_meta_datum'])) {
+    	$date = sanitize_text_field($_POST['midc_concerten_meta_datum']);
+	    update_post_meta( $post_id, 'midc_concerten_meta_datum', $date);
+    }
 
 	// Tijdstip : Aanvang & Einde
-	if ( ! isset( $_POST['midc_concerten_meta_aanvang'] ) ) { return; }
-	$my_data = sanitize_text_field( $_POST['midc_concerten_meta_aanvang'] );
-	update_post_meta( $post_id, 'midc_concerten_meta_aanvang', $my_data );
+    $time = '';
+	if (isset($_POST['midc_concerten_meta_aanvang'])) {
+	    $time = sanitize_text_field( $_POST['midc_concerten_meta_aanvang'] );
+	    update_post_meta( $post_id, 'midc_concerten_meta_aanvang', $time );
+    }
+	if (isset($_POST['midc_concerten_meta_einde'])) {
+    	update_post_meta( $post_id, 'midc_concerten_meta_einde', sanitize_text_field( $_POST['midc_concerten_meta_einde'] ) );
+    }
 
-	if ( ! isset( $_POST['midc_concerten_meta_einde'] ) ) { return; }
-	$my_data = sanitize_text_field( $_POST['midc_concerten_meta_einde'] );
-	update_post_meta( $post_id, 'midc_concerten_meta_einde', $my_data );
+    // Unix timestamp : Based on date & time, required for sorting
+    $date_value = date_parse_from_format("j-n-Y H.i", $date . ' ' . $time);
+    $date_unix = mktime($date_value['hour'], $date_value['minute'], 0, $date_value['month'], $date_value['day'], $date_value['year']); 
+    update_post_meta($post_id, 'midc_concerten_meta_unix', $date_unix);
 
 	// Locatie : Naam, Adres, Plaats
 	if ( ! isset( $_POST['midc_concerten_meta_locatie_naam'] ) ) { return; }
