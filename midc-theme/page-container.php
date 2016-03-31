@@ -46,6 +46,7 @@ get_header();
 						case "page-container-twee-kolommen.php": get_template_part('page-container-twee-kolommen'); break;
 						case "page-container-concerten-overzicht.php": get_template_part('page-container-concerten-overzicht'); break;
 						case "page-container-header-carousel.php": get_template_part('page-container-header-carousel'); break;
+                        case "page-container-service-tabs.php": get_template_part('page-container-service-tabs'); break;
 					}
 				}
 			endwhile;

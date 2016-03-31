@@ -21,8 +21,21 @@ if (!strpos($template_order, 'page-container.php')) {
 $template_order .= '/page-container-concerten-overzicht.php';
 
 // Include content of concerten with template "page-concerten-overzicht"
-//$args = array('posts_per_page' => -1, 'post_type' => 'concert', 'order' => 'ASC', 'orderby' => 'menu_order' );
-$args = array('posts_per_page' => -1, 'post_type' => 'concert', 'order' => 'DEC', 'orderby' => 'meta_value', 'meta_key' => 'midc_concerten_meta_unix' );
+//$args = array('posts_per_page' => -1, 'post_type' => 'concert', 'order' => 'DEC', 'orderby' => 'meta_value', 'meta_key' => 'midc_concerten_meta_unix' );
+$args = array(
+    'posts_per_page' => -1,
+    'post_type' => 'concert',
+    'order' => 'ASC',
+    'orderby' => 'meta_value',
+    'meta_key' => 'midc_concerten_meta_unix',
+    'meta_query' => array(
+        array(
+            'key'     => 'midc_concerten_meta_unix',
+            'value'   => date_i18n( 'U' ), /* seconds in Unix time */
+            'compare' => '>',
+        ),
+    ),
+);
 $query = new WP_Query($args);
 
 $thisID = get_the_ID();
