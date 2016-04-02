@@ -81,6 +81,7 @@ function meta_box_can_do_save($nonce, $metabox)
 	return true; // It's safe to save the data now
 }
 
+
 function midc_twee_kolommen_meta_box_callback($post) {
 	wp_nonce_field( 'midc_twee_kolommen_meta_box', 'midc_twee_kolommen_meta_box_nonce' );
 

@@ -5,6 +5,9 @@
  * @since Twenty Fifteen 1.0
  */
 
+// Register Custom Navigation Walker
+require_once('wp_bootstrap_pagination.php');
+
 function midc_get_title( $title )
 {
 	$parts = explode("|", $title);

@@ -21,7 +21,7 @@ if (!strpos($template_order, 'page-container-service-tabs.php')) {
 $template_order .= '/page-container-service-tabs-item.php';
 ?>
 
-<div class="tab-pane fade" id="service-<?php the_ID(); ?>">
-    <h4><?php the_title(); ?></h4>
-    <p><?php the_content(); ?></p>
+<div class="tab-pane fade" role="tabpanel" id="service-<?php the_ID(); ?>">
+    <h4></h4>
+    <?php the_content(); ?>
 </div>
