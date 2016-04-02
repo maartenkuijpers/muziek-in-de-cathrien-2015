@@ -35,10 +35,10 @@ $options = get_option('midc_options_data');
             interval: 5000 //changes the speed
         })
 
-        $("[data-toggle=nieuwsbrief-popover]").popover({
+        $("[data-toggle=newsletter-popover]").popover({
             html: true,
             content: function () {
-                return $('#nieuwsbrief-content').html();
+                 return $('#newsletter-content').html();
             }
         });
 
@@ -51,7 +51,7 @@ $options = get_option('midc_options_data');
         
         $('body').on('click', function (e) {
             // This is for closing the popups when clicking outside their area 
-            $('[data-toggle="nieuwsbrief-popover"]').each(function () {
+            $('[data-toggle="newsletter-popover"]').each(function () {
                 if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
                     $(this).popover('hide');
                 }

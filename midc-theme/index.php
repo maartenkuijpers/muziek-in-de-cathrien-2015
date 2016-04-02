@@ -14,6 +14,7 @@
  * @since Twenty Fifteen 1.0
  */
 
+echo "door " . __FILE__ . " gerendered.";
 get_header(); ?>
 
 	<div id="primary" class="content-area">

@@ -11,6 +11,7 @@
  * @since Twenty Fifteen 1.0
  */
 
+echo "door " . __FILE__ . " gerendered.";
 get_header(); ?>
 
 	<div id="primary" class="content-area">
@@ -19,8 +20,6 @@ get_header(); ?>
 		<?php
 		// Start the loop.
 		while ( have_posts() ) : the_post();
-
-echo "door " . __FILE__ . " gerendered.";
 
 			// Include the page content template.
 			get_template_part( 'content', 'page' );

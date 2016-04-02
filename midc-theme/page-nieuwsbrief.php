@@ -15,7 +15,7 @@
  */
 
 get_header();
-$email_address = $_POST["niewsbrief-email"]; 
+$email_address = $_POST["newsletter-email"]; 
 ?>
 
 <div id="primary" class="content-area">
@@ -37,7 +37,7 @@ $email_address = $_POST["niewsbrief-email"];
                     <div class="form-group">
                         <label for="mce-EMAIL" class="col-sm-2 control-label">E-mail-adres*</label>
                         <div class="col-sm-10">
-                            <input type="email" placeholder="email adres" value="<?php echo $email_address; ?>" name="EMAIL" class="form-control" id="mce-EMAIL">
+                            <input type="email" maxlength="100" required placeholder="email adres" value="<?php echo $email_address; ?>" name="EMAIL" class="form-control" id="mce-EMAIL">
                         </div>
                     </div>
                     <div class="form-group">
@@ -62,7 +62,7 @@ $email_address = $_POST["niewsbrief-email"];
                                 <div id="mce-success-response" style="display:none"></div>
                             </div><!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                             <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_431a575944c9a01997ade9536_9de492aac9" tabindex="-1" value=""></div>
-                            <input type="submit" value="Meld mij aan voor de nieuwsbrief!" name="subscribe" id="mc-embedded-subscribe" class="btn btn-lg btn-success">
+                            <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-lg btn-success"><i class='fa fa-flag fa-2x pull-left'></i>Meld mij aan voor de nieuwsbrief!</button>
                         </div>
                     </div>
                 </div>

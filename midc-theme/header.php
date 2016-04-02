@@ -46,8 +46,10 @@
                 <a class="navbar-brand" href="/"><img src=" <?php echo get_stylesheet_directory_uri();?>/images/Muziek in de Cathrien - horizontaal 50px.png" title="Logo Muziek in de Cathrien" /></a>
             </div>
 
-			<!-- INSERT WP MENU HERE -->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<?php
+                // WP MENU IS INSERTED HERE
 				$defaults = array(
 					'menu' => 'top_menu',
 					'depth' => 2,
@@ -56,19 +58,16 @@
 					'walker' => new wp_bootstrap_navwalker()
 				);
 				wp_nav_menu( $defaults );
+                // WP MENU IS INSERTED HERE -- end
                 ?>
 
-			<!-- /INSERT WP MENU HERE -->
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+                <ul id="menu-custom-menu" class="nav navbar-nav navbar-right">
                     <li>
-                        <a id="login" data-placement="bottom" data-toggle="nieuwsbrief-popover" data-title="Meldt u aan voor de nieuwsbrief" data-container="body" type="button" data-html="true" href="#">Nieuwsbrief</a>
-                        <div id="nieuwsbrief-content" class="hide">
-                            <form class="form-inline" id="niewsbrief-form" action="<?php echo get_site_url();?>/nieuwsbrief-aanmelding" method="post" role="form">
+                        <a id="newsletter" data-placement="bottom" data-toggle="newsletter-popover" data-title="Meldt u aan voor de nieuwsbrief" data-container="body" type="button" data-html="true" href="#">Nieuwsbrief</a>
+                        <div id="newsletter-content" class="hide">
+                            <form class="form-inline" id="newsletter-form" action="<?php echo get_site_url();?>/nieuwsbrief-aanmelding" method="post" role="form">
                                 <div class="form-group">
-                                    <input name="niewsbrief-email" id="nieuwsbrief-email" class="form-control" placeholder="nieuwsbrief-email" maxlength="100" type="email">
+                                    <input name="newsletter-email" id="newsletter-email" class="form-control" placeholder="E-mailadres" maxlength="100" required type="email">
                                     <button type="submit" class="btn-sm btn-primary"><span class="glyphicon glyphicon-ok"></span></button>
                                 </div>
                             </form>
@@ -76,19 +75,11 @@
                     </li>
 
                     <li>
-                        <a class="nav" href="#" title="English"><img src=" <?php echo get_stylesheet_directory_uri(); ?>/images/BritishFlag.png" height="15" /></a>
-                    </li>
-
-                    <li>
-                        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-                    </li>
-
-                    <li>
-                        <a id="search" data-placement="bottom" data-toggle="search-popover" data-title="Zoek op de website" data-container="body" type="button" data-html="true"><span class="glyphicon glyphicon-search"></span></a>
+                        <a id="search" data-placement="bottom" data-toggle="search-popover" title="Zoek op de website" data-container="body" type="button" data-html="true"><span class="glyphicon glyphicon-search"></span></a>
                         <div id="search-content" class="hide">
                             <form id="search-form" class="form-inline" action="<?php echo get_site_url();?>" method="get" role="form">
                                 <div class="form-group">
-                                    <input name="s" class="form-control" placeholder="zoeken" maxlength="100" type="search">
+                                    <input id="s" name="s" class="form-control" placeholder="zoeken" maxlength="100" type="search">
                                     <button type="submit" class="btn-sm btn-primary" onclick="if ($('input#search').val() == '') return false;"><span class="glyphicon glyphicon-search"></span></button>
                                 </div>
                             </form>
@@ -97,7 +88,18 @@
                         </script>
                     </li>
 
+                    <li>
+                        <a class="nav" href="#" title="English"><img src=" <?php echo get_stylesheet_directory_uri(); ?>/images/BritishFlag.png" height="15" /></a>
+                    </li>
+
+                    <li>
+                        <a class="navbar-brand" title="Ga naar de winkel" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    </li>
                 </ul>
+                
+                <script>
+                    $('#menu-custom-menu').children().appendTo("#menu-main-menu");
+                </script>
             </div>
             <!-- /.navbar-collapse -->
         </div>
