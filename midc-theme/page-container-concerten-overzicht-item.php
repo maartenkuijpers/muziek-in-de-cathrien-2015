@@ -10,7 +10,7 @@
  * @subpackage Twenty_Fifteen
  * @since Twenty Fifteen 1.0
  * 
- * Template Name: Bestuur Item template DO NOT USE
+ * This is the Concerten Overzicht Item template.
  */
 
 global $template_order;
@@ -48,12 +48,13 @@ switch ($type_value) {
 <div class="portfolio-item">
     <a href="<?php the_permalink() ?>">
         <div class="title"><?php the_title(); ?></div>
-<?php the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );?>
+        <?php
+        the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
+        ?>
     </a>
     <h3>
         <a href="<?php the_permalink() ?>"><?php echo($date_long); ?></a>
     </h3>
-
     <p>
         <?php echo ($summary); ?>
         <a href="<?php the_permalink() ?>">lees meer...</a>

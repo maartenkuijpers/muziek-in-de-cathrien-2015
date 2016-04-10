@@ -31,7 +31,7 @@ $args = array(
     'meta_query' => array(
         array(
             'key'     => 'midc_concerten_meta_unix',
-            'value'   => date_i18n( 'U' ), /* seconds in Unix time */
+            'value'   => date_i18n( 'U' ),
             'compare' => '>',
         ),
     ),
