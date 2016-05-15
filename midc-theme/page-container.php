@@ -17,7 +17,6 @@ $template_order = '/page-container.php';
 
 get_header();
 ?>
-
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 			<?php
@@ -47,10 +46,11 @@ get_header();
 						case "page-container-concerten-overzicht.php": get_template_part('page-container-concerten-overzicht'); break;
 						case "page-container-header-carousel.php": get_template_part('page-container-header-carousel'); break;
                         case "page-container-service-tabs.php": get_template_part('page-container-service-tabs'); break;
+						case "page-container-bestuur.php": get_template_part('page-container-bestuur'); break;
 					}
 				}
 			endwhile;
-?>
+			?>
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->
 

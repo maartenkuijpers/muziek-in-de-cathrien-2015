@@ -10,7 +10,7 @@
  * @subpackage Twenty_Fifteen
  * @since Twenty Fifteen 1.0
  * 
- * Template Name: Gastenboek Item template
+ * Template Name: Gastenboek - Item
  */
  
 global $template_order;

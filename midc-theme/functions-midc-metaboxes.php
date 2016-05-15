@@ -22,7 +22,7 @@ function midc_add_meta_boxes( $post ) {
 				'default' // priority (high, core, default or low)
 			); break;
 
-		case 'page-bestuur-item.php':
+		case 'page-container-bestuur-item.php':
 			add_meta_box(
 				'midc-bestuur-item-meta-box',
 				'Bestuurslid Extra Velden',

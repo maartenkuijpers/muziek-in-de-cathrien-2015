@@ -10,7 +10,7 @@
  * @subpackage Twenty_Fifteen
  * @since Twenty Fifteen 1.0
  * 
- * Template Name: Prijzen template
+ * Template Name: Prijzen
  */
 
 $template_order = '/page-prijzen.php';

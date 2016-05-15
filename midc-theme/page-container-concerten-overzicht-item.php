@@ -37,9 +37,9 @@ $type_value = get_post_meta($post->ID, 'midc_concerten_meta_type', true);
 $type = "";
 switch ($type_value) {
 	case 1: $type = "Event_MuziekInDeCathrien_org.png"; break;
-	case 2: $type = "Event_OrgelMuziekInDeCathrien_org.png"; break;
+	case 2: $type = "Event_KamerMuziekInDeCathrien_org.png"; break;
 	case 3: $type = "Event_KoorMuziekInDeCathrien_org.png"; break;
-	case 4: $type = "Event_KamerMuziekInDeCathrien_org.png"; break;
+	case 4: $type = "Event_OrgelMuziekInDeCathrien_org.png"; break;
 	default: $type = "Event_MuziekInDeCathrien_org.png"; break;
 }
 

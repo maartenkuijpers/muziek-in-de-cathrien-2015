@@ -98,9 +98,9 @@ function midc_concerten_meta_callback($post) {
     $value = get_post_meta($post->ID, 'midc_concerten_meta_type', true);
 	echo '<p><label for="midc_concerten_meta_type">Type concert:</label><br>';
 	echo '<input name="midc_concerten_meta_type" type="radio" value="1"' . checked( "1", $value, false) . '>Muziek in de Cathrien</input><br>';
-	echo '<input name="midc_concerten_meta_type" type="radio" value="2"' . checked( "2", $value, false ) . '>OrgelMuziek in de Cathrien</input><br>';
+	echo '<input name="midc_concerten_meta_type" type="radio" value="2"' . checked( "2", $value, false ) . '>KamerMuziek in de Cathrien</input><br>';
 	echo '<input name="midc_concerten_meta_type" type="radio" value="3"' . checked( "3", $value, false ) . '>KoorMuziek in de Cathrien</input><br>';
-	echo '<input name="midc_concerten_meta_type" type="radio" value="4"' . checked( "4", $value, false ) . '>KamerMuziek in de Cathrien</input><br>';
+	echo '<input name="midc_concerten_meta_type" type="radio" value="4"' . checked( "4", $value, false ) . '>OrgelMuziek in de Cathrien</input><br>';
     echo '</p>';
 
 	// Subtitel Uitvoerenden

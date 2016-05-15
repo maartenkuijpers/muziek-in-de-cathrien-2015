@@ -10,7 +10,7 @@
  * @subpackage Twenty_Fifteen
  * @since Twenty Fifteen 1.0
  * 
- * Template Name: Container - Header Carousel Item
+ * Template Name: Container - Header Carousel - Item
  */
  
 global $template_order;

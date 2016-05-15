@@ -10,7 +10,7 @@
  * @subpackage Twenty_Fifteen
  * @since Twenty Fifteen 1.0
  * 
- * Template Name: Container - Service Tabs Item
+ * Template Name: Container - Service Tabs - Item
  */
  
 global $template_order;

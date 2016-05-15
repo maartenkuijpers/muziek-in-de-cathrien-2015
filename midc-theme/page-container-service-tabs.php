@@ -36,7 +36,6 @@ $thisID = get_the_ID();
                 <div id="myTabContent" class="tab-content">
                 <?php
                 $active_tab = 0;
-                $doc = new DOMDocument;
                 $tab_lis = '';
 
                 // Only include direct children of this container.

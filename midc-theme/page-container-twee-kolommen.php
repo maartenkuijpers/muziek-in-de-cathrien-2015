@@ -19,21 +19,21 @@ if (!strpos($template_order, 'page-container.php')) {
     exit;
 }
 
- $pictureLeft = false;
- $pictureRight = false;
- $type = get_post_meta( $post->ID, 'midc_twee_kolommen_type', true);
- switch ($type) {
-	case 'text50-text50': $left = 6; $right = 6; break;
- 	case 'text33-text66': $left = 4; $right = 8; break;
- 	case 'text66-text33': $left = 8; $right = 4; break;
- 	case 'text50-picture50': $left = 6; $right = 6; $pictureRight = true; break;
- 	case 'text33-picture66': $left = 4; $right = 8; $pictureRight = true; break;
- 	case 'text66-picture33': $left = 8; $right = 4; $pictureRight = true; break;
- 	case 'picture50-text50': $left = 6; $right = 6; $pictureLeft = true; break;
- 	case 'picture33-text66': $left = 8; $right = 4; $pictureLeft = true; break;
- 	case 'picture66-text33': $left = 4; $right = 8; $pictureLeft = true; break;
-	default: $left = 6; $right = 6; break;
- }
+$pictureLeft = false;
+$pictureRight = false;
+$type = get_post_meta( $post->ID, 'midc_twee_kolommen_type', true);
+switch ($type) {
+    case 'text50-text50': $left = 6; $right = 6; break;
+    case 'text33-text66': $left = 4; $right = 8; break;
+    case 'text66-text33': $left = 8; $right = 4; break;
+    case 'text50-picture50': $left = 6; $right = 6; $pictureRight = true; break;
+    case 'text33-picture66': $left = 4; $right = 8; $pictureRight = true; break;
+    case 'text66-picture33': $left = 8; $right = 4; $pictureRight = true; break;
+    case 'picture50-text50': $left = 6; $right = 6; $pictureLeft = true; break;
+    case 'picture33-text66': $left = 8; $right = 4; $pictureLeft = true; break;
+    case 'picture66-text33': $left = 4; $right = 8; $pictureLeft = true; break;
+    default: $left = 6; $right = 6; break;
+}
 ?>
 
 <div class="row">

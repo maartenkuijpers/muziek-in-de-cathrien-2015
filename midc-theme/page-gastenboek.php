@@ -10,7 +10,7 @@
  * @subpackage Twenty_Fifteen
  * @since Twenty Fifteen 1.0
  * 
- * Template Name: Gastenboek template
+ * Template Name: Gastenboek
  */
 $template_order = '/page-gastenboek.php';
 
