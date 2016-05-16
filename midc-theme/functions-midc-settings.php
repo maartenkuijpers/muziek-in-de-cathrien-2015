@@ -40,6 +40,7 @@ function plugin_admin_init() {
 	add_settings_field('midc_option_algemeen_locatie_plaats', 'Plaats:', 'midc_option_algemeen_locatie_plaats', 'midc_options', 'midc_options_algemeen');
 	add_settings_field('midc_option_algemeen_tijd_aanvang', 'Aanvang:', 'midc_option_algemeen_tijd_aanvang', 'midc_options', 'midc_options_algemeen');
 	add_settings_field('midc_option_algemeen_tijd_einde', 'Einde:', 'midc_option_algemeen_tijd_einde', 'midc_options', 'midc_options_algemeen');
+	add_settings_field('midc_option_algemeen_contact', 'Contact URL:', 'midc_option_algemeen_contact', 'midc_options', 'midc_options_algemeen');
 	add_settings_field('midc_option_algemeen_social_facebook', 'Facebook URL:', 'midc_option_algemeen_social_facebook', 'midc_options', 'midc_options_algemeen');
 	add_settings_field('midc_option_algemeen_social_twitter', 'Twitter URL:', 'midc_option_algemeen_social_twitter', 'midc_options', 'midc_options_algemeen');
 	
@@ -91,6 +92,11 @@ function midc_option_algemeen_tijd_einde() {
 	$options = get_option('midc_options_data');
 	echo "<input id='midc_option_algemeen_tijd_einde' placeholder='hh.mm' name='midc_options_data[midc_option_algemeen_tijd_einde]' maxlength='5' size='5' type='text' value='{$options['midc_option_algemeen_tijd_einde']}' />";
 	echo "&nbsp;<small>bv. 16.00</small>";
+}
+
+function midc_option_algemeen_contact() {
+	$options = get_option('midc_options_data');
+	echo "<input id='midc_option_algemeen_contact' placeholder='url van de contactpagina' name='midc_options_data[midc_option_algemeen_contact]' maxlength='255' size='40' type='text' value='{$options['midc_option_algemeen_contact']}' />";
 }
 
 function midc_option_algemeen_social_facebook() {
@@ -194,7 +200,12 @@ function midc_options_data_validate($input) {
 		$input['midc_option_algemeen_tijd_einde'] = '';
 	}
 
-	// Social Channels 
+	// Contact
+	if (!preg_match('/^.{0,255}$/i', $input['midc_option_algemeen_contact'])) {
+		$input['midc_option_algemeen_contact'] = '';
+	}
+
+	// Social Channels
 	if (!preg_match('/^.{0,255}$/i', $input['midc_option_algemeen_social_facebook'])) {
 		$input['midc_option_algemeen_social_facebook'] = '';
 	}

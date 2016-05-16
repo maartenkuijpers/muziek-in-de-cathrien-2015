@@ -28,7 +28,9 @@ $thisID = get_the_ID();
 
 <div class='row'>
     <div class="col-lg-12">
-        <h2 class="page-header"><?php echo(midc_get_title(get_the_title())); ?></h2>
+        <h2 class="page-header"><?php echo(midc_get_title(get_the_title()));?>
+            <small><?php echo(midc_get_sub_title(get_the_title()));?></small>
+        </h2>
     </div>
     <div class="col-lg-12">
         <div id="myTabContent" class="tab-content">

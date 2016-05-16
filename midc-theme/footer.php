@@ -6,8 +6,9 @@ $options = get_option('midc_options_data');
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="list-inline text-center">
-                        <li><a href="contact.html">Contact</a></li>
                         <?php
+                        if ($options['midc_option_algemeen_contact'] != '')                       
+                            echo ('<li><a href="' . $options['midc_option_algemeen_contact'] . '">' . __( 'Contact', 'twentyfifteen' ) . '</a></li>');
                         if ($options['midc_option_algemeen_social_facebook'] != '')                       
                             echo ('<li><a href="' . $options['midc_option_algemeen_social_facebook'] . '"><i class="fa fa-2x fa-facebook-square"></i>&nbsp;Facebook</a></li>');
                         if ($options['midc_option_algemeen_social_twitter'] != '')                       
