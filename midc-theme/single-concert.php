@@ -125,20 +125,26 @@ get_header(); ?>
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
                 <!-- Side Widget Well -->
+                <?php $uitvoerenden = get_post_meta( $post->ID, 'midc_concerten_artistiek_uitvoerenden', true);
+                if ($uitvoerenden != '') {?>
                 <div class="well">
                     <h4>Uitvoerenden</h4>
                     <small>
-                        <?php echo get_post_meta( $post->ID, 'midc_concerten_artistiek_uitvoerenden', true); ?>
+                        <?php echo $uitvoerenden ?>
                     </small>
                 </div>
+                <?php } ?>
 
                 <!-- Side Widget Well -->
+                <?php $programma = get_post_meta( $post->ID, 'midc_concerten_artistiek_programma', true);
+                if ($programma != '') {?>
                 <div class="well">
                     <h4>Programma</h4>
                     <small>
-                        <?php echo get_post_meta( $post->ID, 'midc_concerten_artistiek_programma', true); ?>
+                        <?php echo $programma ?>
                     </small>
                 </div>
+                <?php } ?>
 
                 <!-- Blog Categories Well -->
                 <div class="well">
