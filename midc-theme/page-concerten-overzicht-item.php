@@ -46,10 +46,10 @@ switch ($type_value) {
         <a href="<?php the_permalink() ?>"><?php echo($date_long); ?></a>
     </h3>
 
-    <p>
+    <div class="concert-summary">
         <?php echo ($summary); ?>
         <a href="<?php the_permalink() ?>">lees meer...</a>
-    </p>
+    </div>
 
     <p>
         <div class="item-info">

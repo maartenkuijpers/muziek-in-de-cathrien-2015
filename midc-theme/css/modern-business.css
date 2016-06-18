@@ -10,6 +10,10 @@
   border-radius: 0 !important;
 }
 
+h1,h2,h3 {
+	font-family: 'Oswald', sans-serif;
+}
+
 html,
 body {
     height: 100%;
@@ -104,6 +108,10 @@ a:focus {
     color: #000;
 	border: 0;
 }
+.well a {
+	color: #FFFAEC;
+	font-weight: bold;
+}
 
 .uitvoerenden {
     background-color: rgba(39, 213, 96, 0.25);
@@ -149,6 +157,11 @@ a:focus {
     padding: 20px;
 }
 
+.concert-summary {
+    font-size: 75%;
+	height: 5em;
+}
+
 .portfolio-item a {
     color: #696297;
     text-decoration: none;
@@ -164,6 +177,7 @@ a:focus {
 }
 
 .portfolio-item .title {
+	font-family: 'Oswald', sans-serif;
     font-size: 2em;
     position: absolute;
     padding-left: 10px;

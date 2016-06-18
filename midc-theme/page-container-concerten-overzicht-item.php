@@ -31,8 +31,14 @@ if ($date_value['year'] != date('Y')) {
 }
 $date_short = strftime("%a %d %b", $date_unix);
 $time = get_post_meta($post->ID, 'midc_concerten_meta_aanvang', true);
-$prices = midc_get_concert_prices($post->ID);
-$summary = substr( wp_strip_all_tags( get_the_content() ), 0, 140);
+$prices = midc_get_concert_prices($post->ID);;
+$summary_text = wp_strip_all_tags(get_the_content('Read more'));
+//$summary = substr(wp_strip_all_tags(get_the_content('Read more')), 0, 150);
+$summary = $summary_text;
+if (preg_match('/^.{1,150}\b/s', $summary_text, $match))
+{
+    $summary=$match[0];
+}
 $type_value = get_post_meta($post->ID, 'midc_concerten_meta_type', true);
 $type = "";
 switch ($type_value) {
@@ -55,15 +61,13 @@ switch ($type_value) {
     <h3>
         <a href="<?php the_permalink() ?>"><?php echo($date_long); ?></a>
     </h3>
-    <p>
+    <div class="concert-summary">
         <?php echo ($summary); ?>
         <a href="<?php the_permalink() ?>">lees meer...</a>
-    </p>
+    </div>
 
-    <p>
-        <div class="item-info">
-            <img src="<?php echo(get_stylesheet_directory_uri() . "/images/" . $type); ?>" /><br />
-<?php echo( $date_short . " | " . $time . " | " . $prices ); ?>
-        </div>
-    </p>
+	<div class="item-info">
+		<img src="<?php echo(get_stylesheet_directory_uri() . "/images/" . $type); ?>" /><br />
+		<?php echo( $date_short . " | " . $time . " | " . $prices ); ?>
+	</div>
 </div>
