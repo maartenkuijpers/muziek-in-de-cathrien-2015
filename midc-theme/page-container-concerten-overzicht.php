@@ -27,14 +27,14 @@ $args = array(
     'post_type' => 'concert',
     'order' => 'ASC',
     'orderby' => 'meta_value',
-    'meta_key' => 'midc_concerten_meta_unix',
+    'meta_key' => 'midc_concerten_meta_unix'/*,
     'meta_query' => array(
         array(
             'key'     => 'midc_concerten_meta_unix',
             'value'   => date_i18n( 'U' ),
             'compare' => '>',
         ),
-    ),
+    ),*/
 );
 $query = new WP_Query($args);
 

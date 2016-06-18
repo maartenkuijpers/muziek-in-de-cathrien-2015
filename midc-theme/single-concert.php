@@ -44,7 +44,7 @@ get_header(); ?>
                 <small><?php echo $subtitle ?></small>
                 </h1>
                 
-                <?php custom_breadcrumbs() ?>
+                <?php /* custom_breadcrumbs() */ ?>
                 
             </div>
         </div>
@@ -54,14 +54,11 @@ get_header(); ?>
             <!-- Blog Post Content Column -->
             <div class="col-lg-8">
                 <!-- Blog Post -->
-                <hr>
                 <!-- Date/Time -->
-                <?php
-                echo "<p><i class='fa fa-clock-o'></i> " . $date_long . " | " . $time_begin . " uur | " . $locatie . "</p>";
-                ?>
+				<div class="concert-datetime">
+					<i class='fa fa-clock-o'></i> <?php echo $date_long ?> | <?php echo $time_begin ?> uur | <?php echo $locatie ?>
+				</div>
 
-                <hr>
-                
                 <?php
                 $gallery_id = get_post_meta($post->ID, 'midc_concerten_meta_gallerij', true);
                 if ($gallery_id != '') {
@@ -123,11 +120,11 @@ get_header(); ?>
 ?>                
             </div>
             <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4">
+            <div class="col-md-4 sidebar">
                 <!-- Side Widget Well -->
                 <?php $uitvoerenden = get_post_meta( $post->ID, 'midc_concerten_artistiek_uitvoerenden', true);
                 if ($uitvoerenden != '') {?>
-                <div class="well">
+                <div class="well uitvoerenden">
                     <h4>Uitvoerenden</h4>
                     <small>
                         <?php echo $uitvoerenden ?>
@@ -138,7 +135,7 @@ get_header(); ?>
                 <!-- Side Widget Well -->
                 <?php $programma = get_post_meta( $post->ID, 'midc_concerten_artistiek_programma', true);
                 if ($programma != '') {?>
-                <div class="well">
+                <div class="well programma">
                     <h4>Programma</h4>
                     <small>
                         <?php echo $programma ?>
@@ -147,7 +144,7 @@ get_header(); ?>
                 <?php } ?>
 
                 <!-- Blog Categories Well -->
-                <div class="well">
+                <div class="well prijzen">
                     <h4>Prijzen</h4>
                     <div class="row">
                         <div class="col-lg-12">
@@ -181,6 +178,7 @@ get_header(); ?>
                     </div>
                     <!-- /.row -->
 
+					<?php /*
                     <div class="row">
                         <div class="col-lg-12">
                             <form class="navbar-form navbar-left" role="button" method="get" action="reserveren.html">
@@ -189,11 +187,12 @@ get_header(); ?>
                             </form>
                         </div>
                     </div>
+					*/ ?>
 
                 </div>
 
                 <!-- Side Widget Well -->
-                <div class="well">
+                <div class="well bezoeken">
                     <h4>Bezoeken</h4>
                     <small>
                         <ul class="list-unstyled">
