@@ -36,7 +36,7 @@ $email_address = $_POST["newsletter-email"];
                 <div id="mc_embed_signup_scroll">
                     <div class="form-group">
                         <label for="mce-EMAIL" class="col-sm-2 control-label">E-mail-adres*</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-5">
                             <input type="email" maxlength="100" required placeholder="email adres" value="<?php echo $email_address; ?>" name="EMAIL" class="form-control" id="mce-EMAIL">
                         </div>
                     </div>

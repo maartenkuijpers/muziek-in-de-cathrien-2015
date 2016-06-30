@@ -12,6 +12,7 @@
 
 h1,h2,h3 {
 	font-family: 'Oswald', sans-serif;
+    color: #FFFAEC;
 }
 
 html,
@@ -41,6 +42,10 @@ body {
 .wp-caption-text {
     font-size: 0.75em;
     font-style: italic;
+}
+
+.page-header {
+    border: 0;
 }
 
 .page-header small {
@@ -152,14 +157,15 @@ a:focus {
     padding-top: 0px;
 }
 
-.portfolio-item {
-    background-color: rgba(104, 97, 151, 0.5);
-    padding: 20px;
-}
-
 .concert-summary {
     font-size: 75%;
 	height: 5em;
+}
+
+.portfolio-item {
+    background-color: rgba(104, 97, 151, 0.5);
+    padding: 20px;
+    margin-bottom: 30px;
 }
 
 .portfolio-item a {

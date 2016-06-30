@@ -42,7 +42,6 @@ get_header(); ?>
             }	
         endwhile;
         ?>
-        
     </main><!-- .site-main -->
 </div><!-- .content-area -->
     

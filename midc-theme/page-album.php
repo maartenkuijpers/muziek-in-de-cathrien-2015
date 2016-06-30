@@ -18,7 +18,6 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-
     <?php
     // Start the loop.
     while ( have_posts() ) : the_post();
@@ -27,7 +26,7 @@ get_header(); ?>
         <header class="entry-header">
             <?php echo('<h1 class="page-header entry-title">' . midc_get_title(get_the_title()) . '<small>' . midc_get_sub_title(get_the_title()) . '</small></h1>' );?>
         </header><!-- .entry-header -->
-    	<?php custom_breadcrumbs(); ?>
+    	<?php //custom_breadcrumbs(); ?>
         <div class="entry-content">
             <?php the_content(); ?>
         </div><!-- .entry-content -->

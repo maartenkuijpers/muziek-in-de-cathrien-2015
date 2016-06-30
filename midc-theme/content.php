@@ -22,7 +22,7 @@
 		<?php echo('<h1 class="page-header entry-title">' . midc_get_title(get_the_title()) . '<small>' . midc_get_sub_title(get_the_title()) . '</small></h1>' );?>
 	</header><!-- .entry-header -->
 	
-	<?php custom_breadcrumbs(); ?>
+	<?php //custom_breadcrumbs(); ?>
 
 	<div class="entry-content">
 		<?php

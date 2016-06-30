@@ -13,6 +13,12 @@
  * Template Name: Container - Album Item
  */
 
+global $template_order;
+if (!strpos($template_order, 'page-container.php')) {
+    wp_redirect(get_permalink( $post->post_parent ));
+    exit;
+}
+$template_order .= '/page-container-album-item.php';
 ?>
 
 <div class="row">
@@ -54,4 +60,4 @@
 ?>
     </div>
 </div> <!-- row -->
-<hr/>
+<hr />

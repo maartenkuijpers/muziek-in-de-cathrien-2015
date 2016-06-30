@@ -48,7 +48,7 @@ while ( $query->have_posts() ) : $query->the_post();
 
 	$columns = $columns + 1;
 	if ($columns == 3) {
-		echo "</div><hr /><div class='row'>";
+		echo "</div><div class='row'>";
 		$columns = 0;
 	}
 endwhile;

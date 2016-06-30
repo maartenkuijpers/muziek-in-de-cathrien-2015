@@ -44,7 +44,7 @@ get_header(); ?>
                 <small><?php echo $subtitle ?></small>
                 </h1>
                 
-                <?php /* custom_breadcrumbs() */ ?>
+                <?php // custom_breadcrumbs(); ?>
                 
             </div>
         </div>
@@ -109,7 +109,7 @@ get_header(); ?>
                     the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
                 }
                 ?>                
-                <hr>
+                <hr />
                 <!-- Post Content -->
                 <?php                
 			// Start the loop.
@@ -259,7 +259,7 @@ get_header(); ?>
             </div>
         </div>
         <!-- /.row -->
-        <hr>
+        <hr />
         
         </main><!-- .site-main -->
     </div><!-- .content-area -->
