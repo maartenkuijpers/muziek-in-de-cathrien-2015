@@ -75,7 +75,7 @@ if (!strpos($template_order, 'page-prijzen.php')) {
 				}
             ?>
                 <li class="list-group-item">
-                    <a href="<?php echo $value_url; ?>" class="btn btn-primary"><?php echo $value; ?></a>
+                    <a href="<?php echo $value_url; ?>" class="btn btn-success btn-primary"><?php echo $value; ?></a>
                 </li>
             <?php
 			}

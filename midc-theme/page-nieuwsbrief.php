@@ -50,7 +50,7 @@ $email_address = $_POST["newsletter-email"];
                     <div class="form-group">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-10">
-                            <p><a class="btn btn-info" role="button" href="http://us9.campaign-archive2.com/home/?u=431a575944c9a01997ade9536&id=9de492aac9" title="Bekijk eerdere nieuwsbrieven">Bekijk eerdere nieuwsbrieven.</a></p>
+                            <p><a class="btn btn-info" role="button" href="http://us9.campaign-archive2.com/home/?u=431a575944c9a01997ade9536&id=9de492aac9" title="Bekijk eerdere nieuwsbrieven">Bekijk eerdere nieuwsbrieven</a></p>
                             <p class="help-block">* verplicht veld</p>
                         </div>
                     </div>

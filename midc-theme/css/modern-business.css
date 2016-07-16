@@ -12,19 +12,67 @@
 
 h1,h2,h3 {
 	font-family: 'Oswald', sans-serif;
-    color: #FFFAEC;
+    color: #262626;
 }
 
 html,
 body {
     height: 100%;
-    background-color: #262626;
+	font-family: 'Source Sans Pro', sans-serif;
+    background-color: #FFFAEC;
 }
 body {
     padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    color: #FFFAEC;
-    font-family: arial, helvetica, "sans-serif";
+    color: #	;
     font-size: 12pt;
+}
+
+.nav {
+	font-family: 'Oswald', sans-serif;
+}
+
+.nav a{
+	text-decoration: none;
+}
+
+.navbar-inverse {
+    background-color: rgba(180,176,194,0.95);
+    border-color: #696297;
+}
+
+.navbar-inverse .navbar-nav > li > a  {
+    color: #fff;
+}
+
+/*@media all and (max-width:767px)*/
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: #fff;
+}
+/*@media all and (max-width:767px)*/
+.navbar-inverse .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #fff;
+    background-color: #696297;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    background-color: #696297;
+	border-bottom-color: #696297;
+}
+
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+	background-color: #696297;
+	color: #fff;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: #696297;
 }
 
 .nav-tabs > li.active > a,
@@ -53,18 +101,30 @@ body {
 }
 
 a {
-  color: #696297;
-  text-decoration: none;
+  color: #262626;
 }
-a:hover,
-a:focus {
-  color: #696297;
-  text-decoration: underline;
+
+p a, p a:hover, .link {
+	text-decoration: underline;
 }
+
 a:focus {
-  outline: thin dotted;
+  /*outline: thin dotted;*/
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
+}
+
+a:hover {
+	color: #262626;
+	text-decoration: none;
+}
+
+.btn {
+	text-decoration: none;
+}
+
+footer ul li a, footer ul li a:hover {
+	text-decoration: none;
 }
 
 .prices-table td+td {
@@ -107,6 +167,7 @@ a:focus {
 	background-color: #696297;
 	padding: 10px;
 	margin-bottom: 20px;
+	color: #FFFAEC;
 }
 
 .well {
@@ -114,32 +175,30 @@ a:focus {
 	border: 0;
 }
 .well a {
-	color: #FFFAEC;
+	color: #262626;
 	font-weight: bold;
 }
 
 .uitvoerenden {
     background-color: rgba(39, 213, 96, 0.25);
-	color: #FFFAEC;
+	color: #262626;
 }
 
 .programma {
 	background-color: rgba(164,164,85,0.25);
-	color: #FFFAEC;
+	color: #262626;
 }
 
 .prijzen {
 	background-color: rgba(246, 73, 26, 0.25);
-	color: #FFFAEC;
+	color: #262626;
 }
 
 .bezoeken {
     background-color: rgba(39, 213, 96, 0.25);
-	color: #FFFAEC;
+	color: #262626;
 }
-.bezoeken a {
-	color: #FFFAEC;
-}
+
 .bezoeken .btn {
 	background-color: #FFFAEC;
 	color: #262626;
@@ -147,6 +206,12 @@ a:focus {
 
 .prijzen .table-striped > tbody > tr:nth-child(2n+1) {
 	background-color: rgba(246, 73, 26, 0.2);
+}
+
+.panel-primary > .panel-heading {
+    background-color: #696297;
+    border-color: #696297;
+    color: #FFFAEC;
 }
 
 .panel {
@@ -166,20 +231,17 @@ a:focus {
     background-color: rgba(104, 97, 151, 0.5);
     padding: 20px;
     margin-bottom: 30px;
-}
-
-.portfolio-item a {
-    color: #696297;
-    text-decoration: none;
-}
-.portfolio-item a:hover {
-    color: #FFFAEC;
-    text-decoration: none;
+	text-decoration: none;
 }
 
 .portfolio-item h3 {
     line-height: 1;
     height: 1em;
+	text-decoration: none;
+}
+
+.portfolio-item h3  a{
+	text-decoration: none;
 }
 
 .portfolio-item .title {
@@ -203,14 +265,15 @@ a:focus {
 }
 .item-info {
     font-size: 0.75em;
-	background-color: rgba(104, 97, 151, 0.25);
+	background-color: #FFFAEC;
+	color: #696297;
 	padding: 5px;
 }
 
-    .item-info img {
-        height: 15px;
-        margin-bottom: 4px;
-    }
+.item-info img {
+	height: 15px;
+	margin-bottom: 4px;
+}
 
 .img-portfolio {
     margin-bottom: 30px;
@@ -309,6 +372,9 @@ a:focus {
 /* Search Box END */
 /* Home Page Carousel */
 
+.carousel-caption h2  {
+	color:  #FFFAEC;
+}
 header.carousel {
     height: 33%;
 }
@@ -371,7 +437,7 @@ footer {
         margin-bottom: 15px;
     }
 
-    header.carousel .carousel {
+    header.caroucarousel .carousel {
         height: 70%;
     }
 }

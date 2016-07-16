@@ -51,23 +51,24 @@ switch ($type_value) {
 
 ?>
 
-<div class="portfolio-item">
-    <a href="<?php the_permalink() ?>">
+<a href="<?php the_permalink() ?>">
+	<div class="portfolio-item">
         <div class="title"><?php the_title(); ?></div>
         <?php
         the_post_thumbnail( 'full', array( 'class' => 'img-responsive' ) );
         ?>
-    </a>
-    <h3>
-        <a href="<?php the_permalink() ?>"><?php echo($date_long); ?></a>
-    </h3>
-    <div class="concert-summary">
-        <?php echo ($summary); ?>
-        <a href="<?php the_permalink() ?>">lees meer...</a>
-    </div>
+		<h3>
+			<?php echo($date_long); ?>
+		</h3>
+		<div class="concert-summary">
+			<?php echo ($summary); ?>
+			<span class="link">lees meer...</span>
+		</div>
 
-	<div class="item-info">
-		<img src="<?php echo(get_stylesheet_directory_uri() . "/images/" . $type); ?>" /><br />
-		<?php echo( $date_short . " | " . $time . " | " . $prices ); ?>
+		<div class="item-info">
+			<img src="<?php echo(get_stylesheet_directory_uri() . "/images/" . $type); ?>" /><br />
+			<?php echo( $date_short . " | " . $time . " | " . $prices ); ?>
+		</div>
 	</div>
-</div>
+</a>
+

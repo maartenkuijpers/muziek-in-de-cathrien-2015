@@ -28,7 +28,7 @@ $options = get_option('midc_options_data');
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="list-inline text-center">
-                        <li>Copyright &copy; <?php echo date("o", time()); ?> MPedia Design</li>
+                        <li><h6>Copyright &copy; <?php echo date("o", time()); ?> MPedia Design</h6></li>
                     </ul>
                 </div>
 

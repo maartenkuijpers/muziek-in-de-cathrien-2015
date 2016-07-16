@@ -14,7 +14,7 @@
     <link href="<?php echo get_stylesheet_directory_uri();?>/css/modern-business.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="<?php echo get_stylesheet_directory_uri();?>/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Oswald|Source+Sans+Pro" rel="stylesheet"> 
     <!-- ICS -->
     <script src="<?php echo get_stylesheet_directory_uri();?>/js/blob.js-master/blob.js"></script>
     <script src="<?php echo get_stylesheet_directory_uri();?>/js/filesaver.js-master/filesaver.min.js"></script>
