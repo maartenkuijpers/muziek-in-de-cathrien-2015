@@ -27,14 +27,14 @@ $args = array(
     'post_type' => 'concert',
     'order' => 'ASC',
     'orderby' => 'meta_value',
-    'meta_key' => 'midc_concerten_meta_unix'/*,
+    'meta_key' => 'midc_concerten_meta_unix',
     'meta_query' => array(
         array(
             'key'     => 'midc_concerten_meta_unix',
             'value'   => date_i18n( 'U' ),
             'compare' => '>',
         ),
-    ),*/
+    ),
 );
 $query = new WP_Query($args);
 
@@ -42,7 +42,7 @@ $thisID = get_the_ID();
 $columns = 0;
 echo "<div class='row'>";
 while ( $query->have_posts() ) : $query->the_post();
-    echo "<div class='col-lg-4'>"; 
+    echo "<div class='col-lg-4 col-md-6 col-sm-9'>"; 
 	get_template_part( 'page-container-concerten-overzicht-item' );
     echo "</div>";
 

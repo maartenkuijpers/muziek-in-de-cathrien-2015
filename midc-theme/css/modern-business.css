@@ -270,6 +270,11 @@ footer ul li a, footer ul li a:hover {
 .portfolio-item .title:hover {
 	background-color: rgba(104, 97, 151, 0.75);
 }
+
+.concert-image {
+    height: 160px;
+}
+
 .item-info {
     font-size: 0.75em;
 	background-color: #FFFAEC;

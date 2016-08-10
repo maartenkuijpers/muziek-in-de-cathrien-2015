@@ -20,8 +20,8 @@ $date_short = strftime("%a %d %b", $date_unix);
 $time_begin = get_post_meta($post->ID, 'midc_concerten_meta_aanvang', true);
 $time_end = get_post_meta($post->ID, 'midc_concerten_meta_einde', true);
 
-$calendar_date = strftime("%d/%m/%Y", $date_unix);
-$calendar_start = $calendar_date . ' ' . str_replace('.', ':', $time_begin); 
+$calendar_date = strftime("%Y-%m-%d", $date_unix);
+$calendar_start = $calendar_date . ' ' . str_replace('.', ':', $time_begin);
 $calendar_end = $calendar_date . ' ' . str_replace('.', ':', $time_end); 
 
 $locatie_naam = get_post_meta( $post->ID, 'midc_concerten_meta_locatie_naam', true);
