@@ -26,7 +26,7 @@
  */
 
  /**** MIDC START ****/
-
+ 
 // Add midc function files
 include_once( get_stylesheet_directory() . '/functions-midc.php' );
 include_once( get_stylesheet_directory() . '/functions-midc-settings.php' );
