@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Muziek in de Cathrien - v2</title>
+    <title><?php wp_title(''); if (wp_title('', false) != '') echo ' - '; bloginfo('name'); ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo get_stylesheet_directory_uri();?>/css/bootstrap.min.css" rel="stylesheet">

@@ -40,28 +40,35 @@ function plugin_admin_init() {
 	add_settings_field('midc_option_algemeen_locatie_plaats', 'Plaats:', 'midc_option_algemeen_locatie_plaats', 'midc_options', 'midc_options_algemeen');
 	add_settings_field('midc_option_algemeen_tijd_aanvang', 'Aanvang:', 'midc_option_algemeen_tijd_aanvang', 'midc_options', 'midc_options_algemeen');
 	add_settings_field('midc_option_algemeen_tijd_einde', 'Einde:', 'midc_option_algemeen_tijd_einde', 'midc_options', 'midc_options_algemeen');
-	add_settings_field('midc_option_algemeen_contact', 'Contact URL:', 'midc_option_algemeen_contact', 'midc_options', 'midc_options_algemeen');
+	add_settings_field('midc_option_algemeen_contact', 'Contact pagina:', 'midc_option_algemeen_contact', 'midc_options', 'midc_options_algemeen');
 	add_settings_field('midc_option_algemeen_social_facebook', 'Facebook URL:', 'midc_option_algemeen_social_facebook', 'midc_options', 'midc_options_algemeen');
 	add_settings_field('midc_option_algemeen_social_twitter', 'Twitter URL:', 'midc_option_algemeen_social_twitter', 'midc_options', 'midc_options_algemeen');
 	
-	add_settings_section('midc_options_prijzen', 'Standaard entree prijzen', 'midc_section_prijzen', 'midc_options');
-	add_settings_field('midc_option_prijs_standaard', 'Aan de kassa:', 'midc_option_prijs_standaard', 'midc_options', 'midc_options_prijzen');
-	add_settings_field('midc_option_prijs_donateurs', 'Donateurs:', 'midc_option_prijs_donateurs', 'midc_options', 'midc_options_prijzen');
-	add_settings_field('midc_option_prijs_strippenkaart', 'Met Strippenkaart:', 'midc_option_prijs_strippenkaart', 'midc_options', 'midc_options_prijzen');
-	add_settings_field('midc_option_prijs_cke_kaart', 'Met CKE-kaart:', 'midc_option_prijs_cke_kaart', 'midc_options', 'midc_options_prijzen');
-	add_settings_field('midc_option_prijs_cjp', 'Met CJP-pas:', 'midc_option_prijs_cjp', 'midc_options', 'midc_options_prijzen');
-	add_settings_field('midc_option_prijs_kinderen', 'Kinderen tot 16 jaar:', 'midc_option_prijs_kinderen', 'midc_options', 'midc_options_prijzen');
+	add_settings_section('midc_options_prijs', 'Standaard entree prijzen', 'midc_options_prijs', 'midc_options');
+	add_settings_field('midc_option_prijs_standaard', 'Aan de kassa:', 'midc_option_prijs_standaard', 'midc_options', 'midc_options_prijs');
+	add_settings_field('midc_option_prijs_donateurs', 'Donateurs:', 'midc_option_prijs_donateurs', 'midc_options', 'midc_options_prijs');
+	add_settings_field('midc_option_prijs_strippenkaart', 'Met Strippenkaart:', 'midc_option_prijs_strippenkaart', 'midc_options', 'midc_options_prijs');
+	add_settings_field('midc_option_prijs_cke_kaart', 'Met CKE-kaart:', 'midc_option_prijs_cke_kaart', 'midc_options', 'midc_options_prijs');
+	add_settings_field('midc_option_prijs_cjp', 'Met CJP-pas:', 'midc_option_prijs_cjp', 'midc_options', 'midc_options_prijs');
+	add_settings_field('midc_option_prijs_kinderen', 'Kinderen tot 16 jaar:', 'midc_option_prijs_kinderen', 'midc_options', 'midc_options_prijs');
 
 	add_settings_section('midc_options_overig', 'Standaard overige informatie', 'midc_options_overig', 'midc_options');
 	add_settings_field('midc_option_overig_drankje1', 'Locatie drankje #1:', 'midc_option_overig_drankje1', 'midc_options', 'midc_options_overig');
 	add_settings_field('midc_option_overig_drankje2', 'Locatie drankje #2:', 'midc_option_overig_drankje2', 'midc_options', 'midc_options_overig');
 	add_settings_field('midc_option_overig_drankje3', 'Locatie drankje #3:', 'midc_option_overig_drankje3', 'midc_options', 'midc_options_overig');
+
+	add_settings_section('midc_options_footer', 'Footer kolommen', 'midc_options_footer', 'midc_options');
+	add_settings_field('midc_option_footer1', 'Kolom #1:', 'midc_option_footer1', 'midc_options', 'midc_options_footer');
+	add_settings_field('midc_option_footer2', 'Kolom #2:', 'midc_option_footer2', 'midc_options', 'midc_options_footer');
+	add_settings_field('midc_option_footer3', 'Kolom #3:', 'midc_option_footer3', 'midc_options', 'midc_options_footer');
+	add_settings_field('midc_option_footer4', 'Kolom #4:', 'midc_option_footer4', 'midc_options', 'midc_options_footer');
 }
 
 /* SECTIE #1 - Algemeen */
 
-function midc_section_algemeen() {
-	echo '<p>Geef hieronder de algemene informatie die wordt gebruikt bij het aanmaken van een nieuw concert:</p>';
+function midc_options_algemeen() {
+	echo '<p>Geef hieronder de algemene informatie die wordt gebruikt bij het aanmaken van een <strong>nieuw</strong> concert.</br>';
+	echo 'Let op dat voor bestaande concerten de gegevens niet gewijzigd worden!</p>';
 }
 
 function midc_option_algemeen_locatie_naam() {
@@ -111,7 +118,7 @@ function midc_option_algemeen_social_twitter() {
 
 /* SECTIE #2 - Prijzen */
 
-function midc_section_prijzen() {
+function midc_options_prijs() {
 	echo '<p>Geef hieronder de standaard prijzen in die worden gebruikt bij het aanmaken van een nieuw concert:</p>';
 }
 
@@ -153,7 +160,7 @@ function midc_option_prijs_kinderen() {
 
 /* SECTIE #3 - Overig */
 
-function midc_section_overig() {
+function midc_options_overig() {
 	echo '<p>Geef hieronder de locaties op voor een drankje die worden gebruikt bij het aanmaken van een nieuw concert:</p>';
 }
 
@@ -176,6 +183,52 @@ function midc_option_overig_drankje3() {
 	echo "<input id='midc_option_overig_drankje3_naam' placeholder='naam' name='midc_options_data[midc_option_overig_drankje3_naam]' maxlength='40' size='40' type='text' value='{$options['midc_option_overig_drankje3_naam']}' /><br />";
 	echo "<input id='midc_option_overig_drankje3_adres' placeholder='straat, huisnummer (in Eindhoven)' name='midc_options_data[midc_option_overig_drankje3_adres]' maxlength='40' size='40' type='text' value='{$options['midc_option_overig_drankje3_adres']}' /><br />";
 	echo "<input id='midc_option_overig_drankje3_website' placeholder='website' name='midc_options_data[midc_option_overig_drankje3_website]' maxlength='40' size='40' type='text' value='{$options['midc_option_overig_drankje3_website']}' />";
+}
+
+/* SECTIE #4 - Footer Kolommen */
+
+function midc_options_footer() {
+	echo 'Gebruik de footer kolommen om informatie in de footer weer te geven. Je kunt maximaal 4 kolommen gebruiken. ';
+	echo 'Een kolom wordt alleen weergegeven wanneer zowel de <strong>Breedte</strong> als de <strong>Body</strong> gevuld is. ';
+	echo 'De kolombreedte is in totaal 12 (vanwege Bootstrap-grid). Per kolom kun je aangeven welk 12e deel wordt gebruikt. ';
+	echo 'Zo is de waarde 3 gelijk aan 25% breedte, 4 = 33%, 6 = 50%, etc. Het totaal van de kolombreedtes mag niet boven de 12 uitkomen.';
+	echo 'In de Body kun je van alles kwijt: tekst, plaatjes, lijstjes, links, ruwe html etc.';
+}
+
+function midc_option_footer1() {
+	$options = get_option('midc_options_data');
+	echo "<input id='midc_option_footer1_breedte' placeholder='breedte [12e deel]' name='midc_options_data[midc_option_footer1_breedte]' maxlength='2' size='20' type='text' value='{$options['midc_option_footer1_breedte']}' />";
+
+	$editor_id = 'midc_option_footer1_body';
+	$settings = array( 'media_buttons' => true, 'teeny' => false, 'textarea_rows' => 10, 'wpautop' => false, 'textarea_name' => 'midc_options_data[midc_option_footer1_body]' );
+	wp_editor( $options[$editor_id], $editor_id, $settings );
+}
+
+function midc_option_footer2() {
+	$options = get_option('midc_options_data');
+	echo "<input id='midc_option_footer2_breedte' placeholder='breedte [12e deel]' name='midc_options_data[midc_option_footer2_breedte]' maxlength='2' size='20' type='text' value='{$options['midc_option_footer2_breedte']}' />";
+
+	$editor_id = 'midc_option_footer2_body';
+	$settings = array( 'media_buttons' => true, 'teeny' => false, 'textarea_rows' => 10, 'wpautop' => false, 'textarea_name' => 'midc_options_data[midc_option_footer2_body]' );
+	wp_editor( $options[$editor_id], $editor_id, $settings );
+}
+
+function midc_option_footer3() {
+	$options = get_option('midc_options_data');
+	echo "<input id='midc_option_footer3_breedte' placeholder='breedte [12e deel]' name='midc_options_data[midc_option_footer3_breedte]' maxlength='2' size='20' type='text' value='{$options['midc_option_footer3_breedte']}' />";
+
+	$editor_id = 'midc_option_footer3_body';
+	$settings = array( 'media_buttons' => true, 'teeny' => false, 'textarea_rows' => 10, 'wpautop' => false, 'textarea_name' => 'midc_options_data[midc_option_footer3_body]' );
+	wp_editor( $options[$editor_id], $editor_id, $settings );
+}
+
+function midc_option_footer4() {
+	$options = get_option('midc_options_data');
+	echo "<input id='midc_option_footer4_breedte' placeholder='breedte [12e deel]' name='midc_options_data[midc_option_footer4_breedte]' maxlength='2' size='20' type='text' value='{$options['midc_option_footer4_breedte']}' />";
+
+	$editor_id = 'midc_option_footer4_body';
+	$settings = array( 'media_buttons' => true, 'teeny' => false, 'textarea_rows' => 10, 'wpautop' => false, 'textarea_name' => 'midc_options_data[midc_option_footer4_body]' );
+	wp_editor( $options[$editor_id], $editor_id, $settings );
 }
 
 /* VALIDATION of all sections */
@@ -275,6 +328,24 @@ function midc_options_data_validate($input) {
 		$input['midc_option_overig_drankje3_website'] = '';
 	}
 	
+	// SECTIE #4 - Footer kolommen
+
+	// Footer 1
+	if (!preg_match('/^.{1,2}$/i', $input['midc_option_footer1_breedte'])) {
+		$input['midc_option_footer1_breedte'] = '';
+	}
+	// Footer 2
+	if (!preg_match('/^.{1,2}$/i', $input['midc_option_footer2_breedte'])) {
+		$input['midc_option_footer2_breedte'] = '';
+	}
+	// Footer 3
+	if (!preg_match('/^.{1,2}$/i', $input['midc_option_footer3_breedte'])) {
+		$input['midc_option_footer3_breedte'] = '';
+	}
+	// Footer 4
+	if (!preg_match('/^.{1,2}$/i', $input['midc_option_footer4_breedte'])) {
+		$input['midc_option_footer4_breedte'] = '';
+	}
 
 	return $input;
 }

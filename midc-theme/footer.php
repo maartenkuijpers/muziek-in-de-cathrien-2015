@@ -4,14 +4,35 @@ $options = get_option('midc_options_data');
         <!-- Footer -->
         <footer>
             <div class="row">
+                <?php
+                if ($options['midc_option_footer1_breedte'] != '') {
+                    echo "<div class='col-lg-" . $options['midc_option_footer1_breedte'] . "'>" . $options['midc_option_footer1_body'] . "</div>";
+                }
+                if ($options['midc_option_footer2_breedte'] != '') {
+                    echo "<div class='col-lg-" . $options['midc_option_footer2_breedte'] . "'>" . $options['midc_option_footer2_body'] . "</div>";
+                }
+                if ($options['midc_option_footer3_breedte'] != '') {
+                    echo "<div class='col-lg-" . $options['midc_option_footer3_breedte'] . "'>" . $options['midc_option_footer3_body'] . "</div>";
+                }
+                if ($options['midc_option_footer4_breedte'] != '') {
+                    echo "<div class='col-lg-" . $options['midc_option_footer4_breedte'] . "'>" . $options['midc_option_footer4_body'] . "</div>";
+                }
+                ?>
+            </div>
+            <div class="row">
                 <div class="col-lg-12">
                     <ul class="list-inline text-center">
                         <?php
-                        if ($options['midc_option_algemeen_contact'] != '')                       
-                            echo ('<li><a href="' . $options['midc_option_algemeen_contact'] . '"><span class="fa-stack fa-lg">
+                        $contact = $options['midc_option_algemeen_contact'];
+                        if ($contact != '') {
+                            if (substr($contact, 0, 1) !== "/") {
+                                $contact = "/" . $contact;
+                                }                       
+                            echo ('<li><a href="' . $contact . '"><span class="fa-stack fa-lg">
   <i class="fa fa-square-o fa-stack-2x"></i>
   <i class="fa fa-info fa-stack-1x"></i>
 </span>&nbsp;' . __( 'Contact', 'twentyfifteen' ) . '</a></li>');
+                        }
                         if ($options['midc_option_algemeen_social_facebook'] != '')                       
                             echo ('<li><a href="' . $options['midc_option_algemeen_social_facebook'] . '"><span class="fa-stack fa-lg">
   <i class="fa fa-square-o fa-stack-2x"></i>

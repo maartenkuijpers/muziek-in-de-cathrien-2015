@@ -23,7 +23,7 @@ body {
 }
 body {
     padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    color: #	;
+    color: #333;
     font-size: 12pt;
 }
 
@@ -433,6 +433,11 @@ header.carousel {
 
 footer {
     margin: 50px 0;
+    border-top: #262626 solid 1px;
+}
+
+.footer-column-title {
+    padding-bottom: 10px;
 }
 
 /* Responsive Styles */
