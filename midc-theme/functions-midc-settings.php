@@ -167,22 +167,22 @@ function midc_options_overig() {
 function midc_option_overig_drankje1() {
 	$options = get_option('midc_options_data');
 	echo "<input id='midc_option_overig_drankje1_naam' placeholder='naam' name='midc_options_data[midc_option_overig_drankje1_naam]' maxlength='40' size='40' type='text' value='{$options['midc_option_overig_drankje1_naam']}' /><br />";
-	echo "<input id='midc_option_overig_drankje1_adres' placeholder='straat, huisnummer (in Eindhoven)' name='midc_options_data[midc_option_overig_drankje1_adres]' maxlength='40' size='40' type='text' value='{$options['midc_option_overig_drankje1_adres']}' /><br />";
-	echo "<input id='midc_option_overig_drankje1_website' placeholder='website' name='midc_options_data[midc_option_overig_drankje1_website]' maxlength='40' size='40' type='text' value='{$options['midc_option_overig_drankje1_website']}' />";
+	echo "<input id='midc_option_overig_drankje1_adres' placeholder='straat, huisnummer (in Eindhoven)' name='midc_options_data[midc_option_overig_drankje1_adres]' maxlength='100' size='40' type='text' value='{$options['midc_option_overig_drankje1_adres']}' /><br />";
+	echo "<input id='midc_option_overig_drankje1_website' placeholder='website' name='midc_options_data[midc_option_overig_drankje1_website]' maxlength='255' size='40' type='text' value='{$options['midc_option_overig_drankje1_website']}' />";
 }
 
 function midc_option_overig_drankje2() {
 	$options = get_option('midc_options_data');
 	echo "<input id='midc_option_overig_drankje2_naam' placeholder='naam' name='midc_options_data[midc_option_overig_drankje2_naam]' maxlength='40' size='40' type='text' value='{$options['midc_option_overig_drankje2_naam']}' /><br />";
-	echo "<input id='midc_option_overig_drankje2_adres' placeholder='straat, huisnummer (in Eindhoven)' name='midc_options_data[midc_option_overig_drankje2_adres]' maxlength='40' size='40' type='text' value='{$options['midc_option_overig_drankje2_adres']}' /><br />";
-	echo "<input id='midc_option_overig_drankje2_website' placeholder='website' name='midc_options_data[midc_option_overig_drankje2_website]' maxlength='40' size='40' type='text' value='{$options['midc_option_overig_drankje2_website']}' />";
+	echo "<input id='midc_option_overig_drankje2_adres' placeholder='straat, huisnummer (in Eindhoven)' name='midc_options_data[midc_option_overig_drankje2_adres]' maxlength='10040' size='40' type='text' value='{$options['midc_option_overig_drankje2_adres']}' /><br />";
+	echo "<input id='midc_option_overig_drankje2_website' placeholder='website' name='midc_options_data[midc_option_overig_drankje2_website]' maxlength='255' size='40' type='text' value='{$options['midc_option_overig_drankje2_website']}' />";
 }
 
 function midc_option_overig_drankje3() {
 	$options = get_option('midc_options_data');
 	echo "<input id='midc_option_overig_drankje3_naam' placeholder='naam' name='midc_options_data[midc_option_overig_drankje3_naam]' maxlength='40' size='40' type='text' value='{$options['midc_option_overig_drankje3_naam']}' /><br />";
-	echo "<input id='midc_option_overig_drankje3_adres' placeholder='straat, huisnummer (in Eindhoven)' name='midc_options_data[midc_option_overig_drankje3_adres]' maxlength='40' size='40' type='text' value='{$options['midc_option_overig_drankje3_adres']}' /><br />";
-	echo "<input id='midc_option_overig_drankje3_website' placeholder='website' name='midc_options_data[midc_option_overig_drankje3_website]' maxlength='40' size='40' type='text' value='{$options['midc_option_overig_drankje3_website']}' />";
+	echo "<input id='midc_option_overig_drankje3_adres' placeholder='straat, huisnummer (in Eindhoven)' name='midc_options_data[midc_option_overig_drankje3_adres]' maxlength='100' size='40' type='text' value='{$options['midc_option_overig_drankje3_adres']}' /><br />";
+	echo "<input id='midc_option_overig_drankje3_website' placeholder='website' name='midc_options_data[midc_option_overig_drankje3_website]' maxlength='255' size='40' type='text' value='{$options['midc_option_overig_drankje3_website']}' />";
 }
 
 /* SECTIE #4 - Footer Kolommen */
