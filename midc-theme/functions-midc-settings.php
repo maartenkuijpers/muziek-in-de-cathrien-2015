@@ -49,8 +49,8 @@ function plugin_admin_init() {
 	add_settings_field('midc_option_prijs_donateurs', 'Donateurs:', 'midc_option_prijs_donateurs', 'midc_options', 'midc_options_prijs');
 	add_settings_field('midc_option_prijs_strippenkaart', 'Met Strippenkaart:', 'midc_option_prijs_strippenkaart', 'midc_options', 'midc_options_prijs');
 	add_settings_field('midc_option_prijs_cke_kaart', 'Met CKE-kaart:', 'midc_option_prijs_cke_kaart', 'midc_options', 'midc_options_prijs');
-	add_settings_field('midc_option_prijs_cjp', 'Met CJP-pas:', 'midc_option_prijs_cjp', 'midc_options', 'midc_options_prijs');
-	add_settings_field('midc_option_prijs_kinderen', 'Kinderen tot 16 jaar:', 'midc_option_prijs_kinderen', 'midc_options', 'midc_options_prijs');
+	add_settings_field('midc_option_prijs_cjp', 'Met CJP/studenten-pas:', 'midc_option_prijs_cjp', 'midc_options', 'midc_options_prijs');
+	add_settings_field('midc_option_prijs_kinderen', 'Kinderen tot 18 jaar:', 'midc_option_prijs_kinderen', 'midc_options', 'midc_options_prijs');
 
 	add_settings_section('midc_options_overig', 'Standaard overige informatie', 'midc_options_overig', 'midc_options');
 	add_settings_field('midc_option_overig_drankje1', 'Locatie drankje #1:', 'midc_option_overig_drankje1', 'midc_options', 'midc_options_overig');

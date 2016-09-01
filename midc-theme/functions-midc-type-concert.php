@@ -89,6 +89,37 @@ function midc_concerten_artistiek_save($post_id, $post) {
 }
 add_action('save_post', 'midc_concerten_artistiek_save');
 
+?>
+<script>
+function reset_to_theme_options() {
+	jQuery(document).ready(function() {
+		jQuery('#midc_concerten_meta_aanvang').val("<?php echo get_option('midc_options_data')['midc_option_algemeen_tijd_aanvang'];?>").css("background-color","#afa;");
+		jQuery('#midc_concerten_meta_einde').val("<?php echo get_option('midc_options_data')['midc_option_algemeen_tijd_einde'];?>").css("background-color","#afa;");
+		jQuery('#midc_concerten_meta_locatie_naam').val("<?php echo get_option('midc_options_data')['midc_option_algemeen_locatie_naam'];?>").css("background-color","#afa;");
+		jQuery('#midc_concerten_meta_locatie_adres').val("<?php echo get_option('midc_options_data')['midc_option_algemeen_locatie_adres'];?>").css("background-color","#afa;");
+		jQuery('#midc_concerten_meta_locatie_plaats').val("<?php echo get_option('midc_options_data')['midc_option_algemeen_locatie_plaats'];?>").css("background-color","#afa;");
+
+		jQuery('#midc_concerten_prijzen_standaard').val("<?php echo get_option('midc_options_data')['midc_option_prijs_standaard'];?>").css("background-color","#afa;");
+		jQuery('#midc_concerten_prijzen_donateurs').val("<?php echo get_option('midc_options_data')['midc_option_prijs_donateurs'];?>").css("background-color","#afa;");
+		jQuery('#midc_concerten_prijzen_strippenkaart').val("<?php echo get_option('midc_options_data')['midc_option_prijs_strippenkaart'];?>").css("background-color","#afa;");
+		jQuery('#midc_concerten_prijzen_cke_kaart').val("<?php echo get_option('midc_options_data')['midc_option_prijs_cke_kaart'];?>").css("background-color","#afa;");
+		jQuery('#midc_concerten_prijzen_cjp').val("<?php echo get_option('midc_options_data')['midc_option_prijs_cjp'];?>").css("background-color","#afa;");
+		jQuery('#midc_concerten_prijzen_kinderen').val("<?php echo get_option('midc_options_data')['midc_option_prijs_kinderen'];?>").css("background-color","#afa;");
+
+		jQuery('#midc_concerten_overig_drankje1_naam').val("<?php echo get_option('midc_options_data')['midc_option_overig_drankje1_naam'];?>").css("background-color","#afa;");
+		jQuery('#midc_concerten_overig_drankje1_adres').val("<?php echo get_option('midc_options_data')['midc_option_overig_drankje1_adres'];?>").css("background-color","#afa;");
+		jQuery('#midc_concerten_overig_drankje1_website').val("<?php echo get_option('midc_options_data')['midc_option_overig_drankje1_website'];?>").css("background-color","#afa;");
+		jQuery('#midc_concerten_overig_drankje2_naam').val("<?php echo get_option('midc_options_data')['midc_option_overig_drankje2_naam'];?>").css("background-color","#afa;");
+		jQuery('#midc_concerten_overig_drankje2_adres').val("<?php echo get_option('midc_options_data')['midc_option_overig_drankje2_adres'];?>").css("background-color","#afa;");
+		jQuery('#midc_concerten_overig_drankje2_website').val("<?php echo get_option('midc_options_data')['midc_option_overig_drankje2_website'];?>").css("background-color","#afa;");
+		jQuery('#midc_concerten_overig_drankje3_naam').val("<?php echo get_option('midc_options_data')['midc_option_overig_drankje3_naam'];?>").css("background-color","#afa;");
+		jQuery('#midc_concerten_overig_drankje3_adres').val("<?php echo get_option('midc_options_data')['midc_option_overig_drankje3_adres'];?>").css("background-color","#afa;");
+		jQuery('#midc_concerten_overig_drankje3_website').val("<?php echo get_option('midc_options_data')['midc_option_overig_drankje3_website'];?>").css("background-color","#afa;");
+	});
+}
+</script>
+<?php
+
 function midc_concerten_meta_callback($post) {
 	//global $post; 
 	wp_nonce_field( 'midc_concerten_meta', 'midc_concerten_meta_nonce' );
@@ -113,6 +144,10 @@ function midc_concerten_meta_callback($post) {
 	if ($value == "") $value = date("d-m-o", time());
 	echo '<p><label for="midc_concerten_meta_datum">Datum: <small>(dd-mm-jjjj)</small></label>'; 
     echo '<input type="text" id="midc_concerten_meta_datum" name="midc_concerten_meta_datum" value="' . $value . '" class="widefat" /></p>';
+
+	// Knop: Haal alle instellingen uit MidC-settings open
+	echo '<p><label for="">Overschrijf alle hierna volgende instellingen met die van het thema (let op!)</label>&nbsp;';
+	echo '<a href="javascript:reset_to_theme_options();">overschrijf</a>'; 
 
 	// Tijdstip : Aanvang & Einde
     $value = get_post_meta($post->ID, 'midc_concerten_meta_aanvang', true); 
