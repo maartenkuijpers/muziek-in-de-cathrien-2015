@@ -278,23 +278,23 @@ function midc_concerten_prijzen_callback($post) {
     $value = get_post_meta($post->ID, 'midc_concerten_prijzen_cke_kaart', true); 
 	if ($value == "") $value = $options['midc_option_prijs_cke_kaart'];
 	echo '<label for="midc_concerten_prijzen_cke_kaart">CKE-kaart:</label> €'; 
-    echo '<input size="6" type="text" id="midc_concerten_prijzen_cke_kaart" name="midc_concerten_prijzen_cke_kaart" value="' . $value . '" /><small>&nbsp;bv. 7,00</small></p>';
+    echo '<input size="6" type="text" id="midc_concerten_prijzen_cke_kaart" name="midc_concerten_prijzen_cke_kaart" value="' . $value . '" /><small>&nbsp;bv. 5,00</small></p>';
 
 	// Met CJP-pas
    	$value = (metadata_exists( 'post', $post->ID, 'midc_concerten_prijzen_cjp_active' )) ? get_post_meta($post->ID, 'midc_concerten_prijzen_cjp_active', true) : 'on';
 	echo '<p><input name="midc_concerten_prijzen_cjp_active" title="Selecteren om deze prijs te tonen" type="checkbox" ' . checked( "on", $value, false) . '/>';
     $value = get_post_meta($post->ID, 'midc_concerten_prijzen_cjp', true); 
 	if ($value == "") $value = $options['midc_option_prijs_cjp'];
-	echo '<label for="midc_concerten_prijzen_cjp">CJP-pas:</label> €'; 
-    echo '<input size="6" type="text" id="midc_concerten_prijzen_cjp" name="midc_concerten_prijzen_cjp" value="' . $value . '" /><small>&nbsp;bv. 7,00</small></p>';
+	echo '<label for="midc_concerten_prijzen_cjp">CJP/Stud-pas:</label> €'; 
+    echo '<input size="6" type="text" id="midc_concerten_prijzen_cjp" name="midc_concerten_prijzen_cjp" value="' . $value . '" /><small>&nbsp;bv. 0,00</small></p>';
 
 	// Met Kinderen
    	$value = (metadata_exists( 'post', $post->ID, 'midc_concerten_prijzen_kinderen_active' )) ? get_post_meta($post->ID, 'midc_concerten_prijzen_kinderen_active', true) : 'on';
 	echo '<p><input name="midc_concerten_prijzen_kinderen_active" title="Selecteren om deze prijs te tonen" type="checkbox" ' . checked( "on", $value, false) . '/>';
     $value = get_post_meta($post->ID, 'midc_concerten_prijzen_kinderen', true); 
 	if ($value == "") $value = $options['midc_option_prijs_kinderen'];
-	echo '<label for="midc_concerten_prijzen_kinderen">Kinderen tot 16:</label> €'; 
-    echo '<input size="6" type="text" id="midc_concerten_prijzen_kinderen" name="midc_concerten_prijzen_kinderen" value="' . $value . '" /><small>&nbsp;bv. 7,00</small></p>';
+	echo '<label for="midc_concerten_prijzen_kinderen">Kinderen tot 18:</label> €'; 
+    echo '<input size="6" type="text" id="midc_concerten_prijzen_kinderen" name="midc_concerten_prijzen_kinderen" value="' . $value . '" /><small>&nbsp;bv. 0,00</small></p>';
 }
 
 function midc_concerten_prijzen_save($post_id, $post) {

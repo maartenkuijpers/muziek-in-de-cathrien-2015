@@ -155,8 +155,8 @@ get_header(); ?>
                                         array('Donateurs', 'midc_concerten_prijzen_donateurs', '€', ''),
                                         array('Houders van de Strippenkaart', 'midc_concerten_prijzen_strippenkaart', '', ' x strip'),
                                         array('CKE-kaart', 'midc_concerten_prijzen_cke_kaart', '€', ''),
-                                        array('CJP-houders', 'midc_concerten_prijzen_cjp', '€', ''),
-                                        array('Kinderen tot 16 jaar', 'midc_concerten_prijzen_kinderen', '€', '')
+                                        array('CJP-houders & Studentenpas', 'midc_concerten_prijzen_cjp', '€', ''),
+                                        array('Kinderen tot 18 jaar', 'midc_concerten_prijzen_kinderen', '€', '')
                                     );
                                     foreach ($array as $pricing) {
                                         $active = get_post_meta($post->ID, $pricing[1] . '_active', true);

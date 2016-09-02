@@ -34,8 +34,8 @@ function midc_get_concert_prices( $post_id )
         array('donateurs: ', 'midc_concerten_prijzen_donateurs', '&euro;', ''),
         array('strippenkaart: ', 'midc_concerten_prijzen_strippenkaart', '', ' x strip'),
         array('CKE kaart: ', 'midc_concerten_prijzen_cke_kaart', '&euro;', ''),
-        array('CJP: ', 'midc_concerten_prijzen_cjp', '&euro;', ''),
-        array('tot 16 jaar: ', 'midc_concerten_prijzen_kinderen', '&euro;', '')
+        array('CJP & student: ', 'midc_concerten_prijzen_cjp', '&euro;', ''),
+        array('tot 18 jaar: ', 'midc_concerten_prijzen_kinderen', '&euro;', '')
     );
     $prices = '';
     foreach ($array as $pricing) {
