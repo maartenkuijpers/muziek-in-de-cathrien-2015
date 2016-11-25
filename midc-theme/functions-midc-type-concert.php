@@ -431,3 +431,48 @@ function midc_concerten_overig_save($post_id, $post) {
 		update_post_meta( $post_id, 'midc_concerten_overig_drankje3_website', sanitize_text_field( $_POST['midc_concerten_overig_drankje3_website'] ));
 }
 add_action('save_post', 'midc_concerten_overig_save');
+
+
+/* Columns in the Concerten post type */
+
+add_filter( 'manage_concert_posts_columns', 'midc_concert_columns_labels' );
+add_action( 'manage_concert_posts_custom_column', 'midc_concert_column', 10, 2 );
+add_filter( 'manage_edit-concert_sortable_columns', 'midc_concert_sortable_columns' );
+
+function midc_concert_columns_labels($columns) {
+    //unset( $columns['author'] );
+    $columns['concert_datum'] = __( 'Concertdatum', 'twentyfifteen' );
+    $columns['concert_type'] = __( 'Type zaterdag', 'twentyfifteen' );
+    return $columns;
+}
+
+function midc_concert_column( $column, $post_id ) {
+    switch ( $column ) {
+
+        case 'concert_datum' :
+            $value = get_post_meta($post_id, 'midc_concerten_meta_datum', true);
+            if ( is_string( $value ) )
+                echo $value;
+            else
+                _e( 'Datum niet beschikbaar', 'twentyfifteen' );
+            break;
+
+        case 'concert_type' :
+            $value = get_post_meta($post_id, 'midc_concerten_meta_type', true);
+			switch ($value) {
+				case '1': echo 'Muziek in de Cathrien'; break;
+				case '2': echo 'KamerMuziek in de Cathrien'; break;
+				case '3': echo 'KoorMuziek in de Cathrien'; break;
+				case '4': echo 'OrgelMuziek in de Cathrien'; break;
+				default: echo 'onbekend'; break;
+			}
+    }
+}
+
+function midc_concert_sortable_columns( $columns ) {
+    $columns['concert_datum'] = __( 'Concertdatum', 'twentyfifteen' );
+    $columns['concert_type'] = __( 'Type zaterdag', 'twentyfifteen' );
+    //To make a column 'un-sortable' remove it from the array
+    //unset($columns['date']);
+    return $columns;
+}

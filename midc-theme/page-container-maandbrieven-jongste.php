@@ -10,7 +10,7 @@
  * @subpackage Twenty_Fifteen
  * @since Twenty Fifteen 1.0
  * 
- * Template Name: Container - Maandbrieven Overzicht
+ * Template Name: Container - Maandbrieven Jongste
  */
 
 global $template_order;
