@@ -20,7 +20,7 @@ if (!strpos($template_order, 'page-container-concerten-overzicht.php')) {
 }
 
 $locale = get_the_terms($post->ID, 'language')[0]->description;
-setlocale(LC_ALL, $locale);
+setlocale(LC_ALL, 'nl_NL');
 
 $date = get_post_meta($post->ID, 'midc_concerten_meta_datum', true);
 $date_value = date_parse_from_format("j-n-Y", $date);

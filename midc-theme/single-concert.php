@@ -8,7 +8,8 @@
  */
 
 $locale = get_the_terms($post->ID, 'language')[0]->description;
-setlocale(LC_ALL, $locale);
+//setlocale(LC_ALL, $locale);
+setlocale(LC_ALL, 'nl_NL');
 
 $date = get_post_meta($post->ID, 'midc_concerten_meta_datum', true);
 $date_value = date_parse_from_format("j-n-Y", $date);
@@ -214,7 +215,9 @@ get_header(); ?>
                                 <a href="mailto:<?php echo $mail_to_content; ?>" class="btn btn-default btn-sm" title="Stuur een uitnodiging per email naar iemand en voeg er een persoonlijke boodschap aan toe">
                                     <span class="fa fa-envelope" aria-hidden="true"></span>&nbsp;Ga je mee?
                                 </a>
-                                <a title="Download een iCalendar bestand (.ics) en open het vervolgens in je agenda programma (Apple Calendar, Microsoft Outlook, Google Calendar, etc.)" class="btn btn-default btn-sm" href="javascript:download_ics('CVE zingt Nicolaimesse van Haydn', '<?php echo $meer; ?>', '<?php echo $locatie_adres; ?>, <?php echo $locatie_plaats; ?>', '<?php echo $calendar_start; ?>', '<?php echo $calendar_end; ?>')">
+                                <a title="Download een iCalendar bestand (.ics) en open het vervolgens in je agenda programma (Apple Calendar, Microsoft Outlook, Google Calendar, etc.)"
+                                   class="btn btn-default btn-sm"
+                                   href="javascript:download_ics('<?php echo $subtitle; ?>', '<?php echo $meer; ?>', '<?php echo $locatie_adres; ?>, <?php echo $locatie_plaats; ?>', '<?php echo $calendar_start; ?>', '<?php echo $calendar_end; ?>')">
                                     <span class="fa fa-calendar" aria-hidden="true"></span>&nbsp;&nbsp;Zet dit concert in je kalender
                                 </a>
                                 

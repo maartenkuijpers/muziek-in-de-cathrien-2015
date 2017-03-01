@@ -69,4 +69,7 @@ $template_order .= '/page-container-header-carousel.php';
 
 <script>
 $("#myCarousel").appendTo("#pre-container-placeholder");
+$('.carousel').carousel({
+  interval: 1000 * 15
+});
 </script>

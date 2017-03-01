@@ -23,13 +23,9 @@ $args = array('category_name' => 'maandbrief', 'post_type' => 'post', 'posts_per
 $query = new WP_Query($args);
 if ($query->have_posts()) :
 	// The Loop
-	echo '<ul>';
 	while ( $query->have_posts() ) : $query->the_post(); ?>
-		<li class="maandbrief-archief">
-			<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-		</li>
+		<div class="entry"><a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a></div>
 	<?php endwhile;
-	echo '</ul>';
 else : echo 'Nog geen informatie beschikbaar.';
 endif;
 ?>
