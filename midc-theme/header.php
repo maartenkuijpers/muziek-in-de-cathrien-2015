@@ -64,9 +64,9 @@
 
                 <ul id="menu-custom-menu" class="nav navbar-nav navbar-right">
                     <li>
-                        <a id="newsletter" data-placement="bottom" data-toggle="newsletter-popover" data-title="Meldt u aan voor de nieuwsbrief" data-container="body" type="button" data-html="true" href="#">Nieuwsbrief</a>
+                        <a id="newsletter" data-placement="bottom" data-toggle="newsletter-popover" data-title="Meldt u aan voor de maandbrief" data-container="body" type="button" data-html="true" href="#">Maandbrief</a>
                         <div id="newsletter-content" class="hide">
-                            <form class="form-inline" id="newsletter-form" action="<?php echo get_site_url();?>/nieuwsbrief-aanmelding" method="post" role="form">
+                            <form class="form-inline" id="newsletter-form" action="<?php echo get_site_url();?>/maandbrief-aanmelding" method="post" role="form">
                                 <div class="form-group">
                                     <input name="newsletter-email" id="newsletter-email" class="form-control" placeholder="E-mailadres" maxlength="100" required type="email">
                                     <button type="submit" class="btn-sm btn-primary"><span class="glyphicon glyphicon-ok"></span></button>
