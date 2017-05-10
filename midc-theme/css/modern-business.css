@@ -117,7 +117,7 @@ a {
   color: #262626;
 }
 
-p a, p a:hover, .link {
+p a, p a:hover, .link, li a {
 	text-decoration: underline;
 }
 
