@@ -46,6 +46,7 @@ switch ($type_value) {
 	case 2: $type = "Event_KamerMuziekInDeCathrien_org.png"; break;
 	case 3: $type = "Event_KoorMuziekInDeCathrien_org.png"; break;
 	case 4: $type = "Event_OrgelMuziekInDeCathrien_org.png"; break;
+	case 5: $type = "Event_Tip_org.png"; break;
 	default: $type = "Event_MuziekInDeCathrien_org.png"; break;
 }
 

@@ -101,6 +101,7 @@ function midc_concerten_meta_callback($post) {
 	echo '<input name="midc_concerten_meta_type" type="radio" value="2"' . checked( "2", $value, false ) . '>KamerMuziek in de Cathrien</input><br>';
 	echo '<input name="midc_concerten_meta_type" type="radio" value="3"' . checked( "3", $value, false ) . '>KoorMuziek in de Cathrien</input><br>';
 	echo '<input name="midc_concerten_meta_type" type="radio" value="4"' . checked( "4", $value, false ) . '>OrgelMuziek in de Cathrien</input><br>';
+	echo '<input name="midc_concerten_meta_type" type="radio" value="5"' . checked( "5", $value, false ) . '>Tip!</input><br>';
     echo '</p>';
 
 	// Subtitel Uitvoerenden
@@ -160,7 +161,7 @@ function midc_concerten_meta_callback($post) {
 
 	// Locatie : Naam | Adres | Plaats
 	echo '<p><label for="midc_concerten_meta_locatie_naam">Locatie:</label>'; 
-    $value = get_post_meta($post->ID, 'midc_concerten_algemeen_locatie_naam', true); 
+    $value = get_post_meta($post->ID, 'midc_concerten_meta_locatie_naam', true); 
 	if ($value == "") $value = $options['midc_option_algemeen_locatie_naam'];
     echo '<input type="text" placeholder="naam" id="midc_concerten_meta_locatie_naam" name="midc_concerten_meta_locatie_naam" value="' . $value . '" class="widefat" />';
 
@@ -464,6 +465,7 @@ function midc_concert_column( $column, $post_id ) {
 				case '2': echo 'KamerMuziek in de Cathrien'; break;
 				case '3': echo 'KoorMuziek in de Cathrien'; break;
 				case '4': echo 'OrgelMuziek in de Cathrien'; break;
+				case '5': echo 'Tip!'; break;
 				default: echo 'onbekend'; break;
 			}
     }
