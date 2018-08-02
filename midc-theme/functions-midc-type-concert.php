@@ -67,7 +67,7 @@ function midc_concerten_artistiek_callback($post) {
     echo '</p>';
 }
 
-function midc_concerten_artistiek_save($post_id, $post) {
+function midc_concerten_artistiek_save($post_id/*, $post*/) {
 	if ( !isset( $_POST['midc_concerten_artistiek_nonce'] ) )
 		return $post_id;
 	if ( !wp_verify_nonce( $_POST['midc_concerten_artistiek_nonce'], 'midc_concerten_artistiek' ) )
@@ -84,7 +84,7 @@ function midc_concerten_artistiek_save($post_id, $post) {
 
 	// Uitvoerenden
 	if ( ! isset( $_POST['midc_concerten_artistiek_uitvoerenden'] ) ) { return; }
-	$my_data = sanitize_text_field( $_POST['midc_concerten_artistiek_uitvoerenden'] );
+	$my_data = stripslashes( $_POST['midc_concerten_artistiek_uitvoerenden'] ); // was: sanitize_text_field
 	update_post_meta( $post_id, 'midc_concerten_artistiek_uitvoerenden', $my_data );
 }
 add_action('save_post', 'midc_concerten_artistiek_save');
@@ -181,7 +181,7 @@ function midc_concerten_meta_callback($post) {
 
 }
 
-function midc_concerten_meta_save($post_id, $post) {
+function midc_concerten_meta_save($post_id/*, $post*/) {
 	if ( !isset( $_POST['midc_concerten_meta_nonce'] ) )
 		return $post_id;
 	if ( !wp_verify_nonce( $_POST['midc_concerten_meta_nonce'], 'midc_concerten_meta' ) )
@@ -296,7 +296,7 @@ function midc_concerten_prijzen_callback($post) {
     echo '<input size="6" type="text" id="midc_concerten_prijzen_kinderen" name="midc_concerten_prijzen_kinderen" value="' . $value . '" /><small>&nbsp;bv. 0,00</small></p>';
 }
 
-function midc_concerten_prijzen_save($post_id, $post) {
+function midc_concerten_prijzen_save($post_id/*, $post*/) {
 	if (!meta_box_can_do_save("midc_concerten_prijzen_nonce", "midc_concerten_prijzen"))
 		return $post_id;
 
@@ -396,7 +396,7 @@ function midc_concerten_overig_callback($post) {
     echo '<input size="30" type="text" placeholder="website" id="midc_concerten_overig_drankje3_website" name="midc_concerten_overig_drankje3_website" value="' . $value . '" /></p>';
 }
 
-function midc_concerten_overig_save($post_id, $post) {
+function midc_concerten_overig_save($post_id/*, $post*/) {
 	if (!meta_box_can_do_save("midc_concerten_overig_nonce", "midc_concerten_overig"))
 		return $post_id;
 
