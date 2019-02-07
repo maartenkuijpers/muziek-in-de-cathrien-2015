@@ -35,6 +35,10 @@ body {
 	text-decoration: none;
 }
 
+.nav .country-flag img{
+    margin-top: -5px;
+}
+
 .navbar-inverse {
     background-color: rgba(180,176,194,0.95);
     border-color: #696297;
@@ -433,6 +437,20 @@ header.carousel {
 .period {
     display: block;
     font-style: italic;
+}
+
+/* used in Contact Form 7 */
+div[role="alert"] {
+    background-color: #449d44;;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    padding-left: 10px;
+}
+
+span.wpcf7-list-item-label {
+    margin-left: 5px;
+    margin-right: 40px;
 }
 
 /* Footer Styles */
