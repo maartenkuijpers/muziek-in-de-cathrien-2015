@@ -89,13 +89,13 @@
                         </script>
                     </li>
 
-                    <!-- <li>
+                    <li>
                         <a class="nav" href="#" title="English"><img src=" <?php echo get_stylesheet_directory_uri(); ?>/images/BritishFlag.png" height="15" /></a>
                     </li>
 
                     <li>
                         <a class="navbar-brand" title="Ga naar de winkel" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-                    </li> -->
+                    </li>
                 </ul>
                 
                 <script>

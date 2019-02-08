@@ -440,17 +440,23 @@ header.carousel {
 }
 
 /* used in Contact Form 7 */
+.wpcf7-form {
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.wpcf7-text {
+    max-width: 310px;
+}
+span.wpcf7-list-item-label {
+    margin-left: 5px;
+    margin-right: 40px;
+}
 div[role="alert"] {
     background-color: #449d44;;
     padding-top: 10px;
     padding-bottom: 10px;
     color: white;
     padding-left: 10px;
-}
-
-span.wpcf7-list-item-label {
-    margin-left: 5px;
-    margin-right: 40px;
 }
 
 /* Footer Styles */
