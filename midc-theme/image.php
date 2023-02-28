@@ -22,7 +22,7 @@ get_header(); ?>
 
 					<nav id="image-navigation" class="navigation image-navigation">
 						<div class="nav-links">
-							<div class="nav-previous"><?php previous_image_link( false, __( 'Previous Image', 'twentyfifteen' ) ); ?></div><div class="nav-next"><?php next_image_link( false, __( 'Next Image', 'twentyfifteen' ) ); ?></div>
+							<div class="nav-previous"><?php previous_image_link( false, __( 'Previous Image', 'midc-theme' ) ); ?></div><div class="nav-next"><?php next_image_link( false, __( 'Next Image', 'midc-theme' ) ); ?></div>
 						</div><!-- .nav-links -->
 					</nav><!-- .image-navigation -->
 
@@ -57,11 +57,11 @@ get_header(); ?>
 						<?php
 							the_content();
 							wp_link_pages( array(
-								'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentyfifteen' ) . '</span>',
+								'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'midc-theme' ) . '</span>',
 								'after'       => '</div>',
 								'link_before' => '<span>',
 								'link_after'  => '</span>',
-								'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>%',
+								'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'midc-theme' ) . ' </span>%',
 								'separator'   => '<span class="screen-reader-text">, </span>',
 							) );
 						?>
@@ -69,7 +69,7 @@ get_header(); ?>
 
 					<footer class="entry-footer">
 						<?php twentyfifteen_entry_meta(); ?>
-						<?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<span class="edit-link">', '</span>' ); ?>
+						<?php edit_post_link( __( 'Edit', 'midc-theme' ), '<span class="edit-link">', '</span>' ); ?>
 					</footer><!-- .entry-footer -->
 
 				</article><!-- #post-## -->
@@ -82,7 +82,7 @@ get_header(); ?>
 
 					// Previous/next post navigation.
 					the_post_navigation( array(
-						'prev_text' => _x( '<span class="meta-nav">Published in</span><span class="post-title">%title</span>', 'Parent post link', 'twentyfifteen' ),
+						'prev_text' => _x( '<span class="meta-nav">Published in</span><span class="post-title">%title</span>', 'Parent post link', 'midc-theme' ),
 					) );
 
 				// End the loop.

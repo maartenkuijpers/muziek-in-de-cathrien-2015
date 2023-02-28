@@ -24,8 +24,9 @@
         </div><!-- .entry-summary -->
         <h4 class="media-heading"><small>
             <?php
-            $locale = get_the_terms($post->ID, 'language')[0]->description;
-            setlocale(LC_ALL, $locale);
+            //$locale = get_the_terms($post->ID, 'language')[0]->description;
+            //setlocale(LC_ALL, $locale);
+            setlocale(LC_ALL, 'nl_NL');
             
             $date_value = date_parse_from_format('j-n-Y', get_the_date('j-n-Y'));
             $date_unix = mktime(0, 0, 0, $date_value['month'], $date_value['day'], $date_value['year']); 
@@ -33,7 +34,7 @@
             echo $date_long . ' | ';
             $categories = get_the_category();
             if (!empty($categories)) { ?>
-                <?php echo __( 'Type', 'twentyfifteen' ) . ': '; ?>
+                <?php echo __( 'Type', 'midc-theme' ) . ': '; ?>
                 <?php the_category(', '); ?><?php
             } ?>
         </small></h4>

@@ -417,7 +417,6 @@ header.carousel {
 /* 404 Page Styles */
 
 .error-404 {
-    font-size: 100px;
 }
 
 /* Pricing Page Styles */
@@ -487,4 +486,20 @@ footer {
     header.caroucarousel .carousel {
         height: 70%;
     }
+}
+
+/* Language and Translations */
+
+.wpglobus_flag_nl {
+    background-image: url("../images/flags/flag-nl.png");
+}
+.wpglobus_flag_gb {
+    background-image: url("../images/flags/flag-en.png");
+}
+.wpglobus_language_name {
+    padding-left: 32px !important;
+}
+
+#menu-item-9999999999 ul.dropdown-menu {
+    min-width: 0px;
 }

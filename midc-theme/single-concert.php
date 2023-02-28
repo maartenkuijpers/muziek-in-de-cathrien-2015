@@ -7,7 +7,7 @@
  * @since Twenty Fifteen 1.0
  */
 
-$locale = get_the_terms($post->ID, 'language')[0]->description;
+//$locale = get_the_terms($post->ID, 'language')[0]->description;
 //setlocale(LC_ALL, $locale);
 setlocale(LC_ALL, 'nl_NL');
 
@@ -150,14 +150,16 @@ get_header(); ?>
                     <div class="row">
                         <div class="col-lg-12">
                             <table class="small table table-striped table-condensed prices-table">
+                                <tr><td>Zie hoofdtekst voor prijsinformatie.</td></tr>
+                                <?php /* Disabled 3 JAN 2023 (Maarten)
                                 <?php
                                     $array = array ( 
                                         array('Aan de kassa', 'midc_concerten_prijzen_standaard', '€', ''),
                                         array('Donateurs', 'midc_concerten_prijzen_donateurs', '€', ''),
                                         array('Houders van de Strippenkaart', 'midc_concerten_prijzen_strippenkaart', '', ' x strip'),
                                         array('CKE-kaart', 'midc_concerten_prijzen_cke_kaart', '€', ''),
-                                        array('CJP-houders & Studentenpas', 'midc_concerten_prijzen_cjp', '€', ''),
-                                        array('Kinderen tot 18 jaar', 'midc_concerten_prijzen_kinderen', '€', '')
+                                        array('CJP-houder, student en jongere', 'midc_concerten_prijzen_cjp', '€', ''),
+                                        array('Kinderen t/m 12 jaar', 'midc_concerten_prijzen_kinderen', '€', '')
                                     );
                                     foreach ($array as $pricing) {
                                         $active = get_post_meta($post->ID, $pricing[1] . '_active', true);
@@ -174,6 +176,7 @@ get_header(); ?>
                                         }
                                     }
                                 ?>
+                                */ ?>
                             </table>
                         </div>
                     </div>

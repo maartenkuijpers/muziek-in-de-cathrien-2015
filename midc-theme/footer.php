@@ -31,7 +31,7 @@ $options = get_option('midc_options_data');
                             echo ('<li><a href="' . $contact . '"><span class="fa-stack fa-lg">
   <i class="fa fa-square-o fa-stack-2x"></i>
   <i class="fa fa-info fa-stack-1x"></i>
-</span>&nbsp;' . __( 'Contact', 'twentyfifteen' ) . '</a></li>');
+</span>&nbsp;' . __( 'Contact', 'midc-theme' ) . '</a></li>');
                         }
                         if ($options['midc_option_algemeen_social_facebook'] != '')                       
                             echo ('<li><a href="' . $options['midc_option_algemeen_social_facebook'] . '"><span class="fa-stack fa-lg">
@@ -60,18 +60,28 @@ $options = get_option('midc_options_data');
         </footer>
     </div>
     <!-- /.container -->
-    <!-- Script to Activate the Carousel -->
+    <!-- Script to Activate the Carousel etc. -->
     <script>
+        $('#menu-item-9999999999>a').attr('title', '<?php _e("Kies een andere taal", "midc-theme")?>');
+        $('li#menu-item-wpglobus_menu_switch_gb').attr('title', 'Switch to English');
+        $('li#menu-item-wpglobus_menu_switch_gb a').attr('title', 'Switch to English');
+        $('li#menu-item-wpglobus_menu_switch_nl').attr('title', 'Ga naar Nederlands');
+        $('li#menu-item-wpglobus_menu_switch_nl a').attr('title', 'Ga naar Nederlands');
+        $("#menu-item-9999999999").appendTo("#menu-main-menu");
+        $("#search-menu").appendTo("#menu-main-menu");
+
         $('.carousel').carousel({
             interval: 5000 //changes the speed
         })
 
+/*
         $("[data-toggle=newsletter-popover]").popover({
             html: true,
             content: function () {
                  return $('#newsletter-content').html();
             }
         });
+*/
 
         $("[data-toggle=search-popover]").popover({
             html: true,

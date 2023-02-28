@@ -43,7 +43,7 @@ $template_order .= '/page-container-header-carousel.php';
 				$active = ''; // only first slide must get 'active' class
 			}
 		endwhile;
-?>
+		?>
     </div>
 
     <!-- Indicators -->

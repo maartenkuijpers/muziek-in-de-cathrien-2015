@@ -17,7 +17,7 @@ echo '<h1>' . midc_get_title(get_the_title()) . '<small>' . midc_get_sub_title(g
         <?php
             /* translators: %s: Name of current post */
             the_content( sprintf(
-                __( 'Continue reading %s', 'twentyfifteen' ),
+                __( 'Continue reading %s', 'midc-theme' ),
                 the_title( '<span class="screen-reader-text">', '</span>', false )
             ) );
         ?>

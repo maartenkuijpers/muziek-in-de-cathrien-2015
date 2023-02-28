@@ -72,7 +72,6 @@
                 ?>
 
                 <ul id="menu-custom-menu" class="nav navbar-nav navbar-right">
-<!--
                     <li>
                         <a id="newsletter" data-placement="bottom" data-toggle="newsletter-popover" data-title="<?php _e('Subscribe to the newsletter', 'midc-theme')?>" data-container="body" type="button" data-html="true" href="#"><?php _e('Newsletter', 'midc-theme')?></a>
                         <div id="newsletter-content" class="hide">
@@ -84,7 +83,6 @@
                             </form>
                         </div>
                     </li>
--->
 
                     <li id="search-menu" >
                         <a id="search" data-placement="bottom" data-toggle="search-popover" title="<?php _e('Search', 'midc-theme')?>" data-container="body" type="button" data-html="true"><span class="glyphicon glyphicon-search"></span></a>
