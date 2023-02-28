@@ -62,7 +62,7 @@ $options = get_option('midc_options_data');
     <!-- /.container -->
     <!-- Script to Activate the Carousel etc. -->
     <script>
-        $('#menu-item-9999999999>a').attr('title', '<?php _e("Kies een andere taal", "midc-theme")?>');
+        $('#menu-item-9999999999>a').attr('title', '<?php _e("Choose another language", "midc-theme")?>');
         $('li#menu-item-wpglobus_menu_switch_gb').attr('title', 'Switch to English');
         $('li#menu-item-wpglobus_menu_switch_gb a').attr('title', 'Switch to English');
         $('li#menu-item-wpglobus_menu_switch_nl').attr('title', 'Ga naar Nederlands');

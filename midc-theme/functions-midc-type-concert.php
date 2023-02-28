@@ -11,16 +11,16 @@ function midc_create_post_type()
       'concert',
       array(
       'labels' => array(
-        'name' => __('Concerten'),
-        'singular_name' => __('Concert'),
-        'add_new' => __('Nieuw Concert'),
-        'add_new_item' => __('Nieuw Concert'),
-        'edit_item' => __('Edit Concert'),
-        'new_item' => __('Nieuw Concert'),
-        'view_item' => __('View Concert'),
-        'search_items' => __('Zoek Concert'),
-        'not_found' => __('Geen concerten gevonden'),
-        'not_found_in_trash' => __('Geen concerten gevonden in prullenbak')
+        'name' => __('Concerts', 'midc-theme'),
+        'singular_name' => __('Concert', 'midc-theme'),
+        'add_new' => __('New Concert', 'midc-theme'),
+        'add_new_item' => __('New Concert', 'midc-theme'),
+        'edit_item' => __('Edit Concert', 'midc-theme'),
+        'new_item' => __('New Concert', 'midc-theme'),
+        'view_item' => __('View Concert', 'midc-theme'),
+        'search_items' => __('Search Concert', 'midc-theme'),
+        'not_found' => __('No concerts found', 'midc-theme'),
+        'not_found_in_trash' => __('No concerts found in trashcan', 'midc-theme')
       ),
       'public' => true,
       'supports' => array( 'title', 'editor', 'thumbnail' ),
@@ -542,8 +542,8 @@ add_filter('manage_edit-concert_sortable_columns', 'midc_concert_sortable_column
 function midc_concert_columns_labels($columns)
 {
     //unset( $columns['author'] );
-    $columns['concert_datum'] = __('Concertdatum', 'midc-theme');
-    $columns['concert_type'] = __('Type zaterdag', 'midc-theme');
+    $columns['concert_datum'] = __('Concert date', 'midc-theme');
+    $columns['concert_type'] = __('Type of day', 'midc-theme');
     return $columns;
 }
 
@@ -556,7 +556,7 @@ function midc_concert_column($column, $post_id)
             if (is_string($value)) {
                 echo $value;
             } else {
-                _e('Datum niet beschikbaar', 'midc-theme');
+                _e('Date not available', 'midc-theme');
             }
             break;
 
@@ -575,8 +575,8 @@ function midc_concert_column($column, $post_id)
 
 function midc_concert_sortable_columns($columns)
 {
-    $columns['concert_datum'] = __('Concertdatum', 'midc-theme');
-    $columns['concert_type'] = __('Type zaterdag', 'midc-theme');
+    $columns['concert_datum'] = __('Concert date', 'midc-theme');
+    $columns['concert_type'] = __('Type of day', 'midc-theme');
     //To make a column 'un-sortable' remove it from the array
     //unset($columns['date']);
     return $columns;

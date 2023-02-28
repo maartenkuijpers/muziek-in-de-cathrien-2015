@@ -1,26 +1,26 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Muziek in de Cathrien\n"
-"POT-Creation-Date: 2019-03-16 01:56+0100\n"
-"PO-Revision-Date: 2019-03-16 01:57+0100\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2023-02-28 01:21+0100\n"
+"PO-Revision-Date: 2023-02-28 01:29+0100\n"
 "Last-Translator: \n"
-"Language-Team: www.muziekindecathrien.nl\n"
-"Language: nl_NL\n"
+"Language-Team: \n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-KeywordsList: __;_e\n"
-"X-Poedit-SearchPath-0: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+"X-Poedit-Basepath: .\n"
 
 #: 404.php:17
 msgid "Oops! That page can&rsquo;t be found."
-msgstr ""
+msgstr "Sorry. Deze pagina kan worden gevonden."
 
 #: 404.php:21
 msgid "It looks like nothing was found at this location. Maybe try a search?"
-msgstr "Deze pagina bestaat niet. Misschien kunt u de juiste pagina vinden?"
+msgstr ""
+"Het lijkt er op dat er hier niets gevonden is. Wellicht helpt de zoekfunctie?"
 
 #: archive.php:49 home.php:49 index.php:50
 msgid "Previous page"
@@ -87,7 +87,7 @@ msgstr ""
 "Er is niets gevonden op deze locatie. Misschien dat een zoekopdracht kan "
 "helpen."
 
-#: content-search.php:36
+#: content-search.php:37
 msgid "Type"
 msgstr "Type"
 
@@ -95,18 +95,16 @@ msgstr "Type"
 msgid "Contact"
 msgstr "Contact"
 
-# In English, use Dutch text
-# In Dutch, use English text
 #: footer.php:65
-msgid "Kies een andere taal"
-msgstr "Choose another language"
+msgid "Choose another language"
+msgstr "Kies een andere taal"
 
-#: functions-midc-metaboxes.php:163 header.php:71
+#: functions-midc-metaboxes.php:163 header copy.php:80 header.php:81
 msgid "Email Address"
 msgstr "E-mail adres"
 
 #: functions-midc-type-concert.php:14
-msgid "Concerten"
+msgid "Concerts"
 msgstr "Concerten"
 
 #: functions-midc-type-concert.php:15
@@ -115,7 +113,7 @@ msgstr "Concert"
 
 #: functions-midc-type-concert.php:16 functions-midc-type-concert.php:17
 #: functions-midc-type-concert.php:19
-msgid "Nieuw Concert"
+msgid "New Concert"
 msgstr "Nieuw Concert"
 
 #: functions-midc-type-concert.php:18
@@ -127,27 +125,27 @@ msgid "View Concert"
 msgstr "View Concert"
 
 #: functions-midc-type-concert.php:21
-msgid "Zoek Concert"
+msgid "Search Concert"
 msgstr "Zoek Concert"
 
 #: functions-midc-type-concert.php:22
-msgid "Geen concerten gevonden"
+msgid "No concerts found"
 msgstr "Geen concerten gevonden"
 
 #: functions-midc-type-concert.php:23
-msgid "Geen concerten gevonden in prullenbak"
-msgstr "Geen concerten gevonden in prullenbak"
+msgid "No concerts found in trashcan"
+msgstr "Geen concerten gevonden in de prullenbak"
 
 #: functions-midc-type-concert.php:545 functions-midc-type-concert.php:578
-msgid "Concertdatum"
+msgid "Concert date"
 msgstr "Concertdatum"
 
 #: functions-midc-type-concert.php:546 functions-midc-type-concert.php:579
-msgid "Type zaterdag"
-msgstr "Type zaterdag"
+msgid "Type of day"
+msgstr "Type"
 
 #: functions-midc-type-concert.php:559
-msgid "Datum niet beschikbaar"
+msgid "Date not available"
 msgstr "Datum niet beschikbaar"
 
 #: functions.php:100
@@ -164,27 +162,27 @@ msgstr "Widget Area"
 
 #: functions.php:152
 msgid "Add widgets here to appear in your sidebar."
-msgstr ""
+msgstr "Voeg widgets hier toe aan je sidebar."
 
 #: functions.php:250
 msgid "expand child menu"
-msgstr ""
+msgstr "klap menu uit"
 
 #: functions.php:251
 msgid "collapse child menu"
-msgstr ""
+msgstr "klap menu in"
 
-#: header.php:67
+#: header copy.php:76 header.php:77
 msgid "Subscribe to the newsletter"
-msgstr "Meld u aan voor de maandbrief"
+msgstr "Meld u aan voor de nieuwsbrief"
 
-#: header.php:67
+#: header copy.php:76 header.php:77
 msgid "Newsletter"
-msgstr "Maandbrief"
+msgstr "Nieuwsbrief"
 
-#: header.php:87
-msgid "Searhc"
-msgstr ""
+#: header copy.php:88 header.php:90
+msgid "Search"
+msgstr "Zoek"
 
 #: image.php:25
 msgid "Previous Image"
@@ -224,39 +222,39 @@ msgstr ""
 
 #: inc/customizer.php:98
 msgid "Default"
-msgstr ""
+msgstr "Standaard"
 
 #: inc/customizer.php:109
 msgid "Dark"
-msgstr ""
+msgstr "Donker"
 
 #: inc/customizer.php:120
 msgid "Yellow"
-msgstr ""
+msgstr "Geel"
 
 #: inc/customizer.php:131
 msgid "Pink"
-msgstr ""
+msgstr "Roze"
 
 #: inc/customizer.php:142
 msgid "Purple"
-msgstr ""
+msgstr "Paars"
 
 #: inc/customizer.php:153
 msgid "Blue"
-msgstr ""
+msgstr "Blauw"
 
 #: inc/template-tags.php:23
 msgid "Comment navigation"
-msgstr ""
+msgstr "Navigatie door reacties"
 
 #: inc/template-tags.php:26
 msgid "Older Comments"
-msgstr ""
+msgstr "Oudere reacties"
 
 #: inc/template-tags.php:30
 msgid "Newer Comments"
-msgstr ""
+msgstr "Nieuwere reacties"
 
 #: inc/template-tags.php:49
 msgid "Featured"
@@ -264,41 +262,41 @@ msgstr ""
 
 #: inc/template-tags.php:122
 msgid "Leave a comment"
-msgstr ""
+msgstr "Laat een reactie achter"
 
 #: inc/template-tags.php:122
 msgid "1 Comment"
-msgstr ""
+msgstr "1 reactie"
 
 #: inc/template-tags.php:122
 msgid "% Comments"
-msgstr ""
+msgstr "% reacties"
 
 #: search.php:20
 #, php-format
 msgid "Search Results for: %s"
-msgstr ""
+msgstr "Toon alle berichten van %s"
 
 #: wp_bootstrap_pagination.php:11
 msgid "Previous"
-msgstr ""
+msgstr "Vorige"
 
 #: wp_bootstrap_pagination.php:12
 msgid "Next"
-msgstr ""
+msgstr "Volgende"
 
 #: wp_bootstrap_pagination.php:57
 msgid "First"
-msgstr ""
+msgstr "Eerste"
 
 #: wp_bootstrap_pagination.php:60
 msgid "previous"
-msgstr ""
+msgstr "vorige"
 
 #: wp_bootstrap_pagination.php:75
 msgid "next"
-msgstr ""
+msgstr "volgende"
 
 #: wp_bootstrap_pagination.php:79
 msgid "Last"
-msgstr ""
+msgstr "Laatste"

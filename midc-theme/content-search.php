@@ -34,7 +34,7 @@
             echo $date_long . ' | ';
             $categories = get_the_category();
             if (!empty($categories)) { ?>
-                <?php echo __( 'Type', 'midc-theme' ) . ': '; ?>
+                <?php echo __( 'Type of day', 'midc-theme' ) . ': '; ?>
                 <?php the_category(', '); ?><?php
             } ?>
         </small></h4>
